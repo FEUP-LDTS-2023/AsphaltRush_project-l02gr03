@@ -2,7 +2,7 @@ package com.ldts.asphaltrush.model.game.elements.powerup
 
 import spock.lang.Specification;
 
-class InvencibleTest extends Specification {
+class InvenciblePowerUpTest extends Specification {
     def "Invencible Test 1"() {
         setup:
         def result;

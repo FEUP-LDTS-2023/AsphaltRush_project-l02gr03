@@ -1,17 +1,16 @@
-package com.ldts.asphaltrush.controller.menu;
+package com.ldts.asphaltrush.controller.game;
 
 import com.ldts.asphaltrush.Game;
-import com.ldts.asphaltrush.controller.Controller;
 import com.ldts.asphaltrush.gui.GUI;
-import com.ldts.asphaltrush.model.menu.Menu;
+import com.ldts.asphaltrush.model.game.street.Street;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-public class MenuController extends Controller<Menu> {
-    public MenuController(Menu model) {
-        super(model);
+public class PowerUpController extends GameController {
+    public PowerUpController(Street street) {
+        super(street);
     }
 
     @Override
