@@ -24,6 +24,7 @@ public class StreetBuilder {
 
         street.setPlayer(createPlayer());
         street.setBarriers(createBarriers());
+        street.setLines(createLines());
         return street;
     }
 
@@ -40,5 +41,18 @@ public class StreetBuilder {
 
     private Player createPlayer() {
         return new Player(width / 2, height - 2);
+    }
+
+    private List<Line> createLines() {
+        List<Line> lines = new ArrayList<>();
+
+        for (int y = 0; y < height; y+=3) {
+            lines.add(new Line(4, y));
+            lines.add(new Line(8, y));
+            lines.add(new Line(12, y));
+            lines.add(new Line(16, y));
+        }
+
+        return lines;
     }
 }

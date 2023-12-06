@@ -20,4 +20,6 @@ public interface GUI {
     void drawBarrier(Position position);
 
     void drawPlayer(Position position);
+
+    void drawLine(Position position);
 }
