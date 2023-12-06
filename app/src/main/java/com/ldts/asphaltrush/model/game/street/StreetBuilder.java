@@ -6,6 +6,7 @@ import com.ldts.asphaltrush.model.game.elements.ObstacleCar;
 import com.ldts.asphaltrush.model.game.elements.Player;
 import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StreetBuilder {
@@ -21,6 +22,18 @@ public class StreetBuilder {
     public Street createStreet() {
         Street street = new Street(width, height);
 
+        street.setBarriers(createBarriers());
         return street;
+    }
+
+    private List<Barrier> createBarriers() {
+        List<Barrier> barriers = new ArrayList<>();
+
+        for (int y = 0; y < height; y++) {
+            barriers.add(new Barrier(0, y));
+            barriers.add(new Barrier(width - 1, y));
+        }
+
+        return barriers;
     }
 }

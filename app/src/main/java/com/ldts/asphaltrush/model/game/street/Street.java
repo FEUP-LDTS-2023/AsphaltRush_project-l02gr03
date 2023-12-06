@@ -26,4 +26,20 @@ public class Street {
         this.height = height;
         this.points = new Points();
     }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public List<Barrier> getBarriers() {
+        return barriers;
+    }
+
+    public void setBarriers(List<Barrier> barriers) {
+        this.barriers = barriers;
+    }
 }

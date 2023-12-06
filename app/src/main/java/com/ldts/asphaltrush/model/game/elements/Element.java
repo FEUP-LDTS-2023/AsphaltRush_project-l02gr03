@@ -8,4 +8,8 @@ public class Element {
     public Element(int x, int y) {
         this.position = new Position(x, y);
     }
+
+    public Position getPosition() {
+        return position;
+    }
 }

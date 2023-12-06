@@ -79,4 +79,15 @@ public class LanternaGUI implements GUI {
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(position.getX(), position.getY(), text);
     }
+
+    @Override
+    public void drawBarrier(Position position) {
+        drawCharacter(position.getX(), position.getY(), 'ℼ', "#3333FF");
+    }
+
+    private void drawCharacter(int x, int y, char c, String color) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.putString(x, y + 1, "" + c);
+    }
 }
