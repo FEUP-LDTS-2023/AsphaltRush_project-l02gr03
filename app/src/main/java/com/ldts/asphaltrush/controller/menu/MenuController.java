@@ -3,7 +3,14 @@ package com.ldts.asphaltrush.controller.menu;
 import com.ldts.asphaltrush.Game;
 import com.ldts.asphaltrush.controller.Controller;
 import com.ldts.asphaltrush.gui.GUI;
+import com.ldts.asphaltrush.model.game.street.Street;
+import com.ldts.asphaltrush.model.game.street.StreetBuilder;
+import com.ldts.asphaltrush.model.garage.Garage;
 import com.ldts.asphaltrush.model.menu.Menu;
+import com.ldts.asphaltrush.model.ranking.Ranking;
+import com.ldts.asphaltrush.states.GameState;
+import com.ldts.asphaltrush.states.GarageState;
+import com.ldts.asphaltrush.states.RankingState;
 
 import java.awt.*;
 import java.io.IOException;
@@ -22,6 +29,12 @@ public class MenuController extends Controller<Menu> {
                 break;
             case DOWN:
                 getModel().nextEntry();
+                break;
+            case SELECT:
+                if (getModel().isSelectedStart()) game.setState(new GameState(new StreetBuilder(21,38).createStreet()));
+                if (getModel().isSelectedGarage()) game.setState(new GarageState(new Garage()));
+                if (getModel().isSelectedRanking()) game.setState(new RankingState(new Ranking()));
+                if (getModel().isSelectedExit()) game.setState(null);
                 break;
         }
     }
