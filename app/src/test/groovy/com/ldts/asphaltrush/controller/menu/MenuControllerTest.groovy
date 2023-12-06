@@ -1,4 +1,4 @@
-package com.ldts.asphaltrush.rules.controller.menu
+package com.ldts.asphaltrush.controller.menu
 
 import spock.lang.Specification;
 

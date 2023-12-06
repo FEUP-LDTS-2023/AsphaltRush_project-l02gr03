@@ -1,6 +1,6 @@
-package com.ldts.asphaltrush.rules.controller.garage;
+package com.ldts.asphaltrush.controller.garage;
 
-import com.ldts.asphaltrush.rules.controller.Controller;
+import com.ldts.asphaltrush.controller.Controller;
 
 public class GarageController implements Controller {
 }

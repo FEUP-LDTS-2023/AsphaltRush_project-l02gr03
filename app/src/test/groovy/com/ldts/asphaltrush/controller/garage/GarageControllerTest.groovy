@@ -1,4 +1,4 @@
-package com.ldts.asphaltrush.rules.controller.garage
+package com.ldts.asphaltrush.controller.garage
 
 import spock.lang.Specification;
 

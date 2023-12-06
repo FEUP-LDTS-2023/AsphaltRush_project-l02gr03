@@ -1,4 +1,4 @@
-package com.ldts.asphaltrush.rules.states;
+package com.ldts.asphaltrush.states;
 
 public class GarageState implements State{
 }

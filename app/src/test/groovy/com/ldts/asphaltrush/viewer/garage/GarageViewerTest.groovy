@@ -1,4 +1,4 @@
-package com.ldts.asphaltrush.gui.viewer.garage
+package com.ldts.asphaltrush.viewer.garage
 
 import spock.lang.Specification;
 

@@ -1,4 +1,4 @@
-package com.ldts.asphaltrush.gui.viewer.game
+package com.ldts.asphaltrush.viewer.game
 
 import spock.lang.Specification;
 

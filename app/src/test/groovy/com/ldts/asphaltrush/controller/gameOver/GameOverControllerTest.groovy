@@ -1,4 +1,4 @@
-package com.ldts.asphaltrush.rules.controller.gameOver
+package com.ldts.asphaltrush.controller.gameOver
 
 import spock.lang.Specification;
 

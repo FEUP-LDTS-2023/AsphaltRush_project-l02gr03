@@ -1,6 +1,6 @@
-package com.ldts.asphaltrush.gui.viewer.menu;
+package com.ldts.asphaltrush.viewer.menu;
 
-import com.ldts.asphaltrush.gui.viewer.Viewer;
+import com.ldts.asphaltrush.viewer.Viewer;
 
 public class MenuViewer implements Viewer {
 }

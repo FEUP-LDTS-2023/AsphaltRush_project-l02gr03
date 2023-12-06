@@ -1,4 +1,4 @@
-package com.ldts.asphaltrush.gui.viewer.ranking
+package com.ldts.asphaltrush.viewer.ranking
 
 import spock.lang.Specification;
 

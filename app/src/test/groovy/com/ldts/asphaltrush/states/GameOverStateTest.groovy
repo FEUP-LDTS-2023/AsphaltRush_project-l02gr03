@@ -1,4 +1,4 @@
-package com.ldts.asphaltrush.rules.states
+package com.ldts.asphaltrush.states
 
 import spock.lang.Specification;
 

@@ -1,6 +1,6 @@
-package com.ldts.asphaltrush.rules.controller.ranking;
+package com.ldts.asphaltrush.controller.ranking;
 
-import com.ldts.asphaltrush.rules.controller.Controller;
+import com.ldts.asphaltrush.controller.Controller;
 
 public class RankingController implements Controller {
 }

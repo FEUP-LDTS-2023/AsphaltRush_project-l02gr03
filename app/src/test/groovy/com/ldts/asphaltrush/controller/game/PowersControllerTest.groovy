@@ -1,4 +1,4 @@
-package com.ldts.asphaltrush.rules.controller.game
+package com.ldts.asphaltrush.controller.game
 
 import spock.lang.Specification;
 

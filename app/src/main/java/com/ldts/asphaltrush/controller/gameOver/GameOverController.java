@@ -1,6 +1,6 @@
-package com.ldts.asphaltrush.rules.controller.gameOver;
+package com.ldts.asphaltrush.controller.gameOver;
 
-import com.ldts.asphaltrush.rules.controller.Controller;
+import com.ldts.asphaltrush.controller.Controller;
 
 public class GameOverController implements Controller {
 }

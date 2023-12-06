@@ -1,6 +1,6 @@
-package com.ldts.asphaltrush.gui.viewer.game;
+package com.ldts.asphaltrush.viewer.game;
 
-import com.ldts.asphaltrush.gui.viewer.Viewer;
+import com.ldts.asphaltrush.viewer.Viewer;
 
 public class StatsViewer   implements Viewer {
 }

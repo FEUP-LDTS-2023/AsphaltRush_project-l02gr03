@@ -1,6 +1,6 @@
-package com.ldts.asphaltrush.gui.viewer.garage;
+package com.ldts.asphaltrush.viewer.garage;
 
-import com.ldts.asphaltrush.gui.viewer.Viewer;
+import com.ldts.asphaltrush.viewer.Viewer;
 
 public class GarageViewer implements Viewer {
 }

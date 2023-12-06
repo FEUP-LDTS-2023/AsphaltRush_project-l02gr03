@@ -1,4 +1,4 @@
-package com.ldts.asphaltrush.rules.controller;
+package com.ldts.asphaltrush.controller;
 
 public interface Controller {
 }

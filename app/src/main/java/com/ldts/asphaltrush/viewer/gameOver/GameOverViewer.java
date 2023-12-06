@@ -1,6 +1,6 @@
-package com.ldts.asphaltrush.gui.viewer.gameOver;
+package com.ldts.asphaltrush.viewer.gameOver;
 
-import com.ldts.asphaltrush.gui.viewer.Viewer;
+import com.ldts.asphaltrush.viewer.Viewer;
 
 public class GameOverViewer implements Viewer {
 }

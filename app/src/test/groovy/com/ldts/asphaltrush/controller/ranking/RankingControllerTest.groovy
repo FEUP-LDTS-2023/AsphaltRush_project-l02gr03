@@ -1,4 +1,4 @@
-package com.ldts.asphaltrush.rules.controller.ranking
+package com.ldts.asphaltrush.controller.ranking
 
 import spock.lang.Specification;
 

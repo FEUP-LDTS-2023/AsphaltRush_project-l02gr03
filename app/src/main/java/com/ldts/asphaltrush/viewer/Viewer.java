@@ -1,4 +1,4 @@
-package com.ldts.asphaltrush.gui.viewer;
+package com.ldts.asphaltrush.viewer;
 
 public interface Viewer {
 }
