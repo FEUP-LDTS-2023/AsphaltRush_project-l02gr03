@@ -16,6 +16,13 @@ public class MenuController extends Controller<Menu> {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
-
+        switch (action) {
+            case UP:
+                getModel().previousEntry();
+                break;
+            case DOWN:
+                getModel().nextEntry();
+                break;
+        }
     }
 }
