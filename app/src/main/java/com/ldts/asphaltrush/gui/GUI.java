@@ -18,4 +18,6 @@ public interface GUI {
     enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
 
     void drawBarrier(Position position);
+
+    void drawPlayer(Position position);
 }

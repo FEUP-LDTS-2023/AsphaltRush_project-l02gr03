@@ -80,14 +80,19 @@ public class LanternaGUI implements GUI {
         tg.putString(position.getX(), position.getY(), text);
     }
 
-    @Override
-    public void drawBarrier(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'ℼ', "#3333FF");
-    }
-
     private void drawCharacter(int x, int y, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(x, y + 1, "" + c);
+    }
+
+    @Override
+    public void drawBarrier(Position position) {
+        drawCharacter(position.getX(), position.getY(), '▓', "#FFFFFF");
+    }
+
+    @Override
+    public void drawPlayer(Position position) {
+        drawCharacter(position.getX(), position.getY(), '☗', "#FFFF00");
     }
 }

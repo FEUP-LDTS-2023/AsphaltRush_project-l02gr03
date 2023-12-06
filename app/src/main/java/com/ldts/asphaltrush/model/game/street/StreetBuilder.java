@@ -22,6 +22,7 @@ public class StreetBuilder {
     public Street createStreet() {
         Street street = new Street(width, height);
 
+        street.setPlayer(createPlayer());
         street.setBarriers(createBarriers());
         return street;
     }
@@ -35,5 +36,9 @@ public class StreetBuilder {
         }
 
         return barriers;
+    }
+
+    private Player createPlayer() {
+        return new Player(width / 2, height - 2);
     }
 }

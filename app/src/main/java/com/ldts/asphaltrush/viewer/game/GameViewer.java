@@ -14,6 +14,7 @@ public class GameViewer extends Viewer<Street> {
 
     @Override
     public void drawElements(GUI gui) {
+        drawElement(gui, getModel().getPlayer(), new PlayerViewer());
         drawElements(gui, getModel().getBarriers(), new BarrierViewer());
     }
 
