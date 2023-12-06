@@ -2,7 +2,7 @@ package com.ldts.asphaltrush.model.game.elements.powerup
 
 import spock.lang.Specification;
 
-class PointMultiplierTest extends Specification {
+class PointMultiplierPowerUpTest extends Specification {
     def "PointMultiplier Test 1"() {
         setup:
         def result;

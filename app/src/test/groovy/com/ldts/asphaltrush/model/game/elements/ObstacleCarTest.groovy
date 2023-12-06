@@ -2,7 +2,7 @@ package com.ldts.asphaltrush.model.game.elements
 
 import spock.lang.Specification;
 
-class VehicleTest extends Specification {
+class ObstacleCarTest extends Specification {
     def "Vehicle Test 1"() {
         setup:
         def result;
