@@ -5,6 +5,7 @@ public class Player extends Element {
     private double speed = 1;
     private double minSpeed = 1;
     private double maxSpeed = 3.4;
+    private boolean crashed = false;
 
     public Player(int x, int y) {
         super(x, y);
@@ -20,5 +21,13 @@ public class Player extends Element {
 
     public void decreaseSpeed() {
         speed = Math.max(minSpeed, speed-0.4);
+    }
+
+    public boolean getCrashed() {
+        return this.crashed;
+    }
+
+    public void setCrashed() {
+        this.crashed = true;
     }
 }

@@ -25,6 +25,10 @@ public class Street {
         this.points = new Points();
     }
 
+    public int getWidth() {
+        return width;
+    }
+
     public int getHeight() {
         return height;
     }
@@ -90,5 +94,12 @@ public class Street {
             if (barrier.getPosition().equals(position))
                 return false;
         return true;
+    }
+
+    public boolean isObstacleCar(Position position) {
+        for (ObstacleCar obstacleCar : obstacleCars)
+            if (obstacleCar.getPosition().equals(position))
+                return true;
+        return false;
     }
 }
