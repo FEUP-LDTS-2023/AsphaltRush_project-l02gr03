@@ -21,7 +21,7 @@ public class ObstacleCarController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
-        if ((time - lastMovement) > 800) {
+        if ((time - lastMovement) > 200) {
             addNewObstacleCars();
             for (ObstacleCar obstacleCar : getModel().getObstacleCars()) {
                 moveObstacleCar(obstacleCar, obstacleCar.getPosition());

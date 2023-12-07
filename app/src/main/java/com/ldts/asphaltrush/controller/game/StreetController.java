@@ -35,8 +35,8 @@ public class StreetController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
-        if (action == GUI.ACTION.QUIT)
-            game.setState(new MenuState(new Menu()));
+        if (action == GUI.ACTION.QUIT) game.setState(new MenuState(new Menu()));
+        else if (getModel().getPlayer().getCrashed()) game.setState(new GameOverState(new GameOver()));
         else {
             playerController.step(game, action, time);
             lineController.step(game, action, time);
@@ -44,6 +44,11 @@ public class StreetController extends GameController {
             powerUpController.step(game, action, time);
             holeController.step(game, action, time);
             jumpController.step(game, action, time);
+            checkCollisions();
         }
+    }
+
+    public void checkCollisions() {
+        if (getModel().isObstacleCar(getModel().getPlayer().getPosition())) getModel().getPlayer().setCrashed();
     }
 }

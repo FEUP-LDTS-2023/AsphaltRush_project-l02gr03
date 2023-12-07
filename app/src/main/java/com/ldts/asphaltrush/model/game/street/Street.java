@@ -95,4 +95,11 @@ public class Street {
                 return false;
         return true;
     }
+
+    public boolean isObstacleCar(Position position) {
+        for (ObstacleCar obstacleCar : obstacleCars)
+            if (obstacleCar.getPosition().equals(position))
+                return true;
+        return false;
+    }
 }
