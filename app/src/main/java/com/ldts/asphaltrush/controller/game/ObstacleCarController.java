@@ -13,7 +13,7 @@ import java.util.Random;
 public class ObstacleCarController extends GameController {
     private long lastMovement = 0;
     private static final Random RNG = new Random();
-    private static final double OBSTACLE_CAR_SPEED = 2;
+    private static final double OBSTACLE_CAR_SPEED = DEFAULT_SPEED*1.5;
 
     public ObstacleCarController(Street street) {
         super(street);
