@@ -17,6 +17,7 @@ public class GameViewer extends Viewer<Street> {
         drawElements(gui, getModel().getBarriers(), new BarrierViewer());
         drawElements(gui, getModel().getLines(), new LineViewer());
         drawElements(gui, getModel().getObstacleCars(), new ObstacleCarViewer());
+        drawElements(gui, getModel().getHoles(), new HoleViewer());
         drawElement(gui, getModel().getPlayer(), new PlayerViewer());
     }
 

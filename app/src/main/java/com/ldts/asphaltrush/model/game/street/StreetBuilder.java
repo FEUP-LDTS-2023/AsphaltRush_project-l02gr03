@@ -1,9 +1,6 @@
 package com.ldts.asphaltrush.model.game.street;
 
-import com.ldts.asphaltrush.model.game.elements.Barrier;
-import com.ldts.asphaltrush.model.game.elements.Line;
-import com.ldts.asphaltrush.model.game.elements.ObstacleCar;
-import com.ldts.asphaltrush.model.game.elements.Player;
+import com.ldts.asphaltrush.model.game.elements.*;
 import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
 
 import java.util.ArrayList;
@@ -26,6 +23,7 @@ public class StreetBuilder {
         street.setBarriers(createBarriers());
         street.setLines(createLines());
         street.setObstacleCars(createObstacleCars());
+        street.setHoles(createHoles());
         return street;
     }
 
@@ -66,5 +64,16 @@ public class StreetBuilder {
         obstacleCars.add(new ObstacleCar(14, 15));
 
         return obstacleCars;
+    }
+
+    private List<Hole> createHoles() {
+        List<Hole> holes = new ArrayList<>();
+
+        holes.add(new Hole(2, 30));
+        holes.add(new Hole(6, 16));
+        holes.add(new Hole(10, 20));
+        holes.add(new Hole(14, 10));
+
+        return holes;
     }
 }

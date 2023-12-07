@@ -24,4 +24,6 @@ public interface GUI {
     void drawLine(Position position);
 
     void drawObstacleCar(Position position);
+
+    void drawHole(Position position);
 }

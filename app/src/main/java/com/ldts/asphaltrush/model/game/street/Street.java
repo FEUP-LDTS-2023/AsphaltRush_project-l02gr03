@@ -1,10 +1,7 @@
 package com.ldts.asphaltrush.model.game.street;
 
 import com.ldts.asphaltrush.model.game.Points;
-import com.ldts.asphaltrush.model.game.elements.Barrier;
-import com.ldts.asphaltrush.model.game.elements.Line;
-import com.ldts.asphaltrush.model.game.elements.ObstacleCar;
-import com.ldts.asphaltrush.model.game.elements.Player;
+import com.ldts.asphaltrush.model.game.elements.*;
 import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
 
 import java.util.List;
@@ -18,6 +15,7 @@ public class Street {
     private List<PowerUp> powerUps;
     private List<Barrier> barriers;
     private List<Line> lines;
+    private List<Hole> holes;
 
     public Street(int width, int height) {
         this.width = width;
@@ -56,4 +54,13 @@ public class Street {
     public void setObstacleCars(List<ObstacleCar> obstacleCars) {
         this.obstacleCars = obstacleCars;
     }
+
+    public List<Hole> getHoles() {
+        return holes;
+    }
+
+    public void setHoles(List<Hole> holes) {
+        this.holes = holes;
+    }
+
 }
