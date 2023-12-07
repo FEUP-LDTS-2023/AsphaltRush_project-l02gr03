@@ -1,0 +1,34 @@
+package com.ldts.asphaltrush.controller.game;
+
+import com.ldts.asphaltrush.Game;
+import com.ldts.asphaltrush.gui.GUI;
+import com.ldts.asphaltrush.model.Position;
+import com.ldts.asphaltrush.model.game.elements.Line;
+import com.ldts.asphaltrush.model.game.street.Street;
+
+public class LineController extends GameController {
+
+    private long lastMovement;
+
+    public LineController(Street street) {
+        super(street);
+        this.lastMovement = System.currentTimeMillis();
+    }
+
+    @Override
+    public void step(Game game, GUI.ACTION action, long time) {
+        if (time - lastMovement > 800) {
+            for (Line line : getModel().getLines()) {
+                moveLine(line, line.getPosition());
+            }
+            this.lastMovement = time;
+        }
+    }
+
+    private void moveLine(Line line, Position position) {
+        if (line.getPosition().getY() >= getModel().getHeight())
+            line.setPosition(new Position(position.getX(), -3));
+        else
+            line.setPosition(new Position(position.getX(), position.getY() + 1));
+    }
+}
