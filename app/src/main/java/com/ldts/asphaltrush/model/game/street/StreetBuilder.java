@@ -49,7 +49,7 @@ public class StreetBuilder {
     private List<Line> createLines() {
         List<Line> lines = new ArrayList<>();
 
-        for (int y = 0; y < height; y+=3) {
+        for (int y = -3; y < height; y+=3) {
             lines.add(new Line(4, y));
             lines.add(new Line(8, y));
             lines.add(new Line(12, y));
