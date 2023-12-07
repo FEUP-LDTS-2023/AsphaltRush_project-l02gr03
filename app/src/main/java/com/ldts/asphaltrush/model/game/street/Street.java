@@ -1,5 +1,6 @@
 package com.ldts.asphaltrush.model.game.street;
 
+import com.ldts.asphaltrush.model.Position;
 import com.ldts.asphaltrush.model.game.Points;
 import com.ldts.asphaltrush.model.game.elements.*;
 import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
@@ -82,5 +83,12 @@ public class Street {
 
     public void setPowerUps(List<PowerUp> powerUps) {
         this.powerUps = powerUps;
+    }
+
+    public boolean isEmpty(Position position) {
+        for (Barrier barrier : barriers)
+            if (barrier.getPosition().equals(position))
+                return false;
+        return true;
     }
 }
