@@ -25,6 +25,10 @@ public class Street {
         this.points = new Points();
     }
 
+    public int getWidth() {
+        return width;
+    }
+
     public int getHeight() {
         return height;
     }
