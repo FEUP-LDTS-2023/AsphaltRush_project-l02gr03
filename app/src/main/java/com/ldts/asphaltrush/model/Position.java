@@ -16,4 +16,20 @@ public class Position {
     public int getY() {
         return this.y;
     }
+
+    public Position getLeft() {
+        return new Position(x - 1, y);
+    }
+
+    public Position getRight() {
+        return new Position(x + 1, y);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Position position = (Position) o;
+        return x == position.x && y == position.y;
+    }
 }
