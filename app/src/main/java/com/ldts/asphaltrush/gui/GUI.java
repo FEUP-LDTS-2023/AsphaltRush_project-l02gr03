@@ -16,4 +16,20 @@ public interface GUI {
     void drawText(Position position, String text, String color);
 
     enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
+
+    void drawBarrier(Position position);
+
+    void drawPlayer(Position position);
+
+    void drawLine(Position position);
+
+    void drawObstacleCar(Position position);
+
+    void drawHole(Position position);
+
+    void drawJump(Position position);
+
+    void drawPointMultiplierPowerUp(Position position);
+
+    void drawInvenciblePowerUp(Position position);
 }
