@@ -1,6 +1,8 @@
 package com.ldts.asphaltrush.model.game.street;
 
 import com.ldts.asphaltrush.model.game.elements.*;
+import com.ldts.asphaltrush.model.game.elements.powerup.InvenciblePowerUp;
+import com.ldts.asphaltrush.model.game.elements.powerup.PointMultiplierPowerUp;
 import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
 
 import java.util.ArrayList;
@@ -25,6 +27,7 @@ public class StreetBuilder {
         street.setObstacleCars(createObstacleCars());
         street.setHoles(createHoles());
         street.setJumps(createJumps());
+        street.setPowerUps(createPowerUps());
         return street;
     }
 
@@ -87,5 +90,14 @@ public class StreetBuilder {
         jumps.add(new Jump(14, 30));
 
         return jumps;
+    }
+
+    private List<PowerUp> createPowerUps() {
+        List<PowerUp> powerUps = new ArrayList<>();
+
+        powerUps.add(new InvenciblePowerUp(2, 14));
+        powerUps.add(new PointMultiplierPowerUp(18, 20));
+
+        return powerUps;
     }
 }

@@ -71,4 +71,12 @@ public class Street {
     public void setJumps(List<Jump> jumps) {
         this.jumps = jumps;
     }
+
+    public List<PowerUp> getPowerUps() {
+        return powerUps;
+    }
+
+    public void setPowerUps(List<PowerUp> powerUps) {
+        this.powerUps = powerUps;
+    }
 }

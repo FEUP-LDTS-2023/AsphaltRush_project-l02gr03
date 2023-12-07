@@ -28,4 +28,8 @@ public interface GUI {
     void drawHole(Position position);
 
     void drawJump(Position position);
+
+    void drawPointMultiplierPowerUp(Position position);
+
+    void drawInvenciblePowerUp(Position position);
 }
