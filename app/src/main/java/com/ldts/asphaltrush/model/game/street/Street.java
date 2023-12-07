@@ -16,6 +16,7 @@ public class Street {
     private List<Barrier> barriers;
     private List<Line> lines;
     private List<Hole> holes;
+    private List<Jump> jumps;
 
     public Street(int width, int height) {
         this.width = width;
@@ -63,4 +64,11 @@ public class Street {
         this.holes = holes;
     }
 
+    public List<Jump> getJumps() {
+        return jumps;
+    }
+
+    public void setJumps(List<Jump> jumps) {
+        this.jumps = jumps;
+    }
 }

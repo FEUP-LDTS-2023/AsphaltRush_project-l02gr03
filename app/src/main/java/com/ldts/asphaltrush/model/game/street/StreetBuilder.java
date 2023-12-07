@@ -24,6 +24,7 @@ public class StreetBuilder {
         street.setLines(createLines());
         street.setObstacleCars(createObstacleCars());
         street.setHoles(createHoles());
+        street.setJumps(createJumps());
         return street;
     }
 
@@ -75,5 +76,16 @@ public class StreetBuilder {
         holes.add(new Hole(14, 10));
 
         return holes;
+    }
+
+    private List<Jump> createJumps() {
+        List<Jump> jumps = new ArrayList<>();
+
+        jumps.add(new Jump(2, 10));
+        jumps.add(new Jump(6, 20));
+        jumps.add(new Jump(10, 16));
+        jumps.add(new Jump(14, 30));
+
+        return jumps;
     }
 }
