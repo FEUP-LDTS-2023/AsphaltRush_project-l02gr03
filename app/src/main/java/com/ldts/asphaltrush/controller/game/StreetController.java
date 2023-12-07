@@ -49,6 +49,8 @@ public class StreetController extends GameController {
     }
 
     public void checkCollisions() {
-        if (getModel().isObstacleCar(getModel().getPlayer().getPosition())) getModel().getPlayer().setCrashed();
+        if (getModel().isObstacleCar(getModel().getPlayer().getPosition()) ||
+        getModel().isHole(getModel().getPlayer().getPosition()))
+            getModel().getPlayer().setCrashed();
     }
 }
