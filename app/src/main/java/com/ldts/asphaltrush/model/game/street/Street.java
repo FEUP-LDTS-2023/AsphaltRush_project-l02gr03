@@ -48,4 +48,12 @@ public class Street {
     public void setLines(List<Line> lines) {
         this.lines = lines;
     }
+
+    public List<ObstacleCar> getObstacleCars() {
+        return obstacleCars;
+    }
+
+    public void setObstacleCars(List<ObstacleCar> obstacleCars) {
+        this.obstacleCars = obstacleCars;
+    }
 }

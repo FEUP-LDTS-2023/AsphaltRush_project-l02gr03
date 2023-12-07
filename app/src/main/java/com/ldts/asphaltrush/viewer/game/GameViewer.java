@@ -14,9 +14,10 @@ public class GameViewer extends Viewer<Street> {
 
     @Override
     public void drawElements(GUI gui) {
-        drawElement(gui, getModel().getPlayer(), new PlayerViewer());
         drawElements(gui, getModel().getBarriers(), new BarrierViewer());
         drawElements(gui, getModel().getLines(), new LineViewer());
+        drawElements(gui, getModel().getObstacleCars(), new ObstacleCarViewer());
+        drawElement(gui, getModel().getPlayer(), new PlayerViewer());
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {

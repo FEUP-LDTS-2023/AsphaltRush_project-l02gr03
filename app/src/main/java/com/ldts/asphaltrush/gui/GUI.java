@@ -22,4 +22,6 @@ public interface GUI {
     void drawPlayer(Position position);
 
     void drawLine(Position position);
+
+    void drawObstacleCar(Position position);
 }

@@ -25,6 +25,7 @@ public class StreetBuilder {
         street.setPlayer(createPlayer());
         street.setBarriers(createBarriers());
         street.setLines(createLines());
+        street.setObstacleCars(createObstacleCars());
         return street;
     }
 
@@ -54,5 +55,16 @@ public class StreetBuilder {
         }
 
         return lines;
+    }
+
+    private List<ObstacleCar> createObstacleCars() {
+        List<ObstacleCar> obstacleCars = new ArrayList<>();
+
+        obstacleCars.add(new ObstacleCar(2, 5));
+        obstacleCars.add(new ObstacleCar(6, 8));
+        obstacleCars.add(new ObstacleCar(10, 20));
+        obstacleCars.add(new ObstacleCar(14, 15));
+
+        return obstacleCars;
     }
 }
