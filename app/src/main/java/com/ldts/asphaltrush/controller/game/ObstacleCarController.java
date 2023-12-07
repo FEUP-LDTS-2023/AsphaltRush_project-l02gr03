@@ -40,14 +40,14 @@ public class ObstacleCarController extends GameController {
     }
 
     private void checkAndRemoveNewObstacleCars() {
-        List<ObstacleCar> monstersToRemove = new ArrayList<>();
+        List<ObstacleCar> obstacleCarsToRemove = new ArrayList<>();
 
         for (ObstacleCar obstacleCar : getModel().getObstacleCars()) {
             if (obstacleCar.getPosition().getY() >= getModel().getHeight()) {
-                monstersToRemove.add(obstacleCar);
+                obstacleCarsToRemove.add(obstacleCar);
             }
         }
 
-        getModel().getObstacleCars().removeAll(monstersToRemove);
+        getModel().getObstacleCars().removeAll(obstacleCarsToRemove);
     }
 }

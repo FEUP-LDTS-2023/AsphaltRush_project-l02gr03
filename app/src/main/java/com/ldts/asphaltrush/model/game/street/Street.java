@@ -102,4 +102,11 @@ public class Street {
                 return true;
         return false;
     }
+
+    public boolean isHole(Position position) {
+        for (Hole hole : holes)
+            if (hole.getPosition().equals(position))
+                return true;
+        return false;
+    }
 }
