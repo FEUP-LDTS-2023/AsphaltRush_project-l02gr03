@@ -23,6 +23,7 @@ public class StreetController extends GameController {
     private final PowerUpController powerUpController;
     private final HoleController holeController;
     private final JumpController jumpController;
+    private final PointsController pointsController;
 
     public StreetController(Street street) {
         super(street);
@@ -33,6 +34,7 @@ public class StreetController extends GameController {
         this.powerUpController = new PowerUpController(street);
         this.holeController = new HoleController(street);
         this.jumpController = new JumpController(street);
+        this.pointsController = new PointsController(street);
     }
 
     @Override
@@ -46,6 +48,7 @@ public class StreetController extends GameController {
             powerUpController.step(game, action, time);
             holeController.step(game, action, time);
             jumpController.step(game, action, time);
+            pointsController.step(game, action, time);
             checkCollisions();
         }
     }
