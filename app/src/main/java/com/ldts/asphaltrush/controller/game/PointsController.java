@@ -35,6 +35,5 @@ public class PointsController extends GameController {
             getModel().getPoints().increasePoints(1);
             lastUpdate = currentTime;
         }
-        System.out.println(getModel().getPoints().getPoints());
     }
 }

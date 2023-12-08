@@ -24,6 +24,8 @@ public class GameViewer extends Viewer<Street> {
         drawElements(gui, getModel().getPowerUps(), new PowerUpViewer());
         drawElement(gui, getModel().getPlayer(), new PlayerViewer());
 
+        gui.drawText(new Position(0, 0), getModel().getPoints().getPoints() + " " + Math.round(getModel().getPoints().getMultiplier() * 10.0) / 10.0 + "x", "#FFFFFF");
+
         PowerUp playerPowerUp = getModel().getPlayer().getPowerUp();
         if(playerPowerUp != null) {
             playerPowerUp.setPosition(new Position(14,-1));
