@@ -5,6 +5,9 @@ import com.ldts.asphaltrush.gui.GUI;
 import com.ldts.asphaltrush.model.Position;
 import com.ldts.asphaltrush.model.game.street.Street;
 public class PlayerController extends GameController {
+
+    private long lastMovement;
+
     public PlayerController(Street street) {
         super(street);
     }
@@ -31,6 +34,14 @@ public class PlayerController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
+        if (time - lastMovement > 100) {
+            if (getModel().getPlayer().getPowerUp() != null) {
+                getModel().getPlayer().decreasePowerUpTime();
+                if (getModel().getPlayer().getPowerUpTime() <= 0) getModel().getPlayer().removePowerUp();
+            }
+            getModel().getPlayer().increaseMinSpeed();
+            lastMovement = time;
+        }
         if (action == GUI.ACTION.UP) increasePlayerSpeed();
         if (action == GUI.ACTION.RIGHT) movePlayerRight();
         if (action == GUI.ACTION.DOWN) decreasePlayerSpeed();

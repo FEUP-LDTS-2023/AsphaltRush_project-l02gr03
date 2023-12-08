@@ -3,6 +3,8 @@ package com.ldts.asphaltrush.controller.game;
 import com.ldts.asphaltrush.Game;
 import com.ldts.asphaltrush.gui.GUI;
 import com.ldts.asphaltrush.model.game.elements.Hole;
+import com.ldts.asphaltrush.model.game.elements.powerup.InvenciblePowerUp;
+import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
 import com.ldts.asphaltrush.model.game.street.Street;
 import com.ldts.asphaltrush.model.gameOver.GameOver;
 import com.ldts.asphaltrush.model.menu.Menu;
@@ -50,7 +52,17 @@ public class StreetController extends GameController {
 
     public void checkCollisions() {
         if (getModel().isObstacleCar(getModel().getPlayer().getPosition()) ||
-        getModel().isHole(getModel().getPlayer().getPosition()))
+        getModel().isHole(getModel().getPlayer().getPosition())) {
+            PowerUp playerPowerUp = getModel().getPlayer().getPowerUp();
+
+            if(playerPowerUp != null && playerPowerUp.getClass() == InvenciblePowerUp.class) return;
+
             getModel().getPlayer().setCrashed();
+        }
+        if (getModel().isPowerUp(getModel().getPlayer().getPosition())) {
+            PowerUp powerUp = getModel().getPowerUp(getModel().getPlayer().getPosition());
+            if(powerUp != null) getModel().getPowerUps().remove(powerUp);
+            getModel().getPlayer().addPowerUp(powerUp);
+        }
     }
 }

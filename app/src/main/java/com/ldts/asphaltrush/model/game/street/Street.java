@@ -109,4 +109,19 @@ public class Street {
                 return true;
         return false;
     }
+
+    public PowerUp getPowerUp(Position position) {
+        for (PowerUp powerUp : powerUps)
+            if (powerUp.getPosition().equals(position)) {
+                return powerUp;
+            }
+        return null;
+    }
+
+    public boolean isPowerUp(Position position) {
+        for (PowerUp powerUp : powerUps)
+            if (powerUp.getPosition().equals(position))
+                return true;
+        return false;
+    }
 }
