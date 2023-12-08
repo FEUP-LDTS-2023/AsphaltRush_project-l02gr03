@@ -124,4 +124,8 @@ public class Street {
                 return true;
         return false;
     }
+
+    public Points getPoints() {
+        return points;
+    }
 }
