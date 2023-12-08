@@ -1,7 +1,9 @@
 package com.ldts.asphaltrush.viewer.game;
 
 import com.ldts.asphaltrush.gui.GUI;
+import com.ldts.asphaltrush.model.Position;
 import com.ldts.asphaltrush.model.game.elements.Element;
+import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
 import com.ldts.asphaltrush.model.game.street.Street;
 import com.ldts.asphaltrush.viewer.Viewer;
 
@@ -21,6 +23,15 @@ public class GameViewer extends Viewer<Street> {
         drawElements(gui, getModel().getJumps(), new JumpViewer());
         drawElements(gui, getModel().getPowerUps(), new PowerUpViewer());
         drawElement(gui, getModel().getPlayer(), new PlayerViewer());
+
+        PowerUp playerPowerUp = getModel().getPlayer().getPowerUp();
+        if(playerPowerUp != null) {
+            playerPowerUp.setPosition(new Position(14,-1));
+            drawElement(gui, playerPowerUp, new CurrentPowerUpViewer());
+        }
+        else gui.drawText(new Position(14, 0), "/","#FFFFFF");
+
+        gui.drawText(new Position(16, 0), String.valueOf(Math.round(getModel().getPlayer().getPowerUpTime() * 10.0) / 10.0), "#FFFFFF");
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {
