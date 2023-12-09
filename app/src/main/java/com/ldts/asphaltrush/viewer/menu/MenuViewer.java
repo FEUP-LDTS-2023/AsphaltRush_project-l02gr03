@@ -19,5 +19,7 @@ public class MenuViewer extends Viewer<Menu> {
                     new Position(15, 17 + i),
                     getModel().getEntry(i),
                     getModel().isSelected(i) ? "#0096FF" : "#FFFFFF");
+        gui.drawText(new Position(15, 25), getModel().getCurrentCar(), "#FFFFFF");
+
     }
 }

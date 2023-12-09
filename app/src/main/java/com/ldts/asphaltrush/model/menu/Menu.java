@@ -7,14 +7,25 @@ public class Menu {
     private final List<String> entries;
     private int currentEntry = 0;
 
+
+
+    private String currentCar = "0";
+
     public Menu() {
         this.entries = Arrays.asList("Start", "Garage" , "Ranking", "Exit");
     }
 
+    public Menu(String currentCar){
+        this.entries = Arrays.asList("Start", "Garage" , "Ranking", "Exit");
+        this.currentCar = currentCar;
+    }
     public int getNumberEntries() {
         return this.entries.size();
     }
 
+    public String getCurrentCar() {
+        return currentCar;
+    }
     public void nextEntry() {
         currentEntry++;
         if (currentEntry > this.entries.size() - 1)
