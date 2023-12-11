@@ -22,7 +22,7 @@ public class Game {
 
 
     public Game() throws FontFormatException, IOException, URISyntaxException {
-        this.gui = new LanternaGUI(40, 38);
+        this.gui = new LanternaGUI(260, 240);
         imageFactory = new ImageFactory();
         this.state = new MenuState(new Menu());
     }
