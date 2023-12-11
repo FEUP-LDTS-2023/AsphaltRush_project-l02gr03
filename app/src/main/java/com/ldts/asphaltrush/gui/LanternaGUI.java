@@ -37,12 +37,14 @@ public class LanternaGUI implements GUI {
         return screen;
     }
 
-    private Terminal createTerminal(int width, int height) throws IOException {
+    private Terminal createTerminal(int width, int height, AWTTerminalFontConfiguration fontConfig) throws IOException {
         TerminalSize terminalSize = new TerminalSize(width, height + 1);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory()
                 .setInitialTerminalSize(terminalSize);
         terminalFactory.setForceAWTOverSwing(true);
-        return terminalFactory.createTerminal();
+        terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
+        Terminal terminal = terminalFactory.createTerminal();
+        return terminal;
     }
 
 
