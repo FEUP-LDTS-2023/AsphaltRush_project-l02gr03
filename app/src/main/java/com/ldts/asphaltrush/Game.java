@@ -33,15 +33,14 @@ public class Game {
     }
 
 
-
     private void start() throws IOException, URISyntaxException, FontFormatException {
         int FPS = 60;
         int frameTime = 1000 / FPS;
 
-        while (this.state != null) {
+        while (this.gameState.getState() != null) {
             long startTime = System.currentTimeMillis();
 
-            state.step(this, gui, imageFactory, startTime);
+            this.gameState.getState().step(this, gui, imageFactory, startTime);
 
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = frameTime - elapsedTime;
