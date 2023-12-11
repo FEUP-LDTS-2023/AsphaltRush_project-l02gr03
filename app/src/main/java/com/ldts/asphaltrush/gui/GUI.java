@@ -1,5 +1,6 @@
 package com.ldts.asphaltrush.gui;
 
+import com.ldts.asphaltrush.model.Image;
 import com.ldts.asphaltrush.model.Position;
 
 import java.io.IOException;
@@ -13,6 +14,8 @@ public interface GUI {
 
     void close() throws IOException;
 
+
+    void drawImage(Position position, Image image);
     void drawText(Position position, String text, String color);
 
     enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
