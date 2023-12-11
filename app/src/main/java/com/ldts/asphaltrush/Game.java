@@ -3,6 +3,7 @@ package com.ldts.asphaltrush;
 import com.ldts.asphaltrush.gui.LanternaGUI;
 import com.ldts.asphaltrush.model.ImageFactory;
 import com.ldts.asphaltrush.model.menu.Menu;
+import com.ldts.asphaltrush.states.GameState;
 import com.ldts.asphaltrush.states.MenuState;
 import com.ldts.asphaltrush.states.State;
 
@@ -13,7 +14,7 @@ import java.net.URISyntaxException;
 
 public class Game {
     private final LanternaGUI gui;
-    private State state;
+    private final GameState gameState;
     private final ImageFactory imageFactory;
 
     public ImageFactory getImageFactory() {
@@ -23,17 +24,15 @@ public class Game {
 
     public Game() throws FontFormatException, IOException, URISyntaxException {
         this.gui = new LanternaGUI(260, 240);
-        imageFactory = new ImageFactory();
-        this.state = new MenuState(new Menu());
+        this.imageFactory = new ImageFactory();
+        this.gameState = new GameState();
     }
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
         new Game().start();
     }
 
-    public void setState(State state) {
-        this.state = state;
-    }
+
 
     private void start() throws IOException, URISyntaxException, FontFormatException {
         int FPS = 60;
