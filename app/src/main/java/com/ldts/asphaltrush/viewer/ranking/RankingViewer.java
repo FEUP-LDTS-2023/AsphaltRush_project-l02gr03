@@ -1,6 +1,7 @@
 package com.ldts.asphaltrush.viewer.ranking;
 
 import com.ldts.asphaltrush.gui.GUI;
+import com.ldts.asphaltrush.model.ImageFactory;
 import com.ldts.asphaltrush.model.Position;
 import com.ldts.asphaltrush.model.ranking.Ranking;
 import com.ldts.asphaltrush.viewer.Viewer;
@@ -14,7 +15,7 @@ public class RankingViewer extends Viewer<Ranking> {
     }
 
     @Override
-    protected void drawElements(GUI gui) throws IOException {
+    protected void drawElements(GUI gui, ImageFactory imageFactory) throws IOException {
         gui.drawText(new Position(5, 5), "Ranking", "#FFFFFF");
 
         ArrayList<String> rankingArray = getModel().getRankingAsText();

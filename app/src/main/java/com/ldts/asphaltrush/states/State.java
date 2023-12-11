@@ -3,6 +3,7 @@ package com.ldts.asphaltrush.states;
 import com.ldts.asphaltrush.Game;
 import com.ldts.asphaltrush.controller.Controller;
 import com.ldts.asphaltrush.gui.GUI;
+import com.ldts.asphaltrush.model.ImageFactory;
 import com.ldts.asphaltrush.viewer.Viewer;
 
 import java.awt.*;
@@ -28,9 +29,9 @@ public abstract class State<T> {
         return model;
     }
 
-    public void step(Game game, GUI gui, long time) throws IOException, URISyntaxException, FontFormatException {
+    public void step(Game game, GUI gui, ImageFactory imageFactory, long time) throws IOException, URISyntaxException, FontFormatException {
         GUI.ACTION action = gui.getNextAction();
         controller.step(game, action, time);
-        viewer.draw(gui);
+        viewer.draw(gui, imageFactory);
     }
 }

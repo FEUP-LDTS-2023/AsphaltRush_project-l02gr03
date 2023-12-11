@@ -1,6 +1,7 @@
 package com.ldts.asphaltrush.viewer.garage;
 
 import com.ldts.asphaltrush.gui.GUI;
+import com.ldts.asphaltrush.model.ImageFactory;
 import com.ldts.asphaltrush.model.Position;
 import com.ldts.asphaltrush.model.garage.Garage;
 import com.ldts.asphaltrush.viewer.Viewer;
@@ -11,7 +12,7 @@ public class GarageViewer extends Viewer<Garage> {
     }
 
     @Override
-    protected void drawElements(GUI gui) {
+    protected void drawElements(GUI gui, ImageFactory imageFactory) {
         gui.drawText(new Position(15, 5), "Garage", "#FFFFFF");
 
         for (int row = 0; row < 3; row++) {
