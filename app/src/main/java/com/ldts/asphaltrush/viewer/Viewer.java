@@ -1,6 +1,7 @@
 package com.ldts.asphaltrush.viewer;
 
 import com.ldts.asphaltrush.gui.GUI;
+import com.ldts.asphaltrush.model.ImageFactory;
 
 import java.io.IOException;
 
@@ -15,11 +16,11 @@ public abstract class Viewer<T> {
         return model;
     }
 
-    public void draw(GUI gui) throws IOException {
+    public void draw(GUI gui, ImageFactory imageFactory) throws IOException {
         gui.clear();
-        drawElements(gui);
+        drawElements(gui, imageFactory);
         gui.refresh();
     }
 
-    protected abstract void drawElements(GUI gui) throws IOException;
+    protected abstract void drawElements(GUI gui, ImageFactory imageFactory) throws IOException;
 }

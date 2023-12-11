@@ -1,6 +1,7 @@
 package com.ldts.asphaltrush.viewer.gameOver;
 
 import com.ldts.asphaltrush.gui.GUI;
+import com.ldts.asphaltrush.model.ImageFactory;
 import com.ldts.asphaltrush.model.Position;
 import com.ldts.asphaltrush.model.gameOver.GameOver;
 import com.ldts.asphaltrush.viewer.Viewer;
@@ -11,7 +12,7 @@ public class GameOverViewer extends Viewer<GameOver> {
     }
 
     @Override
-    protected void drawElements(GUI gui) {
+    protected void drawElements(GUI gui, ImageFactory imageFactory) {
         gui.drawText(new Position(5, 5), "GAME OVER", "#FFFFFF");
         gui.drawText(new Position(5, 6), "Points: " + getModel().getPoints(), "#FFFFFF");
         gui.drawText(new Position(5, 7), "Name: " + getModel().getName(), "#FFFFFF");
