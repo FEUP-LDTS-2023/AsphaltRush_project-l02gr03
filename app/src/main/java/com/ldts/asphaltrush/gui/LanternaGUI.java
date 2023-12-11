@@ -69,6 +69,13 @@ public class LanternaGUI implements GUI {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
 
+        KeyStroke nextKey = screen.pollInput();
+
+        while(nextKey != null) {
+            keyStroke = nextKey;
+            nextKey = screen.pollInput();
+        }
+
         if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return ACTION.QUIT;
 
