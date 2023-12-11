@@ -32,13 +32,13 @@ public class GameOverController extends Controller<GameOver> {
                 getModel().moveRight();
                 break;
             case SELECT:
-                if (getModel().isSelectedBackToMenu()) game.setState(new MenuState(new com.ldts.asphaltrush.model.menu.Menu()));
+                if (getModel().isSelectedBackToMenu()) game.getGameState().setState(new MenuState(new Menu()));
                 else if (getModel().isSelectedConfirm()) {
 
-                    // GUARDAR O RANKING
+                    // GUARDAR O RANKING -- APAGAR
                     System.out.println(getModel().getName() + " " + getModel().getPoints());
 
-                    game.setState(new MenuState(new Menu()));
+                    game.getGameState().setState(new MenuState(new Menu()));
                 }
                 else if (getModel().isSelectedDelete()) {
                     String currentName = getModel().getName();

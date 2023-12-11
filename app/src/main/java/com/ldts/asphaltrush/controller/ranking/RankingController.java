@@ -20,7 +20,7 @@ public class RankingController extends Controller<Ranking> {
     public void step(Game game, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
         switch (action) {
             case SELECT:
-                if (getModel().isSelectedBack()) game.setState(new MenuState(new Menu()));
+                if (getModel().isSelectedBack()) game.getGameState().setState(new MenuState(new Menu()));
         }
     }
 }

@@ -17,10 +17,6 @@ public class Game {
     private final GameState gameState;
     private final ImageFactory imageFactory;
 
-    public ImageFactory getImageFactory() {
-        return imageFactory;
-    }
-
 
     public Game() throws FontFormatException, IOException, URISyntaxException {
         this.gui = new LanternaGUI(260, 240);
@@ -32,6 +28,13 @@ public class Game {
         new Game().start();
     }
 
+    public ImageFactory getImageFactory() {
+        return imageFactory;
+    }
+
+    public GameState getGameState() {
+        return gameState;
+    }
 
     private void start() throws IOException, URISyntaxException, FontFormatException {
         int FPS = 60;

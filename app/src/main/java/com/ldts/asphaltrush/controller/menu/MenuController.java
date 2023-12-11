@@ -30,10 +30,10 @@ public class MenuController extends Controller<Menu> {
                 getModel().nextEntry();
                 break;
             case SELECT:
-                if (getModel().isSelectedStart()) game.setState(new StreetState(new StreetBuilder(21,38).createStreet()));
-                if (getModel().isSelectedGarage()) game.setState(new GarageState(new Garage()));
-                if (getModel().isSelectedRanking()) game.setState(new RankingState(new Ranking()));
-                if (getModel().isSelectedExit()) game.setState(null);
+                if (getModel().isSelectedStart()) game.getGameState().setState(new StreetState(new StreetBuilder(21,38).createStreet()));
+                if (getModel().isSelectedGarage()) game.getGameState().setState(new GarageState(new Garage()));
+                if (getModel().isSelectedRanking()) game.getGameState().setState(new RankingState(new Ranking()));
+                if (getModel().isSelectedExit()) game.getGameState().setState(null);
                 break;
         }
     }

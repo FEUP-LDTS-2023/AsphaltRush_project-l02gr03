@@ -33,7 +33,7 @@ public class GarageController extends Controller<Garage> {
                 break;
             case SELECT:
                 String selectedCar = getModel().getCurrentEntry();
-                game.setState(new MenuState(new Menu(selectedCar)));
+                game.getGameState().setState(new MenuState(new Menu(selectedCar)));
         }
     }
 }
