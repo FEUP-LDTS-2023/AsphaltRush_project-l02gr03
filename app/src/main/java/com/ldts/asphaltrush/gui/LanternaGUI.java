@@ -22,8 +22,9 @@ public class LanternaGUI implements GUI {
 
     private final Screen screen;
 
-    public LanternaGUI(int width, int height) throws IOException {
-        Terminal terminal = createTerminal(width, height);
+    public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
+        AWTTerminalFontConfiguration fontConfig = loadSquareFont();
+        Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
     }
 
