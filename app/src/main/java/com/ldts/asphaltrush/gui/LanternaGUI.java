@@ -10,6 +10,7 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import com.ldts.asphaltrush.model.Image;
 import com.ldts.asphaltrush.model.Position;
 
 import java.awt.*;
@@ -17,6 +18,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Objects;
 
 public class LanternaGUI implements GUI {
 
@@ -93,6 +95,31 @@ public class LanternaGUI implements GUI {
     @Override
     public void close() throws IOException {
         screen.close();
+    }
+
+
+
+    @Override
+    public void drawImage(Position position, Image image) {
+
+        int x = position.getX();
+        int y = position.getY();
+
+        String[][] colorMatrix = image.getColorMatrix();
+
+        TextGraphics tg = screen.newTextGraphics();
+        for (int i = 0; i < image.getHeight(); i++){
+            for (int j = 0; j< image.getWidth(); j++){
+
+                String color = colorMatrix[i][j];
+
+                if (Objects.equals(color, " ")) continue;
+                tg.setBackgroundColor(TextColor.Factory.fromString(color));
+                tg.setForegroundColor(TextColor.Factory.fromString(color));
+                tg.putString(j+x, i+y, " ");
+
+            }
+        }
     }
 
     @Override
