@@ -9,9 +9,14 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.ldts.asphaltrush.model.Position;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 public class LanternaGUI implements GUI {
 
@@ -38,6 +43,20 @@ public class LanternaGUI implements GUI {
                 .setInitialTerminalSize(terminalSize);
         terminalFactory.setForceAWTOverSwing(true);
         return terminalFactory.createTerminal();
+    }
+
+
+    private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
+        URL resource = getClass().getClassLoader().getResource("fonts/square5.ttf");
+        assert resource != null;
+        File fontFile = new File(resource.toURI());
+        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        ge.registerFont(font);
+
+        Font loadedFont = font.deriveFont(Font.PLAIN, 4);
+        return AWTTerminalFontConfiguration.newInstance(loadedFont);
     }
 
     @Override
