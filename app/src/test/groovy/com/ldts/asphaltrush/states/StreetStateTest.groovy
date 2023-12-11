@@ -2,7 +2,7 @@ package com.ldts.asphaltrush.states
 
 import spock.lang.Specification;
 
-class GameStateTest extends Specification {
+class StreetStateTest extends Specification {
     def "GameState Test 1"() {
         setup:
         def result;
