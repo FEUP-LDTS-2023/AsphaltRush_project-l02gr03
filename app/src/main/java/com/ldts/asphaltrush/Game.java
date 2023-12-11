@@ -16,6 +16,11 @@ public class Game {
     private State state;
     private final ImageFactory imageFactory;
 
+    public ImageFactory getImageFactory() {
+        return imageFactory;
+    }
+
+
     public Game() throws FontFormatException, IOException, URISyntaxException {
         this.gui = new LanternaGUI(40, 38);
         imageFactory = new ImageFactory();
