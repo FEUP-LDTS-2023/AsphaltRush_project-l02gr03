@@ -8,7 +8,6 @@ import java.util.HashMap;
 
 public class ImageFactory {
 
-    private static ImageFactory instance;
     private HashMap<String, Image> images;
     public ImageFactory(){
         images =  new HashMap<>();
@@ -45,17 +44,8 @@ public class ImageFactory {
             String line = br.readLine();
             colorMatrix[i] = line.split("-");
         }
-
         return new Image(width, height, colorMatrix);
 
-    }
-
-
-    public static ImageFactory getInstance(){
-        if (instance == null){
-            instance = new ImageFactory();
-        }
-        return instance;
     }
 
 }
