@@ -1,6 +1,7 @@
 package com.ldts.asphaltrush;
 
 import com.ldts.asphaltrush.gui.LanternaGUI;
+import com.ldts.asphaltrush.model.ImageFactory;
 import com.ldts.asphaltrush.model.menu.Menu;
 import com.ldts.asphaltrush.states.MenuState;
 import com.ldts.asphaltrush.states.State;
@@ -13,9 +14,11 @@ import java.net.URISyntaxException;
 public class Game {
     private final LanternaGUI gui;
     private State state;
+    private final ImageFactory imageFactory;
 
     public Game() throws FontFormatException, IOException, URISyntaxException {
         this.gui = new LanternaGUI(40, 38);
+        imageFactory = new ImageFactory();
         this.state = new MenuState(new Menu());
     }
 
