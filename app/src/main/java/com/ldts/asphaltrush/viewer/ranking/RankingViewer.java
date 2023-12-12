@@ -26,12 +26,14 @@ public class RankingViewer extends Viewer<Ranking> {
         gui.drawImage(new Position(130-titleImage.getWidth()/2, 13), titleImage);
 
 
-        gui.drawImage(new Position(75, 60), imageFactory.getImage("/titles/ranking/name"));
-        gui.drawImage(new Position(135, 60), imageFactory.getImage("/titles/ranking/points"));
 
 
         ArrayList<String[]> rankingArray = getModel().getRankingAsText();
         if(rankingArray != null) {
+
+            gui.drawImage(new Position(75, 60), imageFactory.getImage("/titles/ranking/name"));
+            gui.drawImage(new Position(135, 60), imageFactory.getImage("/titles/ranking/points"));
+
             for (int i = 0; i < rankingArray.size(); i++){
                 gui.drawText(rankingArray.get(i)[0], new Position(125, 80+i*15), imageFactory, 'r');
                 gui.drawText(rankingArray.get(i)[1], new Position(135, 80+ i *15), imageFactory, 'l');
@@ -39,8 +41,8 @@ public class RankingViewer extends Viewer<Ranking> {
 
         }
         else {
-            gui.drawText(new Position(5, 10), "No scores", "#FFFFFF");
-            gui.drawText(new Position(5, 11), "Go play!", "#FFFFFF");
+            titleImage = imageFactory.getImage("/titles/ranking/noresult");
+            gui.drawImage(new Position(130-titleImage.getWidth()/2, 120), titleImage);
         }
 
         for (int i = 0; i < getModel().getNumberEntries(); i++)
