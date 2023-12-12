@@ -35,15 +35,12 @@ public class GameOverViewer extends Viewer<GameOver> {
             gui.drawImage(new Position(130-entryImage.getWidth()/2, 210 + i * 15), entryImage);
         }
 
-        for (int row = 0; row < 4; row++) {
-            for (int col = 0; col < 7; col++) {
-                int index = row * 7 + col + 2;
-                if (index < getModel().getNumberEntries()) {
-                    String selected = getModel().isSelected(index) ? "selected/" : "";
-                    Image letter = imageFactory.getImage("/fonts/letters/" + selected + getModel().getEntry(index));
-                    gui.drawImage(new Position(90 + col*12 , 130 + row*12), letter);
-                }
-            }
+        for (int i=0; i<getModel().getNumberEntries()-2; i++){
+            int row = i/7;
+            int col = i - i/7*7;
+            String selected = getModel().isSelected(i+2) ? "selected/" : "";
+            Image letter = imageFactory.getImage("/fonts/letters/" + selected + getModel().getEntry(i+2));
+            gui.drawImage(new Position(90 + col*12 , 130 + row*12), letter);
         }
     }
 }
