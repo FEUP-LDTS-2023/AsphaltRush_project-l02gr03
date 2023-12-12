@@ -16,7 +16,10 @@ public class RankingViewer extends Viewer<Ranking> {
 
     @Override
     protected void drawElements(GUI gui, ImageFactory imageFactory) throws IOException {
-        gui.drawText(new Position(5, 5), "Ranking", "#FFFFFF");
+
+
+
+        gui.drawImage(new Position(0,0), imageFactory.getImage("/background/ranking"));
 
         ArrayList<String> rankingArray = getModel().getRankingAsText();
         if(rankingArray != null) {
