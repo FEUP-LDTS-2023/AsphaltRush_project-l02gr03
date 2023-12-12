@@ -8,6 +8,8 @@ import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
 import com.ldts.asphaltrush.model.game.street.Street;
 import com.ldts.asphaltrush.model.gameOver.GameOver;
 import com.ldts.asphaltrush.model.menu.Menu;
+import com.ldts.asphaltrush.model.soundEffects.CrashSound;
+import com.ldts.asphaltrush.model.soundEffects.SoundEffect;
 import com.ldts.asphaltrush.states.GameOverState;
 import com.ldts.asphaltrush.states.MenuState;
 
@@ -24,6 +26,7 @@ public class StreetController extends GameController {
     private final HoleController holeController;
     private final JumpController jumpController;
     private final PointsController pointsController;
+    private final SoundEffect crashSound;
 
     public StreetController(Street street) {
         super(street);
@@ -35,13 +38,16 @@ public class StreetController extends GameController {
         this.holeController = new HoleController(street);
         this.jumpController = new JumpController(street);
         this.pointsController = new PointsController(street);
+        this.crashSound = new CrashSound();
     }
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
         if (action == GUI.ACTION.QUIT) game.getGameState().setState(new MenuState(new Menu()));
-        else if (getModel().getPlayer().getCrashed()) game.getGameState().setState(new GameOverState(new GameOver(getModel().getPoints().getPoints())));
-        else {
+        else if (getModel().getPlayer().getCrashed()) {
+            crashSound.play();
+            game.getGameState().setState(new GameOverState(new GameOver(getModel().getPoints().getPoints())));
+        } else {
             playerController.step(game, action, time);
             lineController.step(game, action, time);
             obstacleCarController.step(game, action, time);
