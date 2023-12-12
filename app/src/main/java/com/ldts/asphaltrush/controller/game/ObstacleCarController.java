@@ -40,7 +40,7 @@ public class ObstacleCarController extends GameController {
     }
 
     private void moveObstacleCar(ObstacleCar obstacleCar, Position position) {
-        if (getModel().isEmpty(position)) obstacleCar.setPosition(new Position(position.getX(), position.getY() + 1));
+        if (getModel().isEmpty(position)) obstacleCar.setPosition(new Position(position.getX(), position.getY() + 10));
     }
 
     private void checkAndRemoveNewObstacleCars() {
