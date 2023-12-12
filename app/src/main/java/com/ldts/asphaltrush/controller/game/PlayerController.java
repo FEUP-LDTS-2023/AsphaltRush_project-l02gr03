@@ -12,9 +12,7 @@ public class PlayerController extends GameController {
         super(street);
     }
 
-    public void movePlayerLeft() {
-        movePlayer(getModel().getPlayer().getPosition().getLeft());
-    }
+    public void movePlayerLeft() {movePlayer(getModel().getPlayer().getPosition().getLeft());}
 
     public void movePlayerRight() {
         movePlayer(getModel().getPlayer().getPosition().getRight());
