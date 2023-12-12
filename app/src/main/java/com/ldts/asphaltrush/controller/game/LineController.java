@@ -9,7 +9,7 @@ import com.ldts.asphaltrush.model.game.street.Street;
 public class LineController extends GameController {
 
     private long lastMovement;
-    private static final int LINE_SPEED = DEFAULT_SPEED;
+    private static final double LINE_SPEED = DEFAULT_SPEED;
 
     public LineController(Street street) {
         super(street);

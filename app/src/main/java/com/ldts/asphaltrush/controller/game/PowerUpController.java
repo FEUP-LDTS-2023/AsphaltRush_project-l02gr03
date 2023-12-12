@@ -28,7 +28,7 @@ public class PowerUpController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
-        if (time - lastMovement > 800/(POWER_UP_SPEED*getModel().getPlayer().getSpeed())) {
+        if (time - lastMovement > 100) {
             addNewPowerUps();
             for (PowerUp powerUp : getModel().getPowerUps()) {
                 movePowerUp(powerUp, powerUp.getPosition());
@@ -39,7 +39,7 @@ public class PowerUpController extends GameController {
     }
 
     private void movePowerUp(PowerUp powerUp, Position position) {
-        if (getModel().isEmpty(position)) powerUp.setPosition(new Position(position.getX(), position.getY() + 1));
+        if (getModel().isEmpty(position)) powerUp.setPosition(new Position(position.getX(), position.getY() + (int) (POWER_UP_SPEED*getModel().getPlayer().getSpeed())));
     }
 
     private void checkAndRemovePowerUps() {
