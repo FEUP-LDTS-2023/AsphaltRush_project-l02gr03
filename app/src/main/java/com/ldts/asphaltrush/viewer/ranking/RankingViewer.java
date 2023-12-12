@@ -45,10 +45,10 @@ public class RankingViewer extends Viewer<Ranking> {
             gui.drawImage(new Position(130-titleImage.getWidth()/2, 120), titleImage);
         }
 
-        for (int i = 0; i < getModel().getNumberEntries(); i++)
-            gui.drawText(
-                    new Position(5, 20 + i),
-                    getModel().getEntry(i),
-                    getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
+        for (int i = 0; i < getModel().getNumberEntries(); i++){
+            String selected = getModel().isSelected(i) ? "selected/" : "";
+            Image entryImage = imageFactory.getImage("/titles/ranking/" + selected + getModel().getEntry(i));
+            gui.drawImage(new Position(130- entryImage.getWidth()/2, 220), entryImage);
+        }
     }
 }
