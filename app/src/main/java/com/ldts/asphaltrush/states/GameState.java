@@ -17,7 +17,7 @@ public class GameState {
     private List<GameStateObserver> observers;
     public GameState(){
         this.observers = new ArrayList<>();
-        setState(new MenuState(new Menu(100)));
+        setState(new MenuState(new Menu()));
     }
 
     public void setState(State state) {
