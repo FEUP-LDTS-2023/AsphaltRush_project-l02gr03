@@ -7,11 +7,16 @@ import java.util.List;
 public class Garage {
     private final List<String> entries;
     private int currentEntry = 0;
+    private int currentCar = 0;
+    private static final int NUMBEROFCARS = 3;
 
     public Garage() {
-        this.entries = new ArrayList<>(Arrays.asList("0","1","2","3","4","5","6","7","8"));
+        this.entries = new ArrayList<>(Arrays.asList("Confirm"));
     }
 
+    public int getCurrentCar(){
+        return currentCar;
+    }
     public String getEntry(int i) {
         return entries.get(i);
     }
