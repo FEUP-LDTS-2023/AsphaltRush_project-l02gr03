@@ -20,10 +20,11 @@ public class Player extends Element {
     public int getType(){
         return type;
     }
-    public Player(int x, int y, int width, int height) {
+    public Player(int x, int y, int width, int height, int type) {
         super(x, y);
         this.height = height;
         this.width = width;
+        this.type = type;
     }
 
     public double getSpeed() {

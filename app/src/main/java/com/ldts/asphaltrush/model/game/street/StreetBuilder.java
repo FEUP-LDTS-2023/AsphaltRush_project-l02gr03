@@ -14,10 +14,10 @@ import java.util.List;
 public class StreetBuilder {
 
 
-    private String playerType;
+    private int playerType;
     private ImageFactory imageFactory;
 
-    public StreetBuilder(String playerType, ImageFactory imageFactory ){
+    public StreetBuilder(int playerType, ImageFactory imageFactory ){
         this.playerType = playerType;
         this.imageFactory = imageFactory;
     }
@@ -38,7 +38,7 @@ public class StreetBuilder {
 
     private Player createPlayer() {
         Image playerImage = imageFactory.getImage("/cars/player/car" + playerType);
-        return new Player(190,235-playerImage.getHeight() ,playerImage.getWidth(), playerImage.getHeight());
+        return new Player(190,235-playerImage.getHeight() ,playerImage.getWidth(), playerImage.getHeight(), playerType);
     }
 
     private LinkedList<Line> createLines() {

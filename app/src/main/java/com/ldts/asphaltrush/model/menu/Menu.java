@@ -9,13 +9,13 @@ public class Menu {
 
 
 
-    private String currentCar = "6";
+    private int currentCar = 6;
 
     public Menu() {
         this.entries = Arrays.asList("Start", "Garage" , "Ranking", "Exit");
     }
 
-    public Menu(String currentCar){
+    public Menu(int currentCar){
         this.entries = Arrays.asList("Start", "Garage" , "Ranking", "Exit");
         this.currentCar = currentCar;
     }
@@ -23,7 +23,7 @@ public class Menu {
         return this.entries.size();
     }
 
-    public String getCurrentCar() {
+    public int getCurrentCar() {
         return currentCar;
     }
     public void nextEntry() {
