@@ -3,11 +3,14 @@ package com.ldts.asphaltrush;
 import com.ldts.asphaltrush.gui.LanternaGUI;
 import com.ldts.asphaltrush.model.ImageFactory;
 import com.ldts.asphaltrush.model.menu.Menu;
+import com.ldts.asphaltrush.observer.BackgroundMusic;
 import com.ldts.asphaltrush.states.GameState;
 import com.ldts.asphaltrush.states.MenuState;
 import com.ldts.asphaltrush.states.State;
 
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -16,15 +19,17 @@ public class Game {
     private final LanternaGUI gui;
     private final GameState gameState;
     private final ImageFactory imageFactory;
+    private final BackgroundMusic backgroundMusic;
 
 
-    public Game() throws FontFormatException, IOException, URISyntaxException {
+    public Game() throws FontFormatException, IOException, URISyntaxException, LineUnavailableException, UnsupportedAudioFileException {
         this.gui = new LanternaGUI(260, 240);
         this.imageFactory = new ImageFactory();
         this.gameState = new GameState();
+        this.backgroundMusic = new BackgroundMusic(gameState);
     }
 
-    public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
+    public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException, LineUnavailableException, UnsupportedAudioFileException {
         new Game().start();
     }
 
