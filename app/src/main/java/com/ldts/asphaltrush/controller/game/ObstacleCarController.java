@@ -13,7 +13,7 @@ import java.util.Random;
 public class ObstacleCarController extends GameController {
     private long lastMovement = 0;
     private static final Random RNG = new Random();
-    private static final double OBSTACLE_CAR_SPEED = DEFAULT_SPEED*1.5;
+    private static final double OBSTACLE_CAR_SPEED = DEFAULT_SPEED*4;
 
     public ObstacleCarController(Street street) {
         super(street);
@@ -21,7 +21,7 @@ public class ObstacleCarController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
-        if ((time - lastMovement) > 800/(OBSTACLE_CAR_SPEED*getModel().getPlayer().getSpeed())) {
+        if ((time - lastMovement) > 100) {
             addNewObstacleCars();
             for (ObstacleCar obstacleCar : getModel().getObstacleCars()) {
                 moveObstacleCar(obstacleCar, obstacleCar.getPosition());
@@ -40,7 +40,7 @@ public class ObstacleCarController extends GameController {
     }
 
     private void moveObstacleCar(ObstacleCar obstacleCar, Position position) {
-        if (getModel().isEmpty(position)) obstacleCar.setPosition(new Position(position.getX(), position.getY() + 10));
+        if (getModel().isEmpty(position)) obstacleCar.setPosition(new Position(position.getX(), position.getY() + (int) (OBSTACLE_CAR_SPEED*getModel().getPlayer().getSpeed())));
     }
 
     private void checkAndRemoveNewObstacleCars() {

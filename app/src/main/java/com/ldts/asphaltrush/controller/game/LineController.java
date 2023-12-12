@@ -9,7 +9,7 @@ import com.ldts.asphaltrush.model.game.street.Street;
 public class LineController extends GameController {
 
     private long lastMovement;
-    private static final double LINE_SPEED = DEFAULT_SPEED;
+    private static final int LINE_SPEED = DEFAULT_SPEED;
 
     public LineController(Street street) {
         super(street);
@@ -18,7 +18,7 @@ public class LineController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
-        if (time - lastMovement > 800/(LINE_SPEED*getModel().getPlayer().getSpeed())) {
+        if (time - lastMovement > 100) {
             for (Line line : getModel().getLines()) {
                 moveLine(line, line.getPosition());
             }
@@ -32,6 +32,6 @@ public class LineController extends GameController {
             getModel().getLines().addFirst(new Line(position.getX(), getModel().getLines().get(0).getPosition().getY()-33));
         }
         else
-            line.setPosition(new Position(position.getX(), position.getY() + 1));
+            line.setPosition(new Position(position.getX(), position.getY() + (int) (LINE_SPEED*getModel().getPlayer().getSpeed())));
     }
 }
