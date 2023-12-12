@@ -17,7 +17,6 @@ public class GameViewer extends Viewer<Street> {
 
     @Override
     public void drawElements(GUI gui, ImageFactory imageFactory) {
-        drawElements(gui, getModel().getBarriers(), new BarrierViewer(), imageFactory);
         drawElements(gui, getModel().getLines(), new LineViewer(), imageFactory);
         drawElements(gui, getModel().getObstacleCars(), new ObstacleCarViewer(), imageFactory);
         drawElements(gui, getModel().getHoles(), new HoleViewer(), imageFactory);
