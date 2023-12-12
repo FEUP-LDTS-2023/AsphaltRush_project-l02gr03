@@ -5,7 +5,7 @@ import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
 public class Player extends Element {
 
     private static final int NUMBEROFTYPES = 1;
-    private int type = 6;
+    private int type;
     private int width;
     private int height;
 

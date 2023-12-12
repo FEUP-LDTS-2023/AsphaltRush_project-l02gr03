@@ -9,7 +9,7 @@ public class Menu {
 
 
 
-    private String currentCar = "0";
+    private String currentCar = "6";
 
     public Menu() {
         this.entries = Arrays.asList("Start", "Garage" , "Ranking", "Exit");

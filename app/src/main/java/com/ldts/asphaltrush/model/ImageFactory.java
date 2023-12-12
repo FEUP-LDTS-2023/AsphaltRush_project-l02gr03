@@ -22,7 +22,7 @@ public class ImageFactory {
     }
 
     private Image loadImageFromFile(String image){
-        URL resource = ImageFactory.class.getResource(image + ".txt");
+        URL resource = ImageFactory.class.getResource("/images/"+ image + ".txt");
         assert resource != null;
         try {
 
