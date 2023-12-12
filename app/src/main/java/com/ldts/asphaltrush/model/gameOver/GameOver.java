@@ -11,7 +11,7 @@ public class GameOver {
     private int currentEntry = 0;
 
     public GameOver(long points) {
-        this.entries = new ArrayList<>(Arrays.asList("Confirm", "Back to Menu", "Delete"));
+        this.entries = new ArrayList<>(Arrays.asList("Confirm", "Back"));
         this.entries.addAll(generateLetters());
         this.points = points;
     }
@@ -22,6 +22,7 @@ public class GameOver {
             char letter = (char) ('A' + i);
             generatedLetters.add(String.valueOf(letter));
         }
+        generatedLetters.add("-");
         return generatedLetters;
     }
 
@@ -46,7 +47,7 @@ public class GameOver {
     }
 
     public boolean isSelectedDelete() {
-        return isSelected(2);
+        return isSelected(28);
     }
 
     public int getNumberEntries() {
