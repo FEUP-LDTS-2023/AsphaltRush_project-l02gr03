@@ -21,13 +21,20 @@ public class GameState {
 
     public void setState(State state) {
         this.state = state;
+        try {
+            notifyObservers();
+        }
+        catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        }
     }
     public State getState() {
         return state;
     }
 
-    public void addObserver(GameStateObserver observer) {
+    public void addObserver(GameStateObserver observer) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         observers.add(observer);
+        notifyObservers();
     }
 
     private void notifyObservers() throws IOException, LineUnavailableException, UnsupportedAudioFileException{

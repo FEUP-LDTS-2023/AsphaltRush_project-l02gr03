@@ -15,6 +15,8 @@ public class BackgroundMusic implements GameStateObserver{
     private Clip backgroundMusicMainMenu;
     private Clip backgroundMusicGameOverMenu;
     private Clip currentBackgroundMusic;
+    private String previousState;
+
     public BackgroundMusic(GameState game) throws LineUnavailableException, UnsupportedAudioFileException, IOException {
         this.gamestate = game;
         initializeSounds();
@@ -40,6 +42,23 @@ public class BackgroundMusic implements GameStateObserver{
 
     @Override
     public void update() throws IOException, LineUnavailableException, UnsupportedAudioFileException {
+        if (!(this.gamestate.getState() instanceof GameOverState))  {
+            if(previousState == "gameover"){
+                currentBackgroundMusic.stop();
+                currentBackgroundMusic = backgroundMusicMainMenu;
+                currentBackgroundMusic.setFramePosition(0);
+            }
+            currentBackgroundMusic = backgroundMusicMainMenu;
+            previousState = "notgameover";
+            currentBackgroundMusic.loop(Clip.LOOP_CONTINUOUSLY);
+        } else {
+            this.previousState = "gameover";
+            currentBackgroundMusic.stop();
+            currentBackgroundMusic = backgroundMusicGameOverMenu;
+            currentBackgroundMusic.setFramePosition(0);
+            currentBackgroundMusic.loop(Clip.LOOP_CONTINUOUSLY);
+        }
 
     }
+
 }
