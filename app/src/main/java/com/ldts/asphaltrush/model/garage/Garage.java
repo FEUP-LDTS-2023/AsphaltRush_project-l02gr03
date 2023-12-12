@@ -8,7 +8,7 @@ public class Garage {
     private final List<String> entries;
     private int currentEntry = 0;
     private int currentCar = 0;
-    private static final int NUMBEROFCARS = 3;
+    private static final int NUMBEROFCARS = 11;
 
     public Garage() {
         this.entries = new ArrayList<>(Arrays.asList("Confirm"));

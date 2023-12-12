@@ -1,6 +1,7 @@
 package com.ldts.asphaltrush.viewer.garage;
 
 import com.ldts.asphaltrush.gui.GUI;
+import com.ldts.asphaltrush.model.Image;
 import com.ldts.asphaltrush.model.ImageFactory;
 import com.ldts.asphaltrush.model.Position;
 import com.ldts.asphaltrush.model.garage.Garage;
@@ -16,7 +17,8 @@ public class GarageViewer extends Viewer<Garage> {
 
         gui.drawImage(new Position(0,0), imageFactory.getImage("/background/garage"));
 
-        gui.drawText(new Position(15, 5), "Garage", "#FFFFFF");
+        Image carImage = imageFactory.getImage("/cars/player/garage/car" + getModel().getCurrentCar());
+        gui.drawImage(new Position(130-carImage.getWidth()/2,150-carImage.getHeight()/2), carImage);
 
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {

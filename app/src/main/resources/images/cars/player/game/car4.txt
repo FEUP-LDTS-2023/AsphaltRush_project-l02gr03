@@ -1,0 +1,37 @@
+16
+35
+#3b3b3b-#3c3c3e- - - - - - - - - - - - -#3c3c3c-#3c3c3c-
+#3c3c3c-#993130-#3c3c3c- - - - - - - - - - -#3c3c3c-#993130-#3c3c3c-
+#3c3c3c-#bebec0-#3b3b3b- - - - - - - - - - -#3c3c3c-#bebebe-#3c3c3c-
+#3c3c3e-#bebebe-#3c3c3c-#3c3c3c-#3c3c3c-#3c3c3c-#3c3c3c-#3c3c3c-#3c3c3c-#3c3c3c-#3c3c3e-#3c3c3c-#3c3c3c-#3d3d3d-#bebebe-#3d3d3d-
+#3c3c3c-#bebebc-#3c3c3c-#d77bba-#d77bba-#d77bba-#d77bba-#d67cba-#d77bba-#d57bb9-#d77bba-#d57bb9-#d87cbb-#3c3c3c-#bebebe-#3c3c3c-
+#3c3c3c-#bebebe-#3c3c3c-#d57bb9-#d77bba-#d87cbb-#d77bba-#d67ab9-#d97aba-#d67cbc-#d77bba-#d67cbc-#d97aba-#3c3c3c-#bfbdbe-#3d3b3c-
+#3d3d3b-#bdbfbe-#3b3d3c-#d77dbb-#d77bba-#d879b9-#d87cbd-#d77bba-#d67ab9-#d77bba-#d57bb9-#d77bba-#d57bb9-#3c3c3c-#bebebe-#3b3b3b-
+#3d3b3c-#3c3c3c-#bebebe-#3c3c3c-#d77bba-#d77bba-#d67ab9-#d77bba-#d77bba-#d87cbb-#d77bba-#d77bba-#3d3d3b-#bebebe-#3d3b3c-#3c3c3e-
+#3c3c3c-#3c3c3c-#bebebe-#3d3d3d-#d77bba-#d67cbc-#d77bba-#d67ab9-#d67ab9-#d77bba-#d77bba-#d77bba-#3c3c3c-#bfbfc1-#3c3c3c-#3c3c3c-
+#3c3c3c-#3d3d3d-#bfbfc1-#3c3c3a-#3b3b3b-#3d3d3d-#3c3c3c-#3c3c3c-#3c3c3c-#3c3c3c-#3c3c3c-#3c3c3c-#3c3c3c-#bfbfbf-#3c3c3c-#3c3c3c-
+#3c3c3c-#e68cca-#3b3d3c-#65959f-#86b2bd-#86b2bd-#84b3bd-#86b2bd-#86b2bd-#86b2bb-#83b2bc-#85b1bc-#65959f-#3c3c3c-#e68cca-#3c3c3c-
+#3d3d3d-#d77bba-#3d3b3c-#3b3b3b-#3c3c3a-#3c3c3c-#3e3e3e-#3c3c3c-#3c3c3c-#3c3c3c-#3d3d3d-#3c3c3c-#3c3c3c-#3c3c3c-#d77dbd-#3d3d3d-
+#3d3d3d-#3c3c3c-#3d3d3d-#b45f9a-#e88ccb-#e68cca-#e68cca-#e68cca-#e68cca-#e68cca-#e68cca-#e78bca-#b45e9b-#3c3c3c-#3e3c3d-#3c3c3c-
+#3c3c3c-#3c3c3c-#3c3c3c-#b45f9a-#d67ab9-#d67abb-#d77bba-#d77cb9-#d57bb9-#d77bba-#d47ab8-#d67ab9-#b45e9b-#3c3c3c-#3c3c3c-#3c3c3c-
+#3c3c3c-#e68cca-#3c3c3c-#b45e9b-#d77bba-#d77bba-#d77bba-#d77bba-#d77bba-#d77bba-#d77bba-#d77bba-#b45f9a-#3c3c3c-#e78dca-#3c3c3c-
+#3b3d3c-#e68cca-#3d3d3d-#b35f9a-#d77bba-#d77bbc-#d77bba-#d77cb9-#d77bba-#d57bb9-#d77bbc-#d77bba-#b35f9a-#3c3c3c-#e78dcb-#3b3b3b-
+#3c3c3c-#e68cca-#3d3d3d-#b45f9a-#d97aba-#d77bba-#d97abc-#d77bba-#d67ab9-#d57bb9-#d77bba-#d97aba-#b45f9a-#3c3c3c-#d77bba-#3c3c3c-
+#3c3c3c-#d77bba-#3d3d3d-#b45f9a-#b45f9a-#b45f9a-#b5609b-#b45f9a-#b45f9a-#b45f9a-#b45f9a-#b35f9b-#b45e9b-#3c3c3a-#d77bba-#3c3c3c-
+#3c3c3c-#d77bbc-#3c3c3c-#3c3c3c-#3c3c3c-#3d3d3d-#3c3c3c-#3c3c3c-#3b3d3c-#3c3c3c-#3d3d3b-#3c3c3c-#3c3c3c-#3c3c3c-#d77bba-#3c3c3c-
+#3d3b3c-#b45f9a-#3d3d3d-#86b2bd-#86b2bd-#86b2bd-#86b2bd-#84b3bd-#86b2bd-#86b2bd-#84b3bd-#87b1bd-#86b2bd-#3c3c3c-#b5609b-#3c3c3c-
+#3c3c3c-#3c3c3c-#3c3c3c-#86b2bd-#6696a0-#6595a1-#6597a0-#65959f-#64949e-#6696a2-#65959f-#65959f-#86b2bd-#3d3d3b-#3c3c3c-#3c3c3c-
+#3d3d3d-#e68cca-#3c3c3c-#63959e-#64969f-#6696a2-#64969f-#65959f-#65959f-#65959f-#65959f-#65959f-#65959f-#3c3c3c-#e68cca-#3c3c3c-
+#3c3c3c-#e58bc9-#d77bba-#3c3c3c-#b45f9a-#b56099-#b45f9a-#b45f9a-#b45e9b-#b65e9a-#b45f9a-#b65e9a-#3c3c3c-#d77bba-#e68cca-#3c3c3c-
+#3d3d3d-#e68cca-#d97aba-#3c3c3c-#b35d9a-#d77bba-#d77bba-#d77bba-#d77bba-#d77bba-#d87cbb-#b45f9a-#3c3c3c-#d77bbc-#e68cca-#3c3c3c-
+#3c3c3c-#e78dca-#d67ab9-#3c3c3c-#d77bba-#d77bba-#d67ab9-#d77bba-#d97bb9-#d77bba-#d67ab9-#d77bba-#3c3c3c-#d67cba-#e68cca-#3b3b3b-
+#3c3c3c-#e68acb-#d77bba-#3c3c3c-#d57bb9-#d77bba-#d77bba-#d67ab9-#d77bba-#d77bba-#d67cba-#d87cbb-#3c3c3c-#d77bba-#e78dca-#3c3c3c-
+#3c3c3c-#d77bba-#d77bbc-#3c3c3e-#d77bba-#d77bba-#d77bba-#d97aba-#d57bb9-#d77bba-#d77bba-#d77bba-#3c3e3d-#d77bba-#d77bba-#3c3c3c-
+#3b3b3b-#d77bba-#d87cbb-#3c3c3c-#d77bba-#e68cca-#e68cca-#e68cca-#e68cca-#e68cca-#e68cca-#d67abb-#3c3c3c-#d97aba-#d57bb9-#3c3c3c-
+#3c3c3c-#3c3c3c-#3c3c3c-#3c3c3c-#b45f9a-#d77bba-#d77bba-#d77bba-#d97aba-#d77bba-#d77cb9-#b45f9a-#3b3d3c-#3d3b3c-#3c3c3e-#3b3b39-
+#3c3c3c-#d4b191-#c39f7b-#3c3c3c-#b65e9a-#b45e9b-#b45f9a-#b65e9b-#b45f9a-#b65e9a-#b45f9a-#b45f9a-#3c3c3c-#d5b292-#c39f7b-#3c3c3c-
+#3c3c3c-#c39f7b-#c3a07a-#3c3c3c-#b45f9a-#3c3c3a-#3d3d3d-#3c3c3c-#3c3c3c-#3c3c3c-#3c3c3c-#b75f9b-#3c3c3c-#c3a07a-#c39f7b-#3b3b3b-
+#3c3c3c-#3c3c3a-#3b3d3c-#b5609b-#b5609b-#b5609b-#b45f9a-#b35f9a-#b45f9a-#b5609b-#b45f9a-#b65e9a-#b45f9a-#3c3c3a-#3c3c3c-#3c3c3c-
+#3b3b3b-#bfbfbf-#3c3c3c-#3c3c3c-#3c3c3e-#3c3c3c-#3c3c3c-#3c3c3c-#3c3c3c-#3c3c3a-#3c3c3e-#3c3c3c-#3c3c3c-#3c3c3c-#bebebe-#3c3c3c-
+#3b3d3c-#bebebe-#bfbfbf-#bebebc-#bebebe-#bfbfbf-#bebebe-#bfbfbf-#bfbfbf-#bebebe-#bebebe-#bebebe-#bebebc-#bfbfbf-#bebebe-#3b3b3b-
+ -#3c3c3c-#3c3c3c-#3c3c3c-#3c3c3c-#3c3c3c-#3c3c3c-#3b3d3c-#3c3c3c-#3d3d3d-#3c3c3c-#3d3d3d-#3c3c3c-#3c3c3c-#3c3c3c- -
