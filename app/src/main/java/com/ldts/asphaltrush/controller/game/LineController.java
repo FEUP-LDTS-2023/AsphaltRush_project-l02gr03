@@ -27,8 +27,10 @@ public class LineController extends GameController {
     }
 
     private void moveLine(Line line, Position position) {
-        if (line.getPosition().getY() >= getModel().getHeight())
-            line.setPosition(new Position(position.getX(), -3));
+        if (line.getPosition().getY() >= getModel().getHeight()){
+            getModel().getLines().remove(getModel().getLines().size()-1);
+            getModel().getLines().addFirst(new Line(position.getX(), getModel().getLines().get(0).getPosition().getY()-33));
+        }
         else
             line.setPosition(new Position(position.getX(), position.getY() + 1));
     }

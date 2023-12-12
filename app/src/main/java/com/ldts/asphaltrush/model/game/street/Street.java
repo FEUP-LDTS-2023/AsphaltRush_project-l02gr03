@@ -5,23 +5,22 @@ import com.ldts.asphaltrush.model.game.Points;
 import com.ldts.asphaltrush.model.game.elements.*;
 import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Street {
-    private final int width;
-    private final int height;
+    private final int width = 260;
+    private final int height = 240;
     private Points points;
     private Player player;
     private List<ObstacleCar> obstacleCars;
     private List<PowerUp> powerUps;
     private List<Barrier> barriers;
-    private List<Line> lines;
+    private LinkedList<Line> lines;
     private List<Hole> holes;
     private List<Jump> jumps;
 
-    public Street(int width, int height) {
-        this.width = width;
-        this.height = height;
+    public Street() {
         this.points = new Points();
     }
 
@@ -49,11 +48,11 @@ public class Street {
         this.barriers = barriers;
     }
 
-    public List<Line> getLines() {
+    public LinkedList<Line> getLines() {
         return lines;
     }
 
-    public void setLines(List<Line> lines) {
+    public void setLines(LinkedList<Line> lines) {
         this.lines = lines;
     }
 

@@ -35,4 +35,6 @@ public interface GUI {
     void drawPointMultiplierPowerUp(Position position);
 
     void drawInvenciblePowerUp(Position position);
+
+    void drawRectangle(Position position, int width, int height, String color);
 }

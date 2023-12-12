@@ -16,8 +16,8 @@ public class Garage {
         return entries.get(i);
     }
 
-    public String getCurrentEntry() {
-        return entries.get(currentEntry);
+    public int getCurrentEntry() {
+        return currentEntry;
     }
 
     public boolean isSelected(int i) {
