@@ -37,8 +37,8 @@ public class StreetBuilder {
 
 
     private Player createPlayer() {
-        Image player = imageFactory.getImage("/cars/player/car" + playerType);
-        return new Player(190,235-player.getHeight() ,player.getWidth(), player.getHeight());
+        Image playerImage = imageFactory.getImage("/cars/player/car" + playerType);
+        return new Player(190,235-playerImage.getHeight() ,playerImage.getWidth(), playerImage.getHeight());
     }
 
     private LinkedList<Line> createLines() {
