@@ -29,6 +29,12 @@ public class GameOverViewer extends Viewer<GameOver> {
         gui.drawText(getModel().getName(), new Position(namePosition.getX()+nameImage.getWidth()+5, namePosition.getY()), imageFactory, 'l');
 
 
+        for (int i=0; i<2; i++){
+            String selected = getModel().isSelected(i) ? "selected/" : "";
+            Image entryImage = imageFactory.getImage("/titles/gameOver/" +  selected + getModel().getEntry(i));
+            gui.drawImage(new Position(130-entryImage.getWidth()/2, 210 + i * 15), entryImage);
+        }
+
         for (int row = 0; row < 4; row++) {
             for (int col = 0; col < 7; col++) {
                 int index = row * 7 + col + 2;
