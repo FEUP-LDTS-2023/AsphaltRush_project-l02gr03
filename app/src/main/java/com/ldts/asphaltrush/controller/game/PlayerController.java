@@ -29,7 +29,9 @@ public class PlayerController extends GameController {
     }
 
     private void movePlayer(Position position) {
-        if (getModel().isEmpty(position)) getModel().getPlayer().setPosition(position);
+        if(position.getX() > getModel().getLeftCurbWidth() &&
+                position.getX() < (getModel().getLeftCurbWidth() + getModel().getWidth()))
+            getModel().getPlayer().setPosition(position);
     }
 
     @Override

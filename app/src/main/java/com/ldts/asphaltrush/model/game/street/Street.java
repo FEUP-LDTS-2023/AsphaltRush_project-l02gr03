@@ -9,7 +9,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Street {
-    private final int width = 260;
+
+    private final int leftCurbWidth = 58;
+    private final int width = 126;
     private final int height = 240;
     private Points points;
     private Player player;
@@ -135,5 +137,9 @@ public class Street {
 
     public Points getPoints() {
         return points;
+    }
+
+    public int getLeftCurbWidth() {
+        return leftCurbWidth;
     }
 }

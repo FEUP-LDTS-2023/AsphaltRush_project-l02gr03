@@ -55,7 +55,7 @@ public class PowerUpController extends GameController {
     }
 
     private void addNewPowerUps() {
-        if(RNG.nextDouble(0,500) < 1) getModel().getPowerUps().add(new PointMultiplierPowerUp(RNG.nextInt(getModel().getWidth() - 2) + 1, -30));
-        if(RNG.nextDouble(0,500) < 1) getModel().getPowerUps().add(new InvenciblePowerUp(RNG.nextInt(getModel().getWidth() - 2) + 1, -30));
+        if(RNG.nextDouble(0,500) < 1) getModel().getPowerUps().add(new PointMultiplierPowerUp(RNG.nextInt(getModel().getLeftCurbWidth(),getModel().getLeftCurbWidth()+getModel().getWidth()) + 1, -30));
+        if(RNG.nextDouble(0,500) < 1) getModel().getPowerUps().add(new InvenciblePowerUp(RNG.nextInt(getModel().getLeftCurbWidth(),getModel().getLeftCurbWidth()+getModel().getWidth()) + 1, -30));
     }
 }
