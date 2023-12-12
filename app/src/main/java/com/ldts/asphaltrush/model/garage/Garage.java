@@ -33,15 +33,6 @@ public class Garage {
         return this.entries.size();
     }
 
-    public void moveUp() {
-        if (currentEntry <= 2) currentEntry += 6;
-        else currentEntry -= 3;
-    }
-
-    public void moveDown() {
-        if (currentEntry >= 6) currentEntry -= 6;
-        else currentEntry += 3;
-    }
 
     public void moveLeft() {
         if(currentEntry == 0 || currentEntry == 3 || currentEntry == 6) currentEntry += 2;

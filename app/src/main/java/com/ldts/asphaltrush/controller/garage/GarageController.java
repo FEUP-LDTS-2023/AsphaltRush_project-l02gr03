@@ -23,14 +23,6 @@ public class GarageController extends Controller<Garage> {
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
         switch (action) {
-            case UP:
-                selectSound.play();
-                getModel().moveUp();
-                break;
-            case DOWN:
-                selectSound.play();
-                getModel().moveDown();
-                break;
             case LEFT:
                 selectSound.play();
                 getModel().moveLeft();
