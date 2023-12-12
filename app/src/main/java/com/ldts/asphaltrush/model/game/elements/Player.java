@@ -6,9 +6,9 @@ public class Player extends Element {
 
     private static final int NUMBEROFTYPES = 1;
     private int type;
-    private double speed = 10000;
+    private double speed = 1;
     private double minSpeed = 1;
-    private double maxSpeed = 10000;
+    private double maxSpeed = 3.4;
     private boolean crashed = false;
     private PowerUp powerUp;
     private double powerUpTime;
