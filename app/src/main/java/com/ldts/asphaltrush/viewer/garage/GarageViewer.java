@@ -13,7 +13,9 @@ public class GarageViewer extends Viewer<Garage> {
 
     @Override
     protected void drawElements(GUI gui, ImageFactory imageFactory) {
-        System.out.println(getModel().getCurrentCar());
+
+        gui.drawImage(new Position(0,0), imageFactory.getImage("/background/garage"));
+
         gui.drawText(new Position(15, 5), "Garage", "#FFFFFF");
 
         for (int row = 0; row < 3; row++) {
