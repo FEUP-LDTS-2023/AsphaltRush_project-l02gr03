@@ -40,7 +40,8 @@ public class GameViewer extends Viewer<Street> {
         }
         else gui.drawText(new Position(14, 0), "/","#FFFFFF");
 
-        gui.drawRectangle(new Position(235, 150 + (30-(int)Math.round(30/5*Math.round(getModel().getPlayer().getPowerUpTime() * 10.0) / 10.0))), 4, (int)Math.round(30/5*Math.round(getModel().getPlayer().getPowerUpTime() * 10.0) / 10.0), "#FFFFFF");
+        int barSize = 45;
+        gui.drawRectangle(new Position(245, 185 + (30-(int)Math.round(barSize/5*Math.round(getModel().getPlayer().getPowerUpTime() * 10.0) / 10.0))), 4, (int)Math.round(barSize/5*Math.round(getModel().getPlayer().getPowerUpTime() * 10.0) / 10.0), "#FFFFFF");
     }
 
 

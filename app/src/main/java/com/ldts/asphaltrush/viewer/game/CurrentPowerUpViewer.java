@@ -14,6 +14,6 @@ public class CurrentPowerUpViewer implements ElementViewer<PowerUp> {
 
     @Override
     public void draw(PowerUp powerUp, GUI gui, ImageFactory imageFactory) {
-        gui.drawImage(new Position(230, 200), imageFactory.getImage("/elements/"+powerUp.getType()));
+        gui.drawImage(new Position(240, 220), imageFactory.getImage("/elements/"+powerUp.getType()));
     }
 }

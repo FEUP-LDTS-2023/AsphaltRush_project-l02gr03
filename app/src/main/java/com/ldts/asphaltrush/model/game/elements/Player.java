@@ -58,7 +58,7 @@ public class Player extends Element {
 
     public void addPowerUp(PowerUp powerUp) {
         this.powerUp = powerUp;
-        this.powerUpTime = 15.0;
+        this.powerUpTime = 5;
     }
 
     public void removePowerUp() {
