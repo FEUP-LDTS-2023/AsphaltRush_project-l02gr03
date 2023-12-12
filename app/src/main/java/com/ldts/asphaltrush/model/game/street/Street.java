@@ -112,17 +112,23 @@ public class Street {
         return false;
     }
 
-    public PowerUp getPowerUp(Position position) {
+    public PowerUp getPowerUp(Position position, int width, int height) {
         for (PowerUp powerUp : powerUps)
-            if (powerUp.getPosition().equals(position)) {
+            if (powerUp.getPosition().getX() < position.getX() + width &&
+                    powerUp.getPosition().getX() + powerUp.getWidth() > position.getX() &&
+                    powerUp.getPosition().getY() < position.getY() + height &&
+                    powerUp.getPosition().getY() + powerUp.getHeight() > position.getY()) {
                 return powerUp;
             }
         return null;
     }
 
-    public boolean isPowerUp(Position position) {
+    public boolean isPowerUp(Position position, int width, int height) {
         for (PowerUp powerUp : powerUps)
-            if (powerUp.getPosition().equals(position))
+            if (powerUp.getPosition().getX() < position.getX() + width &&
+                    powerUp.getPosition().getX() + powerUp.getWidth() > position.getX() &&
+                    powerUp.getPosition().getY() < position.getY() + height &&
+                    powerUp.getPosition().getY() + powerUp.getHeight() > position.getY())
                 return true;
         return false;
     }

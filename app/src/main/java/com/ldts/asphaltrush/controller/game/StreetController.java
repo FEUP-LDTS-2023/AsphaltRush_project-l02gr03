@@ -68,8 +68,8 @@ public class StreetController extends GameController {
 
             getModel().getPlayer().setCrashed();
         }
-        if (getModel().isPowerUp(getModel().getPlayer().getPosition())) {
-            PowerUp powerUp = getModel().getPowerUp(getModel().getPlayer().getPosition());
+        if (getModel().isPowerUp(getModel().getPlayer().getPosition(), getModel().getPlayer().getWidth(), getModel().getPlayer().getHeight())) {
+            PowerUp powerUp = getModel().getPowerUp(getModel().getPlayer().getPosition(), getModel().getPlayer().getWidth(), getModel().getPlayer().getHeight());
             if(powerUp != null) getModel().getPowerUps().remove(powerUp);
             getModel().getPlayer().addPowerUp(powerUp);
         }
