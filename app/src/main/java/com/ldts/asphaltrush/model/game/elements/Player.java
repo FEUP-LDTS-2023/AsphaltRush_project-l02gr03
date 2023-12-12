@@ -4,6 +4,9 @@ import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
 
 public class Player extends Element {
 
+    private static final int NUMBEROFTYPES = 1;
+    private int type = 6;
+
     private double speed = 1;
     private double minSpeed = 1;
     private double maxSpeed = 3.4;
@@ -11,6 +14,10 @@ public class Player extends Element {
     private PowerUp powerUp;
     private double powerUpTime;
 
+
+    public int getType(){
+        return type;
+    }
     public Player(int x, int y) {
         super(x, y);
     }
