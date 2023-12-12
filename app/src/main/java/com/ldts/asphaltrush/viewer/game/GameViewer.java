@@ -29,8 +29,8 @@ public class GameViewer extends Viewer<Street> {
         drawElement(gui, getModel().getPlayer(), new PlayerViewer(), imageFactory);
 
 
-        drawNumber(String.valueOf(getModel().getPoints().getPoints()), new Position(260, 2), gui, imageFactory);
-        drawNumber(Math.round(getModel().getPoints().getMultiplier() * 10.0) / 10.0 + "x", new Position(260, 10), gui, imageFactory);
+        gui.drawText(String.valueOf(getModel().getPoints().getPoints()), new Position(260, 2), imageFactory, 'r', true);
+        gui.drawText(Math.round(getModel().getPoints().getMultiplier() * 10.0) / 10.0 + "x", new Position(260, 10), imageFactory, 'r', true);
 
 
         PowerUp playerPowerUp = getModel().getPlayer().getPowerUp();
@@ -44,16 +44,6 @@ public class GameViewer extends Viewer<Street> {
         gui.drawRectangle(new Position(245, 185 + (30-(int)Math.round(barSize/5*Math.round(getModel().getPlayer().getPowerUpTime() * 10.0) / 10.0))), 4, (int)Math.round(barSize/5*Math.round(getModel().getPlayer().getPowerUpTime() * 10.0) / 10.0), "#FFFFFF");
     }
 
-
-    private void drawNumber(String number,Position position , GUI gui, ImageFactory imageFactory){
-        int x = position.getX();
-        int y = position.getY();
-        for (int i=number.length()-1; i>=0; i--){
-            Image image = imageFactory.getImage("/fonts/numbers/small/" + number.charAt(i));
-            x-= image.getWidth();
-            gui.drawImage(new Position(x, y), image);
-        }
-    }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer, ImageFactory imageFactory) {
         for (T element : elements)
