@@ -95,9 +95,12 @@ public class Street {
         return true;
     }
 
-    public boolean isObstacleCar(Position position) {
+    public boolean isObstacleCar(Position position, int width, int height) {
         for (ObstacleCar obstacleCar : obstacleCars)
-            if (obstacleCar.getPosition().equals(position))
+            if (obstacleCar.getPosition().getX() < position.getX() + width &&
+                    obstacleCar.getPosition().getX() + obstacleCar.getWidth() > position.getX() &&
+                    obstacleCar.getPosition().getY() < position.getY() + height &&
+                    obstacleCar.getPosition().getY() + obstacleCar.getHeight() > position.getY())
                 return true;
         return false;
     }

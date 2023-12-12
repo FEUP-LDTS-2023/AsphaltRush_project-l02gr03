@@ -32,7 +32,7 @@ public class ObstacleCarController extends GameController {
     }
 
     private void addNewObstacleCars() {
-        if(RNG.nextBoolean()) getModel().getObstacleCars().add(new ObstacleCar(RNG.nextInt(getModel().getWidth() - 2) + 1, -10));
+        if(RNG.nextDouble(0,50) < 1) getModel().getObstacleCars().add(new ObstacleCar(RNG.nextInt(getModel().getWidth() - 2) + 1, -50, 2));
     }
 
     private void moveObstacleCar(ObstacleCar obstacleCar, Position position) {

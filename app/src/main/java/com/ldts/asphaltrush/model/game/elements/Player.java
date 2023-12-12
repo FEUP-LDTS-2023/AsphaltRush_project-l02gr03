@@ -6,9 +6,6 @@ public class Player extends Element {
 
     private static final int NUMBEROFTYPES = 1;
     private int type;
-    private int width;
-    private int height;
-
     private double speed = 1;
     private double minSpeed = 1;
     private double maxSpeed = 3.4;
@@ -21,9 +18,7 @@ public class Player extends Element {
         return type;
     }
     public Player(int x, int y, int width, int height, int type) {
-        super(x, y);
-        this.height = height;
-        this.width = width;
+        super(x, y, width, height);
         this.type = type;
     }
 
