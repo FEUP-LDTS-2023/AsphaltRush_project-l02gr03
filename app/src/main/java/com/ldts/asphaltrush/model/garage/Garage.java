@@ -35,13 +35,11 @@ public class Garage {
 
 
     public void moveLeft() {
-        if(currentEntry == 0 || currentEntry == 3 || currentEntry == 6) currentEntry += 2;
-        else currentEntry--;
+        currentCar = (currentCar-1+NUMBEROFCARS)%NUMBEROFCARS;
     }
 
     public void moveRight() {
-        if(currentEntry == 2 || currentEntry == 5 || currentEntry == 8) currentEntry -= 2;
-        else currentEntry++;
+        currentCar = (currentCar+1)%NUMBEROFCARS;
     }
 
 }
