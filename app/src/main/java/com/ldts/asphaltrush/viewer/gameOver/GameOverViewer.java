@@ -31,11 +31,11 @@ public class GameOverViewer extends Viewer<GameOver> {
 
         for (int row = 0; row < 4; row++) {
             for (int col = 0; col < 7; col++) {
-                int index = row * 7 + col + 3;
+                int index = row * 7 + col + 2;
                 if (index < getModel().getNumberEntries()) {
-                    String entry = getModel().getEntry(index);
-                    String color = getModel().isSelected(index) ? "#0096FF" : "#FFFFFF";
-                    gui.drawText(new Position(5 + col * 2, 13 + row), entry, color);
+                    String selected = getModel().isSelected(index) ? "selected/" : "";
+                    Image letter = imageFactory.getImage("/fonts/letters/" + selected + getModel().getEntry(index));
+                    gui.drawImage(new Position(90 + col*12 , 130 + row*12), letter);
                 }
             }
         }

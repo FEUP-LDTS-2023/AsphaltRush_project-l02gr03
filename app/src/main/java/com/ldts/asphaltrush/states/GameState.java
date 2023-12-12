@@ -1,5 +1,6 @@
 package com.ldts.asphaltrush.states;
 
+import com.ldts.asphaltrush.model.gameOver.GameOver;
 import com.ldts.asphaltrush.observer.GameStateObserver;
 import com.ldts.asphaltrush.model.menu.Menu;
 
@@ -16,7 +17,7 @@ public class GameState {
     private List<GameStateObserver> observers;
     public GameState(){
         this.observers = new ArrayList<>();
-        setState(new MenuState(new Menu()));
+        setState(new GameOverState(new GameOver(100)));
     }
 
     public void setState(State state) {
