@@ -29,7 +29,7 @@ public class Game {
         this.backgroundMusic = new BackgroundMusic(gameState);
     }
 
-    public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException, LineUnavailableException {
+    public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException, LineUnavailableException, UnsupportedAudioFileException {
         new Game().start();
     }
 
