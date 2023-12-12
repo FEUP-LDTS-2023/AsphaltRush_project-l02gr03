@@ -21,21 +21,22 @@ public class ObstacleCarController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
-        if ((time - lastMovement) > 100) {
+        if ((time - lastMovement) > 200*(Math.min(OBSTACLE_CAR_SPEED*getModel().getPlayer().getSpeed(),4))) {
             addNewObstacleCars();
-            for (ObstacleCar obstacleCar : getModel().getObstacleCars()) {
-                moveObstacleCar(obstacleCar, obstacleCar.getPosition());
-            }
             this.lastMovement = time;
-            checkAndRemoveNewObstacleCars();
         }
+
+        for (ObstacleCar obstacleCar : getModel().getObstacleCars()) {
+            moveObstacleCar(obstacleCar, obstacleCar.getPosition());
+        }
+        checkAndRemoveNewObstacleCars();
     }
 
     private void addNewObstacleCars() {
-        int x = RNG.nextInt(getModel().getLeftCurbWidth(), getModel().getLeftCurbWidth()+getModel().getWidth()) + 1;
+        int x = RNG.nextInt(1, 5) * 28 + getModel().getLeftCurbWidth() + 10;
         int y = -50;
         ObstacleCar obstacleCar = new ObstacleCar(x, y, 2);
-        if(!getModel().isObstacleCar(new Position(x,y), obstacleCar.getWidth(), obstacleCar.getHeight()) && (RNG.nextDouble(0,50) < 1.5))
+        if(!getModel().isObstacleCar(new Position(x,y), obstacleCar.getWidth(), obstacleCar.getHeight()))
             getModel().getObstacleCars().add(obstacleCar);
     }
 
