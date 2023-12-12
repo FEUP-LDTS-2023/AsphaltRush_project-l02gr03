@@ -1,5 +1,6 @@
 package com.ldts.asphaltrush.gui;
 
+import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -180,5 +181,12 @@ public class LanternaGUI implements GUI {
     @Override
     public void drawInvenciblePowerUp(Position position) {
         drawCharacter(position.getX(), position.getY(), '★', "#BFF000");
+    }
+
+    @Override
+    public void drawRectangle(Position position, int width, int height, String color){
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setBackgroundColor(TextColor.Factory.fromString(color));
+        tg.fillRectangle(new TerminalPosition(position.getX(), position.getY()), new TerminalSize(width, height), 'a');
     }
 }
