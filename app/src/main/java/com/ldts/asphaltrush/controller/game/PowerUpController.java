@@ -3,6 +3,7 @@ package com.ldts.asphaltrush.controller.game;
 import com.ldts.asphaltrush.Game;
 import com.ldts.asphaltrush.gui.GUI;
 import com.ldts.asphaltrush.model.Position;
+import com.ldts.asphaltrush.model.game.elements.ObstacleCar;
 import com.ldts.asphaltrush.model.game.elements.powerup.InvenciblePowerUp;
 import com.ldts.asphaltrush.model.game.elements.powerup.PointMultiplierPowerUp;
 import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
@@ -55,7 +56,15 @@ public class PowerUpController extends GameController {
     }
 
     private void addNewPowerUps() {
-        if(RNG.nextDouble(0,100) < 1) getModel().getPowerUps().add(new PointMultiplierPowerUp(RNG.nextInt(getModel().getLeftCurbWidth(),getModel().getLeftCurbWidth()+getModel().getWidth()) + 1, -30));
-        if(RNG.nextDouble(0,100) < 1) getModel().getPowerUps().add(new InvenciblePowerUp(RNG.nextInt(getModel().getLeftCurbWidth(),getModel().getLeftCurbWidth()+getModel().getWidth()) + 1, -30));
+
+        int x = RNG.nextInt(1, 5) * 28 + getModel().getLeftCurbWidth() + 10;
+        int y = -50;
+        if(RNG.nextDouble(0,100) < 1)
+            getModel().getPowerUps().add(new PointMultiplierPowerUp(x,y));
+
+        x = RNG.nextInt(1, 5) * 28 + getModel().getLeftCurbWidth() + 10;
+        y = -50;
+        if(RNG.nextDouble(0,100) < 1)
+            getModel().getPowerUps().add(new InvenciblePowerUp(x,y));
     }
 }
