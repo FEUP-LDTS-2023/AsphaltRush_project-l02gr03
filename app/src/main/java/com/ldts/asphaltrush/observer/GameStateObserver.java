@@ -1,4 +1,4 @@
-package com.ldts.asphaltrush.Observer;
+package com.ldts.asphaltrush.observer;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;

@@ -1,7 +1,6 @@
 package com.ldts.asphaltrush.states;
 
-import com.ldts.asphaltrush.Game;
-import com.ldts.asphaltrush.Observer.GameStateObserver;
+import com.ldts.asphaltrush.observer.GameStateObserver;
 import com.ldts.asphaltrush.model.menu.Menu;
 
 import javax.sound.sampled.LineUnavailableException;
@@ -16,8 +15,8 @@ public class GameState {
     private State state;
     private List<GameStateObserver> observers;
     public GameState(){
-        this.state = new MenuState(new Menu());
         this.observers = new ArrayList<>();
+        setState(new MenuState(new Menu()));
     }
 
     public void setState(State state) {
