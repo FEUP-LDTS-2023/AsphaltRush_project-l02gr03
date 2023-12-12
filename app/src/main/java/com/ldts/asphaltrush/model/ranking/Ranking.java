@@ -18,7 +18,7 @@ public class Ranking {
         this.entries = Arrays.asList("Back");
     }
 
-    public ArrayList<String> getRankingAsText() throws IOException {
+    public ArrayList<String[]> getRankingAsText() throws IOException {
         BufferedReader objReader = null;
 
         String fileName = "Rankings.txt";
@@ -33,13 +33,13 @@ public class Ranking {
 
         objReader = new BufferedReader(new InputStreamReader(inputStream));
         String line;
-        ArrayList<String> rankingAsText = new ArrayList<>();
+        ArrayList<String[]> rankingAsText = new ArrayList<>();
 
         // get values from Rankings.txt and insert them into rankingAsText
         while ((line = objReader.readLine()) != null) {
             String[] arr = line.split(":");
             // add the values to the list
-            rankingAsText.add(arr[0] + " " + Long.parseLong(arr[1]));
+            rankingAsText.add(arr);
         }
 
         objReader.close();
