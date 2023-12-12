@@ -8,7 +8,7 @@ public class Player extends Element {
     private int type;
     private double speed = 1;
     private double minSpeed = 1;
-    private double maxSpeed = 3.4;
+    private double maxSpeed = 10;
     private boolean crashed = false;
     private PowerUp powerUp;
     private double powerUpTime;
