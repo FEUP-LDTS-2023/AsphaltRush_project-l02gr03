@@ -13,7 +13,9 @@ public class GameOverViewer extends Viewer<GameOver> {
 
     @Override
     protected void drawElements(GUI gui, ImageFactory imageFactory) {
-        gui.drawText(new Position(5, 5), "GAME OVER", "#FFFFFF");
+        gui.drawImage(new Position(0,0), imageFactory.getImage("/background/gameOver"));
+
+
         gui.drawText(new Position(5, 6), "Points: " + getModel().getPoints(), "#FFFFFF");
         gui.drawText(new Position(5, 7), "Name: " + getModel().getName(), "#FFFFFF");
         gui.drawText(new Position(5, 9), getModel().getEntry(0), getModel().isSelected(0) ? "#0096FF" : "#FFFFFF");
