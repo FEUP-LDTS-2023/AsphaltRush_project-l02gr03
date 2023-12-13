@@ -28,7 +28,7 @@ public class RankingViewer extends Viewer<Ranking> {
 
 
 
-        ArrayList<String[]> rankingArray = getModel().getRankingAsText();
+        ArrayList<String[]> rankingArray = getModel().getRanking();
         if(rankingArray != null) {
 
             gui.drawImage(new Position(75, 60), imageFactory.getImage("/text/name"));
