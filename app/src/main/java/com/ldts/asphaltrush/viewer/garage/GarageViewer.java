@@ -17,6 +17,9 @@ public class GarageViewer extends Viewer<Garage> {
 
         gui.drawImage(new Position(0,0), imageFactory.getImage("/background/garage"));
 
+        Image titleImage = imageFactory.getImage("/title/garage");
+        gui.drawImage(new Position(130-titleImage.getWidth()/2, 15), titleImage);
+
         Image carImage = imageFactory.getImage("/cars/player/garage/car" + getModel().getCurrentCar());
         gui.drawImage(new Position(130-carImage.getWidth()/2,150-carImage.getHeight()/2), carImage);
 
