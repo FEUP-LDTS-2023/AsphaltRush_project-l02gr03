@@ -35,7 +35,7 @@ public class Player extends Element {
     }
 
     public void increaseMinSpeed() {
-        minSpeed += 0.0005;
+        minSpeed += 0.005;
         speed = Math.max(speed, minSpeed);
     }
 
