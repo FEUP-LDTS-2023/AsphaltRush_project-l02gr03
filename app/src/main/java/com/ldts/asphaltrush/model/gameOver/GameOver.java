@@ -1,9 +1,11 @@
 package com.ldts.asphaltrush.model.gameOver;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import com.ldts.asphaltrush.model.ImageFactory;
+import com.ldts.asphaltrush.model.ranking.Pair;
+
+import java.io.*;
+import java.net.URL;
+import java.util.*;
 
 public class GameOver {
     private final List<String> entries;
@@ -108,10 +110,44 @@ public class GameOver {
 
     public void saveRanking(){
 
+        try {
+            TreeSet<Pair<String, Long>> rankingsSet = readRankings();
+            rankingsSet.add(new Pair<>(name, points));
+            writeRanking(rankingsSet);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
+    }
 
+    private void writeRanking(TreeSet<Pair<String, Long>> rankingSet) throws IOException {
 
+        String path = "app/data/Rankings.txt";
+        BufferedWriter bw = new BufferedWriter(new FileWriter(path));
 
+            for (int k = 1; k <= 5; k++) {
+                if (rankingSet.isEmpty()) break;
+                bw.write(rankingSet.first().getFirst() + ":" + rankingSet.first().getSecond()+'\n');
+                rankingSet.remove(rankingSet.first());
+            }
+            bw.close();
+    }
+    private TreeSet<Pair<String, Long>>  readRankings() throws IOException {
+        TreeSet<Pair<String, Long>>  rankingSet = new  TreeSet<>(Comparator
+                .<Pair<String, Long>>comparingLong(Pair::getSecond)
+                .reversed()
+                .thenComparing(Pair::getFirst));;
+
+        String path = "app/data/Rankings.txt";
+        BufferedReader br = new BufferedReader(new FileReader(path));
+
+        String line;
+        while ((line = br.readLine()) != null) {
+            String[] namePoints = line.split(":");
+            rankingSet.add(new Pair(namePoints[0], Long.parseLong(namePoints[1])));
+        }
+
+        return rankingSet;
     }
 
 }
