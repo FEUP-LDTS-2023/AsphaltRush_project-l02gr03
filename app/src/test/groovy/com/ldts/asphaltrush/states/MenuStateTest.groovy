@@ -1,16 +1,23 @@
 package com.ldts.asphaltrush.states
+import spock.lang.Specification
+import com.ldts.asphaltrush.controller.menu.MenuController
+import com.ldts.asphaltrush.model.menu.Menu
+import com.ldts.asphaltrush.viewer.menu.MenuViewer
 
-import spock.lang.Specification;
+class MenuStateSpec extends Specification {
 
-class MenuStateTest extends Specification {
-    def "MenuState Test 1"() {
-        setup:
-        def result;
+    def "MenuState should create MenuViewer and MenuController with the correct model"() {
+        given:
+        def menuModel = new Menu()
+        def menuState = new MenuState(menuModel)
 
         when:
-        result = 0;
+        def viewer = menuState.getViewer()
+        def controller = menuState.getController()
 
         then:
-        result != 0;
+        viewer instanceof MenuViewer
+        controller instanceof MenuController
+        controller.model == menuModel
     }
 }
