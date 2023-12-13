@@ -37,7 +37,7 @@ public class StreetBuilder {
 
 
     private Player createPlayer() {
-        Image playerImage = imageFactory.getImage("/cars/player/car" + playerType);
+        Image playerImage = imageFactory.getImage("/cars/player/game/car" + playerType);
         return new Player(121,235-playerImage.getHeight() ,playerImage.getWidth(), playerImage.getHeight(), playerType);
     }
 
