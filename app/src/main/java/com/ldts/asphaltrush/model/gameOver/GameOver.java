@@ -67,41 +67,38 @@ public class GameOver {
     }
 
     public void moveLeft() {
-        currentEntry--;
-        if (currentEntry < 3)
-            currentEntry = this.entries.size() - 1;
-        else if (currentEntry >= 3 && (currentEntry % 7) + 3 == 0) {
-            currentEntry -= 7;
+        if (currentEntry > 1) {
+            currentEntry--;
+            if ((currentEntry + 5) % 7 == 6) {
+                currentEntry += 7;
+                if (currentEntry > getNumberEntries() - 1) currentEntry = getNumberEntries() - 1;
+            }
         }
     }
 
     public void moveRight() {
-        currentEntry++;
-        if (currentEntry >= this.entries.size())
-            currentEntry = 3;
-        else if (currentEntry >= 3 && (currentEntry % 7) + 3 == 0) {
-            currentEntry += 7;
+        if (currentEntry > 1) {
+            currentEntry++;
+            if ((currentEntry + 5) % 7 == 0) {
+                currentEntry -= 7;
+            }
+            if (currentEntry > getNumberEntries() - 1) currentEntry = 23;
         }
     }
 
     public void moveDown() {
-        if(currentEntry<3) currentEntry++;
-        else {
+        if(currentEntry == 0) currentEntry++;
+        else if(currentEntry >=2){
             currentEntry += 7;
-
             if (currentEntry > this.entries.size()-1)
                 currentEntry = 0;
         }
     }
 
     public void moveUp() {
-        if(currentEntry<=0) currentEntry=entries.size()-1;
-        else if(currentEntry<3) currentEntry--;
-        else if (currentEntry < 7+3) currentEntry = 2;
-        else {
-            currentEntry -= 7;
-            if (currentEntry < 0)
-                currentEntry = this.entries.size() - 1 - (Math.abs(currentEntry) % 7);
-        }
+        if(currentEntry==0) currentEntry=entries.size()-1;
+        else if(currentEntry==1) currentEntry--;
+        else if (currentEntry >=9) currentEntry -=7;
+
     }
 }
