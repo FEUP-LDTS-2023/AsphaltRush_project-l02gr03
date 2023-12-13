@@ -18,7 +18,7 @@ public class LineController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
-        if (time - lastMovement > 800/(LINE_SPEED*getModel().getPlayer().getSpeed())) {
+        if (time - lastMovement > 100) {
             for (Line line : getModel().getLines()) {
                 moveLine(line, line.getPosition());
             }
@@ -27,9 +27,11 @@ public class LineController extends GameController {
     }
 
     private void moveLine(Line line, Position position) {
-        if (line.getPosition().getY() >= getModel().getHeight())
-            line.setPosition(new Position(position.getX(), -3));
+        if (line.getPosition().getY() >= getModel().getHeight()){
+            getModel().getLines().remove(getModel().getLines().size()-1);
+            getModel().getLines().addFirst(new Line(position.getX(), getModel().getLines().get(0).getPosition().getY()-33));
+        }
         else
-            line.setPosition(new Position(position.getX(), position.getY() + 1));
+            line.setPosition(new Position(position.getX(), position.getY() + (int) (LINE_SPEED*getModel().getPlayer().getSpeed())));
     }
 }

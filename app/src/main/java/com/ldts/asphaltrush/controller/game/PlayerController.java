@@ -13,11 +13,11 @@ public class PlayerController extends GameController {
     }
 
     public void movePlayerLeft() {
-        movePlayer(getModel().getPlayer().getPosition().getLeft());
+        movePlayer(new Position(getModel().getPlayer().getPosition().getX()-28, getModel().getPlayer().getPosition().getY()));
     }
 
     public void movePlayerRight() {
-        movePlayer(getModel().getPlayer().getPosition().getRight());
+        movePlayer(new Position(getModel().getPlayer().getPosition().getX()+28, getModel().getPlayer().getPosition().getY()));
     }
 
     public void increasePlayerSpeed() {
@@ -29,7 +29,9 @@ public class PlayerController extends GameController {
     }
 
     private void movePlayer(Position position) {
-        if (getModel().isEmpty(position)) getModel().getPlayer().setPosition(position);
+        if(position.getX() > getModel().getLeftCurbWidth() &&
+                position.getX() < (getModel().getLeftCurbWidth() + getModel().getWidth()))
+            getModel().getPlayer().setPosition(position);
     }
 
     @Override

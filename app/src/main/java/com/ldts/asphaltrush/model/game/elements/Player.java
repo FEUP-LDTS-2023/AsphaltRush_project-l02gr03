@@ -4,15 +4,22 @@ import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
 
 public class Player extends Element {
 
+    private static final int NUMBEROFTYPES = 1;
+    private int type;
     private double speed = 1;
     private double minSpeed = 1;
-    private double maxSpeed = 3.4;
+    private double maxSpeed = 10;
     private boolean crashed = false;
     private PowerUp powerUp;
     private double powerUpTime;
 
-    public Player(int x, int y) {
-        super(x, y);
+
+    public int getType(){
+        return type;
+    }
+    public Player(int x, int y, int width, int height, int type) {
+        super(x, y, width, height);
+        this.type = type;
     }
 
     public double getSpeed() {
@@ -28,7 +35,7 @@ public class Player extends Element {
     }
 
     public void increaseMinSpeed() {
-        minSpeed += 0.0005;
+        minSpeed += 0.005;
         speed = Math.max(speed, minSpeed);
     }
 
@@ -46,7 +53,7 @@ public class Player extends Element {
 
     public void addPowerUp(PowerUp powerUp) {
         this.powerUp = powerUp;
-        this.powerUpTime = 15.0;
+        this.powerUpTime = 5;
     }
 
     public void removePowerUp() {

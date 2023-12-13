@@ -1,0 +1,17 @@
+2
+15
+#ffffff-#c7c7c7-
+#c5c5c5-#ffffff-
+#fefefe-#c6c6c6-
+#c6c6c6-#fefefe-
+#c6c6c6-#c6c6c6-
+#ffffff-#c6c6c6-
+#ffffff-#fefefe-
+#c6c6c6-#c6c6c6-
+#ffffff-#c6c6c6-
+#c6c6c6-#ffffff-
+#fefefe-#c6c6c6-
+#c7c7c5-#fffffd-
+#c6c6c6-#c7c7c7-
+#c6c6c6-#c6c6c6-
+#ffffff-#ffffff-

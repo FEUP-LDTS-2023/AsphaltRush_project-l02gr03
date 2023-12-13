@@ -1,5 +1,6 @@
 package com.ldts.asphaltrush.states;
 
+import com.ldts.asphaltrush.model.gameOver.GameOver;
 import com.ldts.asphaltrush.observer.GameStateObserver;
 import com.ldts.asphaltrush.model.menu.Menu;
 

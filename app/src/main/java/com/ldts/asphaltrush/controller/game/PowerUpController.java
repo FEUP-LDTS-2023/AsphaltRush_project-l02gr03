@@ -3,6 +3,7 @@ package com.ldts.asphaltrush.controller.game;
 import com.ldts.asphaltrush.Game;
 import com.ldts.asphaltrush.gui.GUI;
 import com.ldts.asphaltrush.model.Position;
+import com.ldts.asphaltrush.model.game.elements.ObstacleCar;
 import com.ldts.asphaltrush.model.game.elements.powerup.InvenciblePowerUp;
 import com.ldts.asphaltrush.model.game.elements.powerup.PointMultiplierPowerUp;
 import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
@@ -28,7 +29,7 @@ public class PowerUpController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
-        if (time - lastMovement > 800/(POWER_UP_SPEED*getModel().getPlayer().getSpeed())) {
+        if (time - lastMovement > 100) {
             addNewPowerUps();
             for (PowerUp powerUp : getModel().getPowerUps()) {
                 movePowerUp(powerUp, powerUp.getPosition());
@@ -39,7 +40,7 @@ public class PowerUpController extends GameController {
     }
 
     private void movePowerUp(PowerUp powerUp, Position position) {
-        if (getModel().isEmpty(position)) powerUp.setPosition(new Position(position.getX(), position.getY() + 1));
+        if (getModel().isEmpty(position)) powerUp.setPosition(new Position(position.getX(), position.getY() + (int) (POWER_UP_SPEED*getModel().getPlayer().getSpeed())));
     }
 
     private void checkAndRemovePowerUps() {
@@ -55,7 +56,15 @@ public class PowerUpController extends GameController {
     }
 
     private void addNewPowerUps() {
-        if(RNG.nextDouble(0,100) < 20) getModel().getPowerUps().add(new PointMultiplierPowerUp(RNG.nextInt(getModel().getWidth() - 2) + 1, -10));
-        if(RNG.nextDouble(0,100) < 20) getModel().getPowerUps().add(new InvenciblePowerUp(RNG.nextInt(getModel().getWidth() - 2) + 1, -10));
+
+        int x = RNG.nextInt(1, 5) * 28 + getModel().getLeftCurbWidth() + 10;
+        int y = -50;
+        if(RNG.nextDouble(0,100) < 1)
+            getModel().getPowerUps().add(new PointMultiplierPowerUp(x,y));
+
+        x = RNG.nextInt(1, 5) * 28 + getModel().getLeftCurbWidth() + 10;
+        y = -50;
+        if(RNG.nextDouble(0,100) < 1)
+            getModel().getPowerUps().add(new InvenciblePowerUp(x,y));
     }
 }

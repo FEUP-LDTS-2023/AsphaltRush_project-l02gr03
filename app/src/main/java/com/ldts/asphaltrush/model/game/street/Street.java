@@ -5,23 +5,24 @@ import com.ldts.asphaltrush.model.game.Points;
 import com.ldts.asphaltrush.model.game.elements.*;
 import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Street {
-    private final int width;
-    private final int height;
+
+    private final int leftCurbWidth = 58;
+    private final int width = 126;
+    private final int height = 240;
     private Points points;
     private Player player;
     private List<ObstacleCar> obstacleCars;
     private List<PowerUp> powerUps;
     private List<Barrier> barriers;
-    private List<Line> lines;
+    private LinkedList<Line> lines;
     private List<Hole> holes;
     private List<Jump> jumps;
 
-    public Street(int width, int height) {
-        this.width = width;
-        this.height = height;
+    public Street() {
         this.points = new Points();
     }
 
@@ -49,11 +50,11 @@ public class Street {
         this.barriers = barriers;
     }
 
-    public List<Line> getLines() {
+    public LinkedList<Line> getLines() {
         return lines;
     }
 
-    public void setLines(List<Line> lines) {
+    public void setLines(LinkedList<Line> lines) {
         this.lines = lines;
     }
 
@@ -96,9 +97,12 @@ public class Street {
         return true;
     }
 
-    public boolean isObstacleCar(Position position) {
+    public boolean isObstacleCar(Position position, int width, int height) {
         for (ObstacleCar obstacleCar : obstacleCars)
-            if (obstacleCar.getPosition().equals(position))
+            if (obstacleCar.getPosition().getX() < position.getX() + width &&
+                    obstacleCar.getPosition().getX() + obstacleCar.getWidth() > position.getX() &&
+                    obstacleCar.getPosition().getY() < position.getY() + height &&
+                    obstacleCar.getPosition().getY() + obstacleCar.getHeight() > position.getY())
                 return true;
         return false;
     }
@@ -110,22 +114,32 @@ public class Street {
         return false;
     }
 
-    public PowerUp getPowerUp(Position position) {
+    public PowerUp getPowerUp(Position position, int width, int height) {
         for (PowerUp powerUp : powerUps)
-            if (powerUp.getPosition().equals(position)) {
+            if (powerUp.getPosition().getX() < position.getX() + width &&
+                    powerUp.getPosition().getX() + powerUp.getWidth() > position.getX() &&
+                    powerUp.getPosition().getY() < position.getY() + height &&
+                    powerUp.getPosition().getY() + powerUp.getHeight() > position.getY()) {
                 return powerUp;
             }
         return null;
     }
 
-    public boolean isPowerUp(Position position) {
+    public boolean isPowerUp(Position position, int width, int height) {
         for (PowerUp powerUp : powerUps)
-            if (powerUp.getPosition().equals(position))
+            if (powerUp.getPosition().getX() < position.getX() + width &&
+                    powerUp.getPosition().getX() + powerUp.getWidth() > position.getX() &&
+                    powerUp.getPosition().getY() < position.getY() + height &&
+                    powerUp.getPosition().getY() + powerUp.getHeight() > position.getY())
                 return true;
         return false;
     }
 
     public Points getPoints() {
         return points;
+    }
+
+    public int getLeftCurbWidth() {
+        return leftCurbWidth;
     }
 }

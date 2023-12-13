@@ -7,7 +7,8 @@ import com.ldts.asphaltrush.model.game.elements.Player;
 public class PlayerViewer implements ElementViewer<Player> {
     @Override
     public void draw(Player element, GUI gui, ImageFactory imageFactory) {
-        gui.drawPlayer(element.getPosition());
+        System.out.println(element.getType());
+        gui.drawImage(element.getPosition(), imageFactory.getImage("/cars/player/car" + element.getType()));
     }
 }
 

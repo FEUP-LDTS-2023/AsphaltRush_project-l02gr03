@@ -53,7 +53,7 @@ public class GameOverController extends Controller<GameOver> {
                     String currentName = getModel().getName();
                     if (!currentName.isEmpty()) getModel().setName(currentName.substring(0, currentName.length() - 1));
                 }
-                else getModel().setName(getModel().getName()+getModel().getCurrentEntry());
+                else if (getModel().getName().length() < 5)getModel().setName(getModel().getName()+getModel().getCurrentEntry());
         }
     }
 }

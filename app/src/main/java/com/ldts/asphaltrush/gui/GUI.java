@@ -1,6 +1,7 @@
 package com.ldts.asphaltrush.gui;
 
 import com.ldts.asphaltrush.model.Image;
+import com.ldts.asphaltrush.model.ImageFactory;
 import com.ldts.asphaltrush.model.Position;
 
 import java.io.IOException;
@@ -17,6 +18,8 @@ public interface GUI {
 
     void drawImage(Position position, Image image);
     void drawText(Position position, String text, String color);
+    void drawText(String text, Position position, ImageFactory imageFactory, char type, boolean smalllNumber);
+    void drawText(String text, Position position, ImageFactory imageFactory, char type);
 
     enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
 
@@ -35,4 +38,6 @@ public interface GUI {
     void drawPointMultiplierPowerUp(Position position);
 
     void drawInvenciblePowerUp(Position position);
+
+    void drawRectangle(Position position, int width, int height, String color);
 }
