@@ -9,6 +9,7 @@ import com.ldts.asphaltrush.model.game.street.Street;
 import com.ldts.asphaltrush.model.gameOver.GameOver;
 import com.ldts.asphaltrush.model.menu.Menu;
 import com.ldts.asphaltrush.model.soundEffects.CrashSound;
+import com.ldts.asphaltrush.model.soundEffects.PowerUpSound;
 import com.ldts.asphaltrush.model.soundEffects.SoundEffect;
 import com.ldts.asphaltrush.states.GameOverState;
 import com.ldts.asphaltrush.states.MenuState;
@@ -27,6 +28,7 @@ public class StreetController extends GameController {
     private final JumpController jumpController;
     private final PointsController pointsController;
     private final SoundEffect crashSound;
+    private final SoundEffect powerUpSound;
 
     public StreetController(Street street) {
         super(street);
@@ -39,6 +41,7 @@ public class StreetController extends GameController {
         this.jumpController = new JumpController(street);
         this.pointsController = new PointsController(street);
         this.crashSound = new CrashSound();
+        this.powerUpSound = new PowerUpSound();
     }
 
     @Override
@@ -69,6 +72,7 @@ public class StreetController extends GameController {
             getModel().getPlayer().setCrashed();
         }
         if (getModel().isPowerUp(getModel().getPlayer().getPosition(), getModel().getPlayer().getWidth(), getModel().getPlayer().getHeight())) {
+            powerUpSound.play();
             PowerUp powerUp = getModel().getPowerUp(getModel().getPlayer().getPosition(), getModel().getPlayer().getWidth(), getModel().getPlayer().getHeight());
             if(powerUp != null) getModel().getPowerUps().remove(powerUp);
             getModel().getPlayer().addPowerUp(powerUp);
