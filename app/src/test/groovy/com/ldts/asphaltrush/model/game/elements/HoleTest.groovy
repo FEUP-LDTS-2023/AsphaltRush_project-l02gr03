@@ -1,20 +1,34 @@
 import spock.lang.Specification
-import spock.lang.Subject
 import com.ldts.asphaltrush.model.game.elements.Hole
+import com.ldts.asphaltrush.model.Position
 
 class HoleTest extends Specification {
 
-    @Subject
-    Hole hole
+    def "Hole should be initialized with the correct position"() {
+        given:
+        def x = 5
+        def y = 10
 
-    def setup() {
-        hole = new Hole(1, 1)
+        when:
+        def hole = new Hole(x, y)
+        def position = hole.getPosition()
+
+        then:
+        position.getX() == x
+        position.getY() == y
     }
 
-    def "should initialize with the correct position"() {
-        expect:
-        // Verify that the Hole initializes with the correct position
-        hole.getX() == 1
-        hole.getY() == 1
+    def "Hole should be able to set a new position"() {
+        given:
+        def hole = new Hole(0, 0)
+        def newPosition = new Position(3, 5)
+
+        when:
+        hole.setPosition(newPosition)
+        def position = hole.getPosition()
+
+        then:
+        position == newPosition
     }
 }
+

@@ -1,16 +1,30 @@
 package com.ldts.asphaltrush.model.game.elements
 
-import spock.lang.Specification;
+import com.ldts.asphaltrush.model.Image
+import com.ldts.asphaltrush.model.ImageFactory
+import spock.lang.Specification
 
 class ObstacleCarTest extends Specification {
-    def "Vehicle Test 1"() {
-        setup:
-        def result;
+
+    def "ObstacleCar should initialize with the correct type and dimensions"() {
+        given:
+        ImageFactory imageFactory = new ImageFactory()
+        Image image = imageFactory.getImage("/cars/obstacle/car1")
 
         when:
-        result = 0;
+        ObstacleCar obstacleCar = new ObstacleCar(0, 0, 1)
 
         then:
-        result != 0;
+        obstacleCar.getType() == 1
+        obstacleCar.getWidth() == image.getWidth()
+        obstacleCar.getHeight() == image.getHeight()
+    }
+
+    def "ObstacleCar should return the correct type"() {
+        given:
+        ObstacleCar obstacleCar = new ObstacleCar(0, 0, 5)
+
+        expect:
+        obstacleCar.getType() == 5
     }
 }

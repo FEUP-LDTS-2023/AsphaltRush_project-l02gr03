@@ -2,15 +2,20 @@ package com.ldts.asphaltrush.model.game.elements.powerup
 
 import spock.lang.Specification;
 
+
 class PointMultiplierPowerUpTest extends Specification {
-    def "PointMultiplier Test 1"() {
-        setup:
-        def result;
+
+    def "PointMultiplierPowerUp should be created with correct Type"() {
+        given:
+        int x = 10
+        int y = 20
 
         when:
-        result = 0;
+        PointMultiplierPowerUp pointmultiplierPowerUp = new PointMultiplierPowerUp(x, y)
 
         then:
-        result != 0;
+        pointmultiplierPowerUp != null
+        pointmultiplierPowerUp.getType() == "star"
     }
 }
+

@@ -1,16 +1,20 @@
 package com.ldts.asphaltrush.model.game.elements.powerup
 
-import spock.lang.Specification;
+import spock.lang.Specification
 
 class InvenciblePowerUpTest extends Specification {
-    def "Invencible Test 1"() {
-        setup:
-        def result;
+
+    def "InvenciblePowerUp should be created with correct Type"() {
+        given:
+        int x = 10
+        int y = 20
 
         when:
-        result = 0;
+        InvenciblePowerUp invenciblePowerUp = new InvenciblePowerUp(x, y)
 
         then:
-        result != 0;
+        invenciblePowerUp != null
+        invenciblePowerUp.getType() == "shield"
     }
 }
+

@@ -1,16 +1,16 @@
 package com.ldts.asphaltrush.model.game.elements
 
-import spock.lang.Specification;
+import spock.lang.Specification
 
 class LineTest extends Specification {
-    def "Line Test 1"() {
-        setup:
-        def result;
 
+    def "initialize with the correct position"() {
         when:
-        result = 0;
+        Line line = new Line(10, 20)
 
         then:
-        result != 0;
+        line.getPosition().getX() == 10
+        line.getPosition().getY() == 20
     }
 }
+
