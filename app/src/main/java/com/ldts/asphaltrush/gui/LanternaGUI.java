@@ -188,7 +188,7 @@ public class LanternaGUI implements GUI {
     public void drawRectangle(Position position, int width, int height, String color){
         TextGraphics tg = screen.newTextGraphics();
         tg.setBackgroundColor(TextColor.Factory.fromString(color));
-        tg.fillRectangle(new TerminalPosition(position.getX(), position.getY()), new TerminalSize(width, height), 'a');
+        tg.fillRectangle(new TerminalPosition(position.getX(), position.getY()), new TerminalSize(width, height), ' ');
     }
 
 
