@@ -15,6 +15,7 @@ public class GameState {
 
     private State state;
     private List<GameStateObserver> observers;
+    private int carType=0;
     public GameState(){
         this.observers = new ArrayList<>();
         setState(new MenuState(new Menu()));
@@ -33,6 +34,13 @@ public class GameState {
         return state;
     }
 
+    public int getCarType(){
+        return carType;
+    }
+
+    public void setCarType(int carType){
+        this.carType = carType;
+    }
     public void addObserver(GameStateObserver observer) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         observers.add(observer);
         notifyObservers();
