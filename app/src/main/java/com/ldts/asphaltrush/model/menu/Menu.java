@@ -9,7 +9,6 @@ public class Menu {
 
 
 
-    private int currentCar = 6;
 
     public Menu() {
         this.entries = Arrays.asList("Start", "Garage" , "Ranking" , "Instructions" , "Exit");
@@ -17,15 +16,11 @@ public class Menu {
 
     public Menu(int currentCar){
         this.entries = Arrays.asList("Start", "Garage" , "Ranking" , "Instructions" , "Exit");
-        this.currentCar = currentCar;
     }
     public int getNumberEntries() {
         return this.entries.size();
     }
 
-    public int getCurrentCar() {
-        return currentCar;
-    }
     public void nextEntry() {
         currentEntry++;
         if (currentEntry > this.entries.size() - 1)

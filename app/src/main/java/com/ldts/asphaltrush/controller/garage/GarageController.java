@@ -37,7 +37,8 @@ public class GarageController extends Controller<Garage> {
             case SELECT:
                 selectCarSound.play();
                 if (getModel().isSelectedConfirm()){
-                    game.getGameState().setState(new MenuState(new Menu(getModel().getCurrentCar())));
+                    game.getGameState().setCarType(getModel().getCurrentCar());
+                    game.getGameState().setState(new MenuState(new Menu()));
                 }
         }
     }
