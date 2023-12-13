@@ -32,6 +32,9 @@ public class Street {
         this.carBuilder = carBuilder;
     }
 
+    public ObstacleCarBuilder getCarBuilder(){
+        return carBuilder;
+    }
     public int getWidth() {
         return width;
     }
