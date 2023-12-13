@@ -3,6 +3,7 @@ package com.ldts.asphaltrush.model.gameOver;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class GameOver {
     private final List<String> entries;
@@ -99,6 +100,18 @@ public class GameOver {
         if(currentEntry==0) currentEntry=entries.size()-1;
         else if(currentEntry==1) currentEntry--;
         else if (currentEntry >=9) currentEntry -=7;
+    }
+
+    public boolean isNameEmpty(){
+        return Objects.equals(name, "");
+    }
+
+    public void saveRanking(){
+
+
+
+
 
     }
+
 }
