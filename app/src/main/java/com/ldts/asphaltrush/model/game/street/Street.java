@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Street {
 
-    private final int leftCurbWidth = 58;
+    private final int leftCurbWidth = 59;
     private final int width = 126;
     private final int height = 240;
     private Points points;

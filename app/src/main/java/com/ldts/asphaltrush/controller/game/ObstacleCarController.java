@@ -33,10 +33,12 @@ public class ObstacleCarController extends GameController {
     }
 
     private void addNewObstacleCars() {
-        int x = RNG.nextInt(1, 5) * 28 + getModel().getLeftCurbWidth() + 10;
+        int r = RNG.nextInt(0, 4);
+        int x = r-1+r* 28 + getModel().getLeftCurbWidth();
         int y = -50;
         int type = RNG.nextInt(1, ObstacleCar.TYPESNUMBER+1);
         ObstacleCar obstacleCar = new ObstacleCar(x, y, type);
+       obstacleCar.setPosition(new Position(x+((28-obstacleCar.getWidth())/2), y));
         if(!getModel().isObstacleCar(new Position(x,y), obstacleCar.getWidth(), obstacleCar.getHeight()))
             getModel().getObstacleCars().add(obstacleCar);
     }
