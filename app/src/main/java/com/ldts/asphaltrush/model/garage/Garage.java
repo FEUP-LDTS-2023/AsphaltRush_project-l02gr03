@@ -21,8 +21,8 @@ public class Garage {
         return entries.get(i);
     }
 
-    public int getCurrentEntry() {
-        return currentEntry;
+    public boolean isSelectedConfirm() {
+        return isSelected(0);
     }
 
     public boolean isSelected(int i) {
