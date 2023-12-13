@@ -18,4 +18,8 @@ public class Instructions {
     public boolean isSelectedBack() {
         return isSelected(0);
     }
+
+    public String getEntry(int i) {
+        return this.entries.get(i);
+    }
 }
