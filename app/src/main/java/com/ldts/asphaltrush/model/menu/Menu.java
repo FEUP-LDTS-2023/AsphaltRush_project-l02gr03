@@ -12,11 +12,11 @@ public class Menu {
     private int currentCar = 6;
 
     public Menu() {
-        this.entries = Arrays.asList("Start", "Garage" , "Ranking", "Exit");
+        this.entries = Arrays.asList("Start", "Garage" , "Ranking" , "Instructions" , "Exit");
     }
 
     public Menu(int currentCar){
-        this.entries = Arrays.asList("Start", "Garage" , "Ranking", "Exit");
+        this.entries = Arrays.asList("Start", "Garage" , "Ranking" , "Instructions" , "Exit");
         this.currentCar = currentCar;
     }
     public int getNumberEntries() {
@@ -58,7 +58,10 @@ public class Menu {
         return isSelected(2);
     }
 
-    public boolean isSelectedExit() {
+    public boolean isSelectedInstructions() {
         return isSelected(3);
+    }
+    public boolean isSelectedExit() {
+        return isSelected(4);
     }
 }
