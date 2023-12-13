@@ -21,9 +21,13 @@ public class GarageViewer extends Viewer<Garage> {
         gui.drawImage(new Position(130-carImage.getWidth()/2,150-carImage.getHeight()/2), carImage);
 
 
-            String selected = getModel().isSelected(0) ? "selected/" : "";
-            Image entryImage = imageFactory.getImage("/titles/garage/" + selected + getModel().getEntry(0));
-            gui.drawImage(new Position(130- entryImage.getWidth()/2, 220), entryImage);
+        String selected = getModel().isSelected(0) ? "selected/" : "";
+        Image entryImage = imageFactory.getImage("/titles/garage/" + selected + getModel().getEntry(0));
+        gui.drawImage(new Position(130- entryImage.getWidth()/2, 220), entryImage);
+
+        gui.drawImage(new Position(95, 145), imageFactory.getImage("/elements/leftarrow"));
+        gui.drawImage(new Position(150, 145), imageFactory.getImage("/elements/rightarrow"));
+
     }
 }
 
