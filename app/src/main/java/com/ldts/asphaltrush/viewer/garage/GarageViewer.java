@@ -1,6 +1,7 @@
 package com.ldts.asphaltrush.viewer.garage;
 
 import com.ldts.asphaltrush.gui.GUI;
+import com.ldts.asphaltrush.model.Image;
 import com.ldts.asphaltrush.model.ImageFactory;
 import com.ldts.asphaltrush.model.Position;
 import com.ldts.asphaltrush.model.garage.Garage;
@@ -13,18 +14,20 @@ public class GarageViewer extends Viewer<Garage> {
 
     @Override
     protected void drawElements(GUI gui, ImageFactory imageFactory) {
-        gui.drawText(new Position(15, 5), "Garage", "#FFFFFF");
 
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
-                int index = row * 3 + col;
-                if (index < getModel().getNumberEntries()) {
-                    String entry = getModel().getEntry(index);
-                    String color = getModel().isSelected(index) ? "#FFD700" : "#FFFFFF";
-                    gui.drawText(new Position(5 + col * 2, 13 + row), entry, color);
-                }
-            }
-        }
+        gui.drawImage(new Position(0,0), imageFactory.getImage("/background/garage"));
+
+        Image carImage = imageFactory.getImage("/cars/player/garage/car" + getModel().getCurrentCar());
+        gui.drawImage(new Position(130-carImage.getWidth()/2,150-carImage.getHeight()/2), carImage);
+
+
+        String selected = getModel().isSelected(0) ? "selected/" : "";
+        Image entryImage = imageFactory.getImage("/titles/garage/" + selected + getModel().getEntry(0));
+        gui.drawImage(new Position(130- entryImage.getWidth()/2, 220), entryImage);
+
+        gui.drawImage(new Position(95, 145), imageFactory.getImage("/elements/leftarrow"));
+        gui.drawImage(new Position(150, 145), imageFactory.getImage("/elements/rightarrow"));
+
     }
 }
 
