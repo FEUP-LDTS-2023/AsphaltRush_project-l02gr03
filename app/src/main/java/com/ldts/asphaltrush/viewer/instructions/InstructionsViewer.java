@@ -21,6 +21,9 @@ public class InstructionsViewer extends Viewer<Instructions> {
         Image titleImage = imageFactory.getImage("/title/instructions");
         gui.drawImage(new Position(130-titleImage.getWidth()/2, 13), titleImage);
 
+        Image textImage = imageFactory.getImage("/text/instructions");
+        gui.drawImage(new Position(0,0), textImage);
+
         String selected = getModel().isSelected(0) ? "selected/" : "";
         Image entryImage = imageFactory.getImage("/text/" + selected + getModel().getEntry(0));
         gui.drawImage(new Position(130- entryImage.getWidth()/2, 220), entryImage);
