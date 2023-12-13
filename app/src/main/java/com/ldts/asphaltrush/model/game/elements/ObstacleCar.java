@@ -4,7 +4,8 @@ import com.ldts.asphaltrush.model.Image;
 import com.ldts.asphaltrush.model.ImageFactory;
 
 public class ObstacleCar extends Element{
-    private int type = 1;
+    private int type;
+    public final static int TYPESNUMBER=10;
 
     public ObstacleCar(int x, int y, int type) {
         super(x, y, 0, 0);
