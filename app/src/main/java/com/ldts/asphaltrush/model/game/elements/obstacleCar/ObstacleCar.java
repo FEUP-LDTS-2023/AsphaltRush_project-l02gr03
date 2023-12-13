@@ -1,9 +1,10 @@
-package com.ldts.asphaltrush.model.game.elements;
+package com.ldts.asphaltrush.model.game.elements.obstacleCar;
 
 import com.ldts.asphaltrush.model.Image;
 import com.ldts.asphaltrush.model.ImageFactory;
+import com.ldts.asphaltrush.model.game.elements.Element;
 
-public class ObstacleCar extends Element{
+public class ObstacleCar extends Element {
     private int type;
     public final static int TYPESNUMBER=4;
 

@@ -3,6 +3,7 @@ package com.ldts.asphaltrush.model.game.street;
 import com.ldts.asphaltrush.model.Position;
 import com.ldts.asphaltrush.model.game.Points;
 import com.ldts.asphaltrush.model.game.elements.*;
+import com.ldts.asphaltrush.model.game.elements.obstacleCar.ObstacleCar;
 import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
 
 import java.util.LinkedList;
