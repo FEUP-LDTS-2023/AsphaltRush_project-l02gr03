@@ -29,7 +29,7 @@ public class RankingViewer extends Viewer<Ranking> {
 
 
         ArrayList<String[]> rankingArray = getModel().getRanking();
-        if(rankingArray != null) {
+        if(!rankingArray.isEmpty()) {
 
             gui.drawImage(new Position(75, 60), imageFactory.getImage("/text/name"));
             gui.drawImage(new Position(135, 60), imageFactory.getImage("/text/points"));
