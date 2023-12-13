@@ -6,7 +6,6 @@ import com.ldts.asphaltrush.model.game.elements.Element;
 
 public class ObstacleCar extends Element {
     private int type;
-    public final static int TYPESNUMBER=4;
 
     public ObstacleCar(int x, int y, int type) {
         super(x, y, 0, 0);
