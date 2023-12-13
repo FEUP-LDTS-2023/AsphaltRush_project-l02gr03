@@ -25,7 +25,7 @@ public class GameOver {
             char letter = (char) ('A' + i);
             generatedLetters.add(String.valueOf(letter));
         }
-        generatedLetters.add("-");
+        generatedLetters.add("delarrow");
         return generatedLetters;
     }
 
