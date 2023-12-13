@@ -4,6 +4,7 @@ import com.ldts.asphaltrush.Game;
 import com.ldts.asphaltrush.gui.GUI;
 import com.ldts.asphaltrush.model.Position;
 import com.ldts.asphaltrush.model.game.elements.obstacleCar.ObstacleCar;
+import com.ldts.asphaltrush.model.game.elements.obstacleCar.ObstacleCarBuilder;
 import com.ldts.asphaltrush.model.game.street.Street;
 
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class ObstacleCarController extends GameController {
     }
 
     private void addNewObstacleCars() {
-        ObstacleCar obstacleCar = getModel().getCarBuilder().createRandomCar();
+        ObstacleCar obstacleCar = getModel().getCarBuilder().createObstacleCar(RNG.nextInt(1, ObstacleCarBuilder.TYPESNUMBER+1));
         int r = RNG.nextInt(0, 4);
         int x = r-1+r* 28 + getModel().getLeftCurbWidth();
         int y = -50;

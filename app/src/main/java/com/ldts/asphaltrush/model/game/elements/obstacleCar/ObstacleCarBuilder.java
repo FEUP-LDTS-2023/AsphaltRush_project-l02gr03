@@ -1,5 +1,6 @@
 package com.ldts.asphaltrush.model.game.elements.obstacleCar;
 
+import com.ldts.asphaltrush.model.Image;
 import com.ldts.asphaltrush.model.ImageFactory;
 
 public class ObstacleCarBuilder {
@@ -12,8 +13,9 @@ public class ObstacleCarBuilder {
     }
 
 
-    public ObstacleCar createRandomCar(){
-
+    public ObstacleCar createObstacleCar(int type){
+        Image carImage = imageFactory.getImage("/cars/obstacle/car"+type);
+        return new ObstacleCar(0,0, type, carImage.getWidth(), carImage.getHeight());
     }
 
 

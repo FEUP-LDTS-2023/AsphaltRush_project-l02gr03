@@ -7,15 +7,9 @@ import com.ldts.asphaltrush.model.game.elements.Element;
 public class ObstacleCar extends Element {
     private int type;
 
-    public ObstacleCar(int x, int y, int type) {
-        super(x, y, 0, 0);
+    public ObstacleCar(int x, int y, int type, int width, int height) {
+        super(x, y, width, height);
         this.type = type;
-
-        ImageFactory imageFactory = new ImageFactory();
-        Image image = imageFactory.getImage("/cars/obstacle/car" + type);
-
-        setWidth(image.getWidth());
-        setHeight(image.getHeight());
     }
 
     public int getType() {
