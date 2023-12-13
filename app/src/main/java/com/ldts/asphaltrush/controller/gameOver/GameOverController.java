@@ -43,11 +43,11 @@ public class GameOverController extends Controller<GameOver> {
                 selectSound.play();
                 if (getModel().isSelectedBackToMenu()) game.getGameState().setState(new MenuState(new Menu()));
                 else if (getModel().isSelectedConfirm()) {
+                    if (!getModel().isNameEmpty()){
+                        getModel().saveRanking();
+                        game.getGameState().setState(new MenuState(new Menu()));
+                    }
 
-                    // GUARDAR O RANKING -- APAGAR
-                    System.out.println(getModel().getName() + " " + getModel().getPoints());
-
-                    game.getGameState().setState(new MenuState(new Menu()));
                 }
                 else if (getModel().isSelectedDelete()) {
                     String currentName = getModel().getName();
