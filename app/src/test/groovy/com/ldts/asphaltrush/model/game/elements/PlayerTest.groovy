@@ -5,7 +5,7 @@ import spock.lang.Subject
 import com.ldts.asphaltrush.model.game.elements.Player
 import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp
 
-class PlayerSpec extends Specification {
+class PlayerTest extends Specification {
 
     @Subject
     Player player

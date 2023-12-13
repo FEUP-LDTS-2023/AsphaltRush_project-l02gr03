@@ -1,16 +1,38 @@
 package com.ldts.asphaltrush.model.garage
 
-import spock.lang.Specification;
+import spock.lang.Specification
 
 class GarageTest extends Specification {
-    def "Garage Test 1"() {
-        setup:
-        def result;
+
+    def "moveLeft should change currentCar correctly"() {
+        given:
+        def garage = new Garage()
 
         when:
-        result = 0;
+        garage.moveLeft()
 
         then:
-        result != 0;
+        garage.getCurrentCar() == 10
     }
+
+    def "moveRight should change currentCar correctly"() {
+        given:
+        def garage = new Garage()
+
+        when:
+        garage.moveRight()
+
+        then:
+        garage.getCurrentCar() == 1
+    }
+
+    def "isSelectedConfirm should be true initially"() {
+        given:
+        def garage = new Garage()
+
+        expect:
+        garage.isSelectedConfirm()
+    }
+
 }
+
