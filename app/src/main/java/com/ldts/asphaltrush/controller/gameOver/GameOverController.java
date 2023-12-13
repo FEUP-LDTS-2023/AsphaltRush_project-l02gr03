@@ -5,7 +5,7 @@ import com.ldts.asphaltrush.controller.Controller;
 import com.ldts.asphaltrush.gui.GUI;
 import com.ldts.asphaltrush.model.gameOver.GameOver;
 import com.ldts.asphaltrush.model.menu.Menu;
-import com.ldts.asphaltrush.model.soundEffects.SelectSound;
+import com.ldts.asphaltrush.model.soundEffects.SelectOptionSound;
 import com.ldts.asphaltrush.model.soundEffects.SoundEffect;
 import com.ldts.asphaltrush.states.MenuState;
 
@@ -14,33 +14,33 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class GameOverController extends Controller<GameOver> {
-    private final SoundEffect selectSound;
+    private final SoundEffect selectOptionSound;
     public GameOverController(GameOver model) {
         super(model);
-        this.selectSound = new SelectSound();
+        this.selectOptionSound = new SelectOptionSound();
     }
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
         switch (action) {
             case UP:
-                selectSound.play();
+                selectOptionSound.play();
                 getModel().moveUp();
                 break;
             case DOWN:
-                selectSound.play();
+                selectOptionSound.play();
                 getModel().moveDown();
                 break;
             case LEFT:
-                selectSound.play();
+                selectOptionSound.play();
                 getModel().moveLeft();
                 break;
             case RIGHT:
-                selectSound.play();
+                selectOptionSound.play();
                 getModel().moveRight();
                 break;
             case SELECT:
-                selectSound.play();
+                selectOptionSound.play();
                 if (getModel().isSelectedBackToMenu()) game.getGameState().setState(new MenuState(new Menu()));
                 else if (getModel().isSelectedConfirm()) {
                     if (!getModel().isNameEmpty()){

@@ -8,7 +8,7 @@ import com.ldts.asphaltrush.model.garage.Garage;
 import com.ldts.asphaltrush.model.instructions.Instructions;
 import com.ldts.asphaltrush.model.menu.Menu;
 import com.ldts.asphaltrush.model.ranking.Ranking;
-import com.ldts.asphaltrush.model.soundEffects.SelectSound;
+import com.ldts.asphaltrush.model.soundEffects.SelectOptionSound;
 import com.ldts.asphaltrush.model.soundEffects.SoundEffect;
 import com.ldts.asphaltrush.states.InstructionsState;
 import com.ldts.asphaltrush.states.StreetState;
@@ -20,25 +20,25 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class MenuController extends Controller<Menu> {
-    private final SoundEffect selectSound;
+    private final SoundEffect selectOptionSound;
     public MenuController(Menu model) {
         super(model);
-        this.selectSound = new SelectSound();
+        this.selectOptionSound = new SelectOptionSound();
     }
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
         switch (action) {
             case UP:
-                selectSound.play();
+                selectOptionSound.play();
                 getModel().previousEntry();
                 break;
             case DOWN:
-                selectSound.play();
+                selectOptionSound.play();
                 getModel().nextEntry();
                 break;
             case SELECT:
-                selectSound.play();
+                selectOptionSound.play();
                 if (getModel().isSelectedStart()) game.getGameState().setState(new StreetState(new StreetBuilder(getModel().getCurrentCar(), game.getImageFactory()).createStreet()));
                 if (getModel().isSelectedGarage()) game.getGameState().setState(new GarageState(new Garage()));
                 if (getModel().isSelectedRanking()) game.getGameState().setState(new RankingState(new Ranking()));
