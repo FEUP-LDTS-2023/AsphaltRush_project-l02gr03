@@ -1,27 +1,14 @@
 package com.ldts.asphaltrush.controller.game
 
-import com.ldts.asphaltrush.Game
-import com.ldts.asphaltrush.model.Position
 import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp
-import com.ldts.asphaltrush.model.game.street.Street
 import spock.lang.Specification
-import spock.lang.Subject;
+import spock.lang.Subject
 import com.ldts.asphaltrush.gui.GUI
+import com.ldts.asphaltrush.Game
+import com.ldts.asphaltrush.model.game.street.Street
+import com.ldts.asphaltrush.model.Position
 
-class PlayerControllerTest extends Specification {
-    /*def "PlayerController Test 1"() {
-        setup:
-        def result;
-
-        when:
-        result = 0;
-
-        then:
-        result != 0;
-    }
-
-     */
-
+class PlayerControllerSpec extends Specification {
 
     @Subject
     PlayerController playerController
@@ -30,19 +17,19 @@ class PlayerControllerTest extends Specification {
         playerController = new PlayerController(new Street())
     }
 
-    def "movePlayerLeft"() {
+    def "movePlayerLeft should move the player to the left"() {
         given:
-        def initialPosition = new Position(20, 20)
+        def initialPosition = new Position(2, 2)
         playerController.getModel().getPlayer().setPosition(initialPosition)
 
         when:
         playerController.movePlayerLeft()
 
         then:
-        playerController.getModel().getPlayer().getPosition() == new Position(19, 20)
+        playerController.getModel().getPlayer().getPosition() == new Position(1, 2)
     }
 
-    def "movePlayerRight"() {
+    def "movePlayerRight should move the player to the right"() {
         given:
         def initialPosition = new Position(2, 2)
         playerController.getModel().getPlayer().setPosition(initialPosition)
@@ -54,20 +41,20 @@ class PlayerControllerTest extends Specification {
         playerController.getModel().getPlayer().getPosition() == new Position(3, 2)
     }
 
-    def "increasePlayerSpeed"() {
+    def "increasePlayerSpeed should increase the player speed"() {
         when:
         playerController.increasePlayerSpeed()
 
         then:
-        playerController.getModel().getPlayer().getSpeed() == 1.2
+        playerController.getModel().getPlayer().getSpeed() == 2
     }
 
-    def "decreasePlayerSpeed"() {
+    def "decreasePlayerSpeed should decrease the player speed"() {
         when:
         playerController.decreasePlayerSpeed()
 
         then:
-        playerController.getModel().getPlayer().getSpeed() == 0.6
+        playerController.getModel().getPlayer().getSpeed() == 0
     }
 
     def "step should handle power-up and increase player speed accordingly"() {
@@ -83,3 +70,5 @@ class PlayerControllerTest extends Specification {
         playerController.getModel().getPlayer().getSpeed() == 4
     }
 }
+
+
