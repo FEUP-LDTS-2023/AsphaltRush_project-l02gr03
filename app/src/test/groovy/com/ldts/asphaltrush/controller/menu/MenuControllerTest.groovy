@@ -1,18 +1,33 @@
+<<<<<<< HEAD
 package com.ldts.asphaltrush.controller.menu
 import spock.lang.Specification
 import spock.lang.Subject
+=======
+import spock.lang.Specification
+import spock.lang.Subject
+import com.ldts.asphaltrush.controller.menu.MenuController
+>>>>>>> 3da8e37cedc194ee5dbc40494f9829724348014d
 import com.ldts.asphaltrush.gui.GUI
 import com.ldts.asphaltrush.Game
 import com.ldts.asphaltrush.model.menu.Menu
 import com.ldts.asphaltrush.states.GameState
 import com.ldts.asphaltrush.states.GarageState
 import com.ldts.asphaltrush.states.RankingState
+<<<<<<< HEAD
 
 class MenuControllerSpec extends Specification {
 
     @Subject
     MenuController menuController
 
+=======
+
+class MenuControllerTest extends Specification {
+
+    @Subject
+    MenuController menuController
+
+>>>>>>> 3da8e37cedc194ee5dbc40494f9829724348014d
     def setup() {
         menuController = new MenuController(new Menu())
     }
@@ -32,5 +47,6 @@ class MenuControllerSpec extends Specification {
         // Verify that DOWN action moves to the next menu entry
         menuController.getModel().currentEntry == 0
     }
+
 }
 

@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 package com.ldts.asphaltrush.model.menu
 import spock.lang.Specification
 import spock.lang.Subject
+=======
+import spock.lang.Specification
+import spock.lang.Subject
+import com.ldts.asphaltrush.model.menu.Menu
+>>>>>>> 3da8e37cedc194ee5dbc40494f9829724348014d
 
 class MenuTest extends Specification {
 
