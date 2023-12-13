@@ -15,13 +15,13 @@ public class MenuViewer extends Viewer<Menu> {
     @Override
     protected void drawElements(GUI gui, ImageFactory imageFactory) {
         gui.drawImage(new Position(0, 0), imageFactory.getImage("/background/menu"));
-        gui.drawImage(new Position(40, 15), imageFactory.getImage("/titles/menu/MainTitle"));
+        gui.drawImage(new Position(40, 15), imageFactory.getImage("/title/menu"));
 
         for (int i = 0; i < getModel().getNumberEntries(); i++){
 
-            String extra = getModel().isSelected(i) ? "2" : "";
+            String selected = getModel().isSelected(i) ? "selected/" : "";
 
-            Image entryImage = imageFactory.getImage("/titles/menu/" + getModel().getEntry(i) +  extra);
+            Image entryImage = imageFactory.getImage("/text/" + selected + getModel().getEntry(i));
             gui.drawImage(new Position(130 - entryImage.getWidth()/2, 100 + i * 20), entryImage);
 
         }

@@ -22,7 +22,7 @@ public class GarageViewer extends Viewer<Garage> {
 
 
         String selected = getModel().isSelected(0) ? "selected/" : "";
-        Image entryImage = imageFactory.getImage("/titles/garage/" + selected + getModel().getEntry(0));
+        Image entryImage = imageFactory.getImage("/text/" + selected + getModel().getEntry(0));
         gui.drawImage(new Position(130- entryImage.getWidth()/2, 220), entryImage);
 
         gui.drawImage(new Position(95, 145), imageFactory.getImage("/elements/leftarrow"));
