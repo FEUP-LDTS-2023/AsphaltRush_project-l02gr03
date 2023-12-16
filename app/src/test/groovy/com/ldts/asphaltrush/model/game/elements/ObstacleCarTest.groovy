@@ -2,6 +2,7 @@ package com.ldts.asphaltrush.model.game.elements
 
 import com.ldts.asphaltrush.model.Image
 import com.ldts.asphaltrush.model.ImageFactory
+import com.ldts.asphaltrush.model.game.elements.obstacleCar.ObstacleCar
 import spock.lang.Specification
 
 class ObstacleCarTest extends Specification {

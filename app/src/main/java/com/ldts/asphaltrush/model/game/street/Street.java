@@ -3,6 +3,8 @@ package com.ldts.asphaltrush.model.game.street;
 import com.ldts.asphaltrush.model.Position;
 import com.ldts.asphaltrush.model.game.Points;
 import com.ldts.asphaltrush.model.game.elements.*;
+import com.ldts.asphaltrush.model.game.elements.obstacleCar.ObstacleCar;
+import com.ldts.asphaltrush.model.game.elements.obstacleCar.ObstacleCarBuilder;
 import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
 
 import java.util.LinkedList;
@@ -22,10 +24,17 @@ public class Street {
     private List<Hole> holes;
     private List<Jump> jumps;
 
-    public Street() {
+    private ObstacleCarBuilder carBuilder;
+
+
+    public Street(ObstacleCarBuilder carBuilder) {
         this.points = new Points();
+        this.carBuilder = carBuilder;
     }
 
+    public ObstacleCarBuilder getCarBuilder(){
+        return carBuilder;
+    }
     public int getWidth() {
         return width;
     }
