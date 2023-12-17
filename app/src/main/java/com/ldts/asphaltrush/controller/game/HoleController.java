@@ -59,7 +59,7 @@ public class HoleController extends GameController {
         int y = -50;
         Hole hole = new Hole(x,y);
         hole.setPosition(new Position(x+((28-hole.getWidth())/2), y));
-        if(!getModel().isHole(hole.getPosition(), hole.getWidth(), hole.getHeight()) && !getModel().isObstacleCar(hole.getPosition(), hole.getWidth(), hole.getHeight()) && RNG.nextDouble(0,100) < 2)
+        if(!getModel().isHole(hole.getPosition(), hole.getWidth(), hole.getHeight()) && !getModel().isObstacleCar(hole.getPosition(), hole.getWidth(), hole.getHeight()) && RNG.nextDouble(0,100) < 0.5)
             getModel().getHoles().add(hole);
     }
 }
