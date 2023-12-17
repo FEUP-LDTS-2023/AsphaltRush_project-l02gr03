@@ -14,7 +14,7 @@ import java.util.Random;
 public class ObstacleCarController extends GameController {
     private long lastMovement = 0;
     private static final Random RNG = new Random();
-    private static final double OBSTACLE_CAR_SPEED = DEFAULT_SPEED*4;
+    private static final double OBSTACLE_CAR_SPEED = DEFAULT_SPEED*2;
 
     public ObstacleCarController(Street street) {
         super(street);
@@ -55,7 +55,7 @@ public class ObstacleCarController extends GameController {
         List<ObstacleCar> obstacleCarsToRemove = new ArrayList<>();
 
         for (ObstacleCar obstacleCar : getModel().getObstacleCars()) {
-            if (obstacleCar.getPosition().getY() >= getModel().getHeight()) {
+            if (obstacleCar.getPosition().getY() >= getModel().getHeight() + 400) {
                 obstacleCarsToRemove.add(obstacleCar);
             }
         }
