@@ -22,13 +22,12 @@ public class ObstacleCarController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
-        if ((time - lastMovement) > 200*(Math.min(OBSTACLE_CAR_SPEED*getModel().getPlayer().getSpeed(),4))) {
+        if ((time - lastMovement) > 100) {
             addNewObstacleCars();
+            for (ObstacleCar obstacleCar : getModel().getObstacleCars()) {
+                moveObstacleCar(obstacleCar, obstacleCar.getPosition());
+            }
             this.lastMovement = time;
-        }
-
-        for (ObstacleCar obstacleCar : getModel().getObstacleCars()) {
-            moveObstacleCar(obstacleCar, obstacleCar.getPosition());
         }
         checkAndRemoveNewObstacleCars();
     }
@@ -38,13 +37,18 @@ public class ObstacleCarController extends GameController {
         int r = RNG.nextInt(0, 4);
         int x = r-1+r* 28 + getModel().getLeftCurbWidth();
         int y = -50;
-       obstacleCar.setPosition(new Position(x+((28-obstacleCar.getWidth())/2), y));
-        if(!getModel().isObstacleCar(new Position(x,y), obstacleCar.getWidth(), obstacleCar.getHeight()))
+        obstacleCar.setPosition(new Position(x+((28-obstacleCar.getWidth())/2), y));
+        if(!getModel().isObstacleCar(new Position(x,y), obstacleCar.getWidth(), obstacleCar.getHeight()) && !getModel().isHole(new Position(x,y), obstacleCar.getWidth(), obstacleCar.getHeight())
+                && RNG.nextDouble(0, 40+getModel().getPlayer().getSpeed()) < 5)
             getModel().getObstacleCars().add(obstacleCar);
     }
 
     private void moveObstacleCar(ObstacleCar obstacleCar, Position position) {
-        if (getModel().isEmpty(position)) obstacleCar.setPosition(new Position(position.getX(), position.getY() + (int) (OBSTACLE_CAR_SPEED*getModel().getPlayer().getSpeed())));
+        Position nextPosition = new Position(position.getX(), position.getY() + (int) (OBSTACLE_CAR_SPEED*getModel().getPlayer().getSpeed()));
+        // (!getModel().isHole(position, obstacleCar.getWidth(), obstacleCar.getHeight()) && !getModel().isObstacleCar(position, obstacleCar.getWidth(), obstacleCar.getHeight())) ||
+        if ((!getModel().isHole(nextPosition, obstacleCar.getWidth(), obstacleCar.getHeight())) && (!getModel().isObstacleCar(obstacleCar, nextPosition, obstacleCar.getWidth(), obstacleCar.getHeight())))
+            obstacleCar.setPosition(nextPosition);
+        else  obstacleCar.setPosition(new Position(position.getX(), position.getY() + (int) (DEFAULT_SPEED*getModel().getPlayer().getSpeed())));
     }
 
     private void checkAndRemoveNewObstacleCars() {

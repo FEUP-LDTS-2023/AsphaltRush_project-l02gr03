@@ -64,7 +64,7 @@ public class StreetController extends GameController {
 
     public void checkCollisions() {
         if (getModel().isObstacleCar(getModel().getPlayer().getPosition(), getModel().getPlayer().getWidth(), getModel().getPlayer().getHeight()) ||
-        getModel().isHole(getModel().getPlayer().getPosition())) {
+                getModel().isHole(getModel().getPlayer().getPosition(), getModel().getPlayer().getWidth(), getModel().getPlayer().getHeight())) {
             PowerUp playerPowerUp = getModel().getPlayer().getPowerUp();
 
             if(playerPowerUp != null && playerPowerUp.getClass() == InvenciblePowerUp.class) return;
