@@ -4,7 +4,7 @@ import com.ldts.asphaltrush.controller.menu.MenuController
 import com.ldts.asphaltrush.model.menu.Menu
 import com.ldts.asphaltrush.viewer.menu.MenuViewer
 
-class MenuStateSpec extends Specification {
+class MenuStateTest extends Specification {
 
     def "MenuState should create MenuViewer and MenuController with the correct model"() {
         given:
