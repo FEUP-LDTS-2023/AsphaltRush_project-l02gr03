@@ -106,15 +106,34 @@ public class LanternaGUI implements GUI {
         screen.close();
     }
 
-
-
     @Override
-    public void drawImage(Position position, Image image) {
-
+    public void drawImage(Position position, Image image){
+        drawImage(position, image, 'l', 't');
+    }
+    @Override
+    public void drawImage(Position position, Image image, char htype, char vtype) {
+        String[][] colorMatrix = image.getColorMatrix();
         int x = position.getX();
         int y = position.getY();
+        switch (htype){
+            case 'c':
+                x = position.getX() - image.getWidth()/2;
+                break;
+            case 'r':
+                x = position.getX() - image.getWidth();
+                break;
+        }
 
-        String[][] colorMatrix = image.getColorMatrix();
+        switch (vtype){
+            case 'c':
+                y = position.getY() - image.getHeight()/2;
+                break;
+            case 'b':
+                y = position.getY() - image.getHeight();
+                break;
+
+        }
+
 
         TextGraphics tg = screen.newTextGraphics();
         for (int i = 0; i < image.getHeight(); i++){

@@ -39,7 +39,8 @@ public class GameViewer extends Viewer<Street> {
             drawElement(gui, playerPowerUp, new CurrentPowerUpViewer(), imageFactory);
 
             int barSize = 45;
-            gui.drawRectangle(new Position(245, 170 + (barSize-(int)Math.round(barSize/5*Math.round(getModel().getPlayer().getPowerUpTime() * 10.0) / 10.0))), 3, (int)Math.round(barSize/5*Math.round(getModel().getPlayer().getPowerUpTime() * 10.0) / 10.0), "#FFFFFF");
+            int currentSize = (int)Math.round(barSize/5.0*Math.round(getModel().getPlayer().getPowerUpTime() * 10.0) / 10.0);
+            gui.drawRectangle(new Position(245, 170 + barSize-currentSize), 3, currentSize, "#FFFFFF");
             gui.drawImage(new Position(244,169),imageFactory.getImage("/elements/bar"));
         }
 
