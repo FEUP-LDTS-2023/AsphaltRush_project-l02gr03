@@ -17,19 +17,18 @@ public class GarageViewer extends Viewer<Garage> {
 
         gui.drawImage(new Position(0,0), imageFactory.getImage("/background/garage"));
 
-        Image titleImage = imageFactory.getImage("/title/garage");
-        gui.drawImage(new Position(130-titleImage.getWidth()/2, 15), titleImage);
+        gui.drawImage(new Position(130, 15),imageFactory.getImage("/title/garage"), 'c', 't');
 
         Image carImage = imageFactory.getImage("/cars/player/garage/car" + getModel().getCurrentCar());
-        gui.drawImage(new Position(130-carImage.getWidth()/2,150-carImage.getHeight()/2), carImage);
+        gui.drawImage(new Position(130,150), carImage, 'c', 'c');
 
 
         String selected = getModel().isSelected(0) ? "selected/" : "";
         Image entryImage = imageFactory.getImage("/text/" + selected + getModel().getEntry(0));
-        gui.drawImage(new Position(130- entryImage.getWidth()/2, 220), entryImage);
+        gui.drawImage(new Position(130, 220), entryImage, 'c', 't');
 
-        gui.drawImage(new Position(95, 145), imageFactory.getImage("/elements/leftarrow"));
-        gui.drawImage(new Position(150, 145), imageFactory.getImage("/elements/rightarrow"));
+        gui.drawImage(new Position(110, 150), imageFactory.getImage("/elements/leftarrow"), 'r', 'c');
+        gui.drawImage(new Position(150, 150), imageFactory.getImage("/elements/rightarrow"), 'l', 'c');
 
     }
 }
