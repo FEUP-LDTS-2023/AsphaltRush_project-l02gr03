@@ -113,12 +113,9 @@ public class LanternaGUI implements GUI {
     @Override
     public void drawImage(Position position, Image image, char htype, char vtype) {
         String[][] colorMatrix = image.getColorMatrix();
-        int x;
-        int y;
+        int x = position.getX();
+        int y = position.getY();
         switch (htype){
-            case 'l':
-                x = position.getX();
-                break;
             case 'c':
                 x = position.getX() - image.getWidth()/2;
                 break;
@@ -128,9 +125,6 @@ public class LanternaGUI implements GUI {
         }
 
         switch (vtype){
-            case 't':
-                y = position.getY();
-                break;
             case 'c':
                 y = position.getY() - image.getHeight()/2;
                 break;
