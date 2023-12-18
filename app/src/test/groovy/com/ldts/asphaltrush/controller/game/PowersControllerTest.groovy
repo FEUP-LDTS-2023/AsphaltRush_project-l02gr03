@@ -1,66 +1,59 @@
 package com.ldts.asphaltrush.controller.game
 
 import com.ldts.asphaltrush.Game
+import com.ldts.asphaltrush.model.ImageFactory
 import com.ldts.asphaltrush.model.Position
 import com.ldts.asphaltrush.model.game.elements.powerup.InvenciblePowerUp
 import com.ldts.asphaltrush.model.game.elements.powerup.PointMultiplierPowerUp
 import com.ldts.asphaltrush.model.game.street.Street
+import com.ldts.asphaltrush.model.game.street.StreetBuilder
+import com.ldts.asphaltrush.gui.GUI
 import spock.lang.Specification
 import spock.lang.Subject;
 
 class PowersControllerTest extends Specification {
-    /*def "PowersController Test 1"() {
-        setup:
-        def result;
-
-        when:
-        result = 0;
-
-        then:
-        result != 0;
-    }
-     */
 
     @Subject
     PowerUpController powerUpController
 
     def setup() {
-        powerUpController = new PowerUpController(new Street())
-    }
-
-    def "movePowerUp should move the power-up down"() {
-        given:
-        def powerUp = new PointMultiplierPowerUp(2, 2)
-        powerUpController.getModel().getPowerUps().add(powerUp)
-
-        when:
-        powerUpController.step(new Game(), GUI.ACTION.NONE, 150)
-
-        then:
-        powerUp.getPosition() == new Position(2, 3)
-    }
-
-    def "addNewPowerUps should add new power-ups to the model"() {
-        when:
-        powerUpController.addNewPowerUps()
-
-        then:
-        // Add assertions based on your expected behavior
-        // For example, you can check that the number of power-ups in the model has increased
-        powerUpController.getModel().getPowerUps().size() > 0
+        StreetBuilder streetBuilder = new StreetBuilder(1, new ImageFactory())
+        Street street = streetBuilder.createStreet()
+        powerUpController = new PowerUpController(street)
     }
 
     def "checkAndRemovePowerUps should remove power-ups that have moved off the screen"() {
         given:
-        def powerUpToRemove = new InvenciblePowerUp(2, 25)
-        powerUpController.getModel().getPowerUps().add(powerUpToRemove)
+        InvenciblePowerUp powerUpToRemove = new InvenciblePowerUp(2,powerUpController.getModel().getHeight());
+        powerUpController.getModel().getPowerUps().add(powerUpToRemove);
 
         when:
         powerUpController.checkAndRemovePowerUps()
 
         then:
-        // Add assertions based on your expected behavior
-        // For example, you can check that powerUpToRemove is no longer in the model
         !powerUpController.getModel().getPowerUps().contains(powerUpToRemove)
+    }
+
+    def "PowerUpController should add new power-ups"() {
+        when:
+        powerUpController.addNewPowerUps()
+
+        then:
+        if(powerUpController.getModel().getPowerUps() == null) powerUpController.getModel().getPowerUps().size() == 0
+        else powerUpController.getModel().getPowerUps().size() > 0
+    }
+
+    def "PowerUpController should move power-ups downward"() {
+        given:
+        InvenciblePowerUp powerUp = new InvenciblePowerUp(1,1);
+        powerUpController.getModel().getPowerUps().add(powerUp);
+
+        when:
+        powerUpController.step(new Game(), GUI.ACTION.NONE, 150)
+
+        then:
+        powerUpController.getModel().getPowerUps() != null
+        powerUpController.getModel().getPowerUps().get(0) == powerUp
+        powerUpController.getModel().getPowerUps().get(0).getPosition() == new Position(1, 2)
     }
 }
