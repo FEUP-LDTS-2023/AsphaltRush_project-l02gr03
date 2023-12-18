@@ -11,7 +11,7 @@ import com.ldts.asphaltrush.gui.GUI
 import spock.lang.Specification
 import spock.lang.Subject;
 
-class PowersControllerTest extends Specification {
+class PowerUpControllerTest extends Specification {
 
     @Subject
     PowerUpController powerUpController
