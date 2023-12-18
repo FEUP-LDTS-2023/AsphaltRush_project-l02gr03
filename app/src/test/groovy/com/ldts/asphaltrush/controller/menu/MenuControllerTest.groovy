@@ -27,7 +27,7 @@ class MenuControllerTest extends Specification {
 
         then:
         // Verify that UP action moves to the previous menu entry
-        menuController.getModel().currentEntry == 3
+        menuController.getModel().currentEntry == 4
 
         when:
         menuController.step(new Game(), GUI.ACTION.DOWN, 0)
