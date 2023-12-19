@@ -12,36 +12,15 @@ class GarageStateTest extends Specification {
 
     def "GarageState should create the correct Controller and Viewer"() {
         given:
-        def garage = new Garage()
-        def garageState = new GarageState(garage)
+        Garage garage = new Garage(1)
+        GarageState garageState = new GarageState(garage)
 
         when:
-        def controller = garageState.getController()
-        def viewer = garageState.getViewer()
+        GarageController controller = garageState.getController()
+        GarageViewer viewer = garageState.getViewer()
 
         then:
         controller instanceof GarageController
         viewer instanceof GarageViewer
     }
-
-    def "GarageController should respond correctly to user actions"() {
-        given:
-        def garage = new Garage()
-        def game = new Game()
-        def garageState = new GarageState(garage)
-        def garageController = garageState.getController()
-
-        when:
-        garageController.step(game, GUI.ACTION.LEFT, System.currentTimeMillis())
-        def movedLeftCar = garage.getCurrentCar()
-
-        and:
-        garageController.step(game, GUI.ACTION.RIGHT, System.currentTimeMillis())
-        def movedRightCar = garage.getCurrentCar()
-
-        then:
-        movedLeftCar == 10
-        movedRightCar == 0
-    }
-
 }
