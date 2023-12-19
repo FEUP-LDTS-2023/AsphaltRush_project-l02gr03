@@ -11,15 +11,15 @@ class GameOverControllerTest extends Specification {
 
     @Subject
     GameOverController gameOverController
+    Game game
 
     def setup() {
         gameOverController = new GameOverController(new GameOver(10))
+        game = new Game()
     }
 
     def "step should move up in the model when UP action is performed"() {
-        given:
-        Game game = new Game()
-
+        System.gc()
         when:
         gameOverController.step(game, GUI.ACTION.UP, 150)
 
@@ -28,9 +28,7 @@ class GameOverControllerTest extends Specification {
     }
 
     def "step should move down in the model when DOWN action is performed"() {
-        given:
-        Game game = new Game()
-
+        System.gc()
         when:
         gameOverController.step(game, GUI.ACTION.DOWN, 150)
 
@@ -39,9 +37,7 @@ class GameOverControllerTest extends Specification {
     }
 
     def "step should change game state to MenuState when SELECT action and Back to Menu is selected"() {
-        given:
-        Game game = new Game()
-
+        System.gc()
         when:
         gameOverController.step(game, GUI.ACTION.SELECT, 150)
 

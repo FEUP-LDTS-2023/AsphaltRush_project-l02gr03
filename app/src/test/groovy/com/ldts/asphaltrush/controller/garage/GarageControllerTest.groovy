@@ -1,19 +1,29 @@
 package com.ldts.asphaltrush.controller.garage
 
 import com.ldts.asphaltrush.Game
+import com.ldts.asphaltrush.controller.gameOver.GameOverController
 import com.ldts.asphaltrush.gui.GUI
+import com.ldts.asphaltrush.model.gameOver.GameOver
 import com.ldts.asphaltrush.model.garage.Garage
 import com.ldts.asphaltrush.states.GarageState
-import spock.lang.Specification;
+import spock.lang.Specification
+import spock.lang.Subject;
 
 class GarageControllerTest extends Specification {
-    def "GarageController should respond correctly to user actions"() {
-        given:
-        Game game = new Game()
-        Garage garage = new Garage(0)
-        GarageState garageState = new GarageState(garage)
-        GarageController garageController = garageState.getController()
 
+    @Subject
+    GarageController garageController
+    Game game
+    Garage garage
+
+    def setup() {
+        garage = new Garage(0)
+        garageController = new GarageController(garage)
+        game = new Game()
+    }
+
+    def "GarageController should respond correctly to user actions"() {
+        System.gc()
         when:
         garageController.step(game, GUI.ACTION.LEFT, System.currentTimeMillis())
         int movedLeftCar = garage.getCurrentCar()
