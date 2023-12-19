@@ -2,7 +2,7 @@ package com.ldts.asphaltrush.states
 
 import com.ldts.asphaltrush.model.gameOver.GameOver
 import com.ldts.asphaltrush.model.menu.Menu
-import com.ldts.asphaltrush.observer.GameStateObserver
+import com.ldts.asphaltrush.observer.BackgroundMusicTest
 import spock.lang.Specification;
 
 class GameStateTest extends Specification {
@@ -35,7 +35,7 @@ class GameStateTest extends Specification {
     def "GameState should notify observers when the state changes"() {
         given:
         GameState gameState = new GameState()
-        GameStateObserver observerMock = Mock(GameStateObserver)
+        BackgroundMusicTest observerMock = Mock(BackgroundMusicTest)
 
         when:
         gameState.addObserver(observerMock)
