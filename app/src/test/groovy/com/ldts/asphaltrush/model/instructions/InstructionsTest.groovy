@@ -1,6 +1,5 @@
 package com.ldts.asphaltrush.model.instructions
 
-import com.ldts.asphaltrush.model.instructions.Instructions
 import spock.lang.Specification
 
 class InstructionsTest extends Specification {
