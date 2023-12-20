@@ -22,7 +22,7 @@ public class MenuViewer extends Viewer<Menu> {
             String selected = getModel().isSelected(i) ? "selected/" : "";
 
             Image entryImage = imageFactory.getImage("/text/" + selected + getModel().getEntry(i));
-            gui.drawImage(new Position(130 - entryImage.getWidth()/2, 100 + i * 20), entryImage);
+            gui.drawImage(new Position(130, 100 + i * 20), entryImage, 'c', 't');
 
         }
 

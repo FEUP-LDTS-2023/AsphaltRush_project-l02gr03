@@ -22,13 +22,15 @@ class MenuControllerTest extends Specification {
     }
 
     def "step should update the menu selection based on UP and DOWN actions"() {
+        System.gc()
         when:
         menuController.step(new Game(), GUI.ACTION.UP, 0)
 
         then:
         // Verify that UP action moves to the previous menu entry
-        menuController.getModel().currentEntry == 3
+        menuController.getModel().currentEntry == 4
 
+        System.gc()
         when:
         menuController.step(new Game(), GUI.ACTION.DOWN, 0)
 

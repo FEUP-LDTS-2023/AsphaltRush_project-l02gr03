@@ -15,8 +15,8 @@ public interface GUI {
 
     void close() throws IOException;
 
-
     void drawImage(Position position, Image image);
+    void drawImage(Position position, Image image, char htype, char vtype);
     void drawText(Position position, String text, String color);
     void drawText(String text, Position position, ImageFactory imageFactory, char type, boolean smalllNumber);
     void drawText(String text, Position position, ImageFactory imageFactory, char type);

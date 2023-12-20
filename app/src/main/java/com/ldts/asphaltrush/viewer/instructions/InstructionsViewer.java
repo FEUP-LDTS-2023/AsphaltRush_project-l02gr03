@@ -18,15 +18,14 @@ public class InstructionsViewer extends Viewer<Instructions> {
     protected void drawElements(GUI gui, ImageFactory imageFactory) throws IOException {
         gui.drawImage(new Position(0,0), imageFactory.getImage("/background/instructions"));
 
-        Image titleImage = imageFactory.getImage("/title/instructions");
-        gui.drawImage(new Position(130-titleImage.getWidth()/2, 13), titleImage);
+        gui.drawImage(new Position(130, 13), imageFactory.getImage("/title/instructions"), 'c', 't');
 
         Image textImage = imageFactory.getImage("/text/instructions");
         gui.drawImage(new Position(0,0), textImage);
 
         String selected = getModel().isSelected(0) ? "selected/" : "";
         Image entryImage = imageFactory.getImage("/text/" + selected + getModel().getEntry(0));
-        gui.drawImage(new Position(130- entryImage.getWidth()/2, 220), entryImage);
+        gui.drawImage(new Position(130, 220), entryImage, 'c', 't');
     }
 
 }

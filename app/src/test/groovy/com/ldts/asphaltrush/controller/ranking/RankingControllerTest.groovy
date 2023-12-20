@@ -1,16 +1,45 @@
 package com.ldts.asphaltrush.controller.ranking
 
-import spock.lang.Specification;
+import com.ldts.asphaltrush.Game
+import com.ldts.asphaltrush.controller.menu.MenuController
+import com.ldts.asphaltrush.gui.GUI
+import com.ldts.asphaltrush.model.menu.Menu
+import com.ldts.asphaltrush.model.ranking.Ranking
+import com.ldts.asphaltrush.states.MenuState
+import com.ldts.asphaltrush.states.State
+import spock.lang.Specification
+import spock.lang.Subject;
 
 class RankingControllerTest extends Specification {
-    def "RankingController Test 1"() {
-        setup:
-        def result;
+
+    @Subject
+    RankingController rankingController
+
+    def setup() {
+        rankingController = new RankingController(new Ranking())
+    }
+
+    def "step should change game state to MenuState when SELECT action is performed and Back is selected"() {
+        given:
+        Game game = new Game()
 
         when:
-        result = 0;
+        rankingController.step(game, GUI.ACTION.SELECT, 150)
 
         then:
-        result != 0;
+        game.getGameState().getState() instanceof MenuState
+    }
+
+    def "step should not change game state when SELECT action is not performed"() {
+        given:
+        RankingController rankingController = new RankingController(new Ranking())
+        Game game = new Game()
+        State initialState = game.getGameState().getState()
+
+        when:
+        rankingController.step(game, GUI.ACTION.NONE, 0)
+
+        then:
+        initialState == game.getGameState()
     }
 }

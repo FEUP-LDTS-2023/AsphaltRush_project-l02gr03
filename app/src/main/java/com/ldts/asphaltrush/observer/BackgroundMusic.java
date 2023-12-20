@@ -44,7 +44,7 @@ public class BackgroundMusic implements GameStateObserver{
     public void update() throws IOException, LineUnavailableException, UnsupportedAudioFileException {
         if (!(this.gamestate.getState() instanceof GameOverState))  {
             if(previousState == "gameover"){
-                currentBackgroundMusic.stop();
+                currentBackgroundMusic.close();
                 currentBackgroundMusic = backgroundMusicMainMenu;
                 currentBackgroundMusic.setFramePosition(0);
             }
@@ -53,7 +53,7 @@ public class BackgroundMusic implements GameStateObserver{
             currentBackgroundMusic.loop(Clip.LOOP_CONTINUOUSLY);
         } else {
             this.previousState = "gameover";
-            currentBackgroundMusic.stop();
+            currentBackgroundMusic.close();
             currentBackgroundMusic = backgroundMusicGameOverMenu;
             currentBackgroundMusic.setFramePosition(0);
             currentBackgroundMusic.loop(Clip.LOOP_CONTINUOUSLY);

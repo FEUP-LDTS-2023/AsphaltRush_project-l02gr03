@@ -23,7 +23,7 @@ public class RankingViewer extends Viewer<Ranking> {
         gui.drawImage(new Position(0,0), imageFactory.getImage("/background/ranking"));
 
         Image titleImage = imageFactory.getImage("/title/ranking");
-        gui.drawImage(new Position(130-titleImage.getWidth()/2, 13), titleImage);
+        gui.drawImage(new Position(130, 13), titleImage, 'c', 't');
 
 
 
@@ -35,18 +35,18 @@ public class RankingViewer extends Viewer<Ranking> {
             gui.drawImage(new Position(135, 60), imageFactory.getImage("/text/points"));
 
             for (int i = 0; i < rankingArray.size(); i++){
-                gui.drawText(rankingArray.get(i)[0], new Position(125, 80+i*15), imageFactory, 'r');
-                gui.drawText(rankingArray.get(i)[1], new Position(135, 80+ i *15), imageFactory, 'l');
+                gui.drawText(rankingArray.get(i)[0], new Position(125, 85+i*15), imageFactory, 'r');
+                gui.drawText(rankingArray.get(i)[1], new Position(135, 85+ i *15), imageFactory, 'l');
             }
 
         }
         else {
             titleImage = imageFactory.getImage("/text/noresult");
-            gui.drawImage(new Position(130-titleImage.getWidth()/2, 120), titleImage);
+            gui.drawImage(new Position(130, 120), titleImage, 'c', 't');
         }
 
             String selected = getModel().isSelected(0) ? "selected/" : "";
             Image entryImage = imageFactory.getImage("/text/" + selected + getModel().getEntry(0));
-            gui.drawImage(new Position(130- entryImage.getWidth()/2, 220), entryImage);
+            gui.drawImage(new Position(130, 220), entryImage, 'c','t');
     }
 }

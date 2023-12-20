@@ -29,7 +29,7 @@ class MenuTest extends Specification {
 
         then:
         // Verify that currentEntry has decremented and is within the valid range
-        menu.currentEntry == 3
+        menu.currentEntry == 4
     }
 
     def "isSelected should return true for the selected entry and false for others"() {
@@ -42,6 +42,7 @@ class MenuTest extends Specification {
         menu.isSelected(0) == false
         menu.isSelected(2) == false
         menu.isSelected(3) == false
+        menu.isSelected(4) == false
     }
 
     def "isSelectedStart, isSelectedGarage, isSelectedRanking, isSelectedExit should return true for the corresponding entries"() {
@@ -53,6 +54,7 @@ class MenuTest extends Specification {
         menu.isSelectedStart() == false
         menu.isSelectedGarage() == true
         menu.isSelectedRanking() == false
+        menu.isSelectedInstructions() == false
         menu.isSelectedExit() == false
     }
 }
