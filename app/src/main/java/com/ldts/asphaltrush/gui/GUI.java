@@ -23,9 +23,5 @@ public interface GUI {
 
     enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
 
-    void drawPointMultiplierPowerUp(Position position);
-
-    void drawInvenciblePowerUp(Position position);
-
     void drawRectangle(Position position, int width, int height, String color);
 }

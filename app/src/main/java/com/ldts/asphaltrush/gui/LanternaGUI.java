@@ -165,16 +165,6 @@ public class LanternaGUI implements GUI {
 
 
     @Override
-    public void drawPointMultiplierPowerUp(Position position) {
-        drawCharacter(position.getX(), position.getY(), '◈', "#00BF00");
-    }
-
-    @Override
-    public void drawInvenciblePowerUp(Position position) {
-        drawCharacter(position.getX(), position.getY(), '★', "#BFF000");
-    }
-
-    @Override
     public void drawRectangle(Position position, int width, int height, String color){
         TextGraphics tg = screen.newTextGraphics();
         tg.setBackgroundColor(TextColor.Factory.fromString(color));
