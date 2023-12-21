@@ -163,10 +163,6 @@ public class LanternaGUI implements GUI {
         tg.putString(x, y + 1, "" + c);
     }
 
-    @Override
-    public void drawBarrier(Position position) {
-        drawCharacter(position.getX(), position.getY(), '▓', "#FFFFFF");
-    }
 
     @Override
     public void drawPlayer(Position position) {
