@@ -19,10 +19,8 @@ public class Street {
     private Player player;
     private List<ObstacleCar> obstacleCars;
     private List<PowerUp> powerUps;
-    private List<Barrier> barriers;
     private LinkedList<Line> lines;
     private List<Hole> holes;
-    private List<Jump> jumps;
 
     private ObstacleCarBuilder carBuilder;
 
@@ -51,13 +49,6 @@ public class Street {
         this.player = player;
     }
 
-    public List<Barrier> getBarriers() {
-        return barriers;
-    }
-
-    public void setBarriers(List<Barrier> barriers) {
-        this.barriers = barriers;
-    }
 
     public LinkedList<Line> getLines() {
         return lines;
@@ -83,13 +74,7 @@ public class Street {
         this.holes = holes;
     }
 
-    public List<Jump> getJumps() {
-        return jumps;
-    }
 
-    public void setJumps(List<Jump> jumps) {
-        this.jumps = jumps;
-    }
 
     public List<PowerUp> getPowerUps() {
         return powerUps;
@@ -97,13 +82,6 @@ public class Street {
 
     public void setPowerUps(List<PowerUp> powerUps) {
         this.powerUps = powerUps;
-    }
-
-    public boolean isEmpty(Position position) {
-        for (Barrier barrier : barriers)
-            if (barrier.getPosition().equals(position))
-                return false;
-        return true;
     }
 
     public boolean isObstacleCar(Position position, int width, int height) {

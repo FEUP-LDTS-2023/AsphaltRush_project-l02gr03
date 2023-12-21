@@ -28,9 +28,7 @@ public class StreetBuilder {
 
         street.setPlayer(createPlayer());
         street.setLines(createLines());
-        street.setBarriers(new ArrayList<Barrier>());
         street.setHoles(new ArrayList<>());
-        street.setJumps(new ArrayList<>());
         street.setObstacleCars(new ArrayList<>());
         street.setPowerUps(new ArrayList<>());
         return street;
