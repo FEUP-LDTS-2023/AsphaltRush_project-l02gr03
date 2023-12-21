@@ -5,8 +5,9 @@
 ![Main Menu Image](docs/images/MainMenu.png)
 ![Instructions Image](docs/images/Instructions.png)
 ![Garage Image](docs/images/Garage.png)
-![PowerUp Image](docs/images/Powerups.png)
+![Game Image](docs/images/Game.png)
 ![GameOver Image](docs/images/GameOver.png)
+![Ranking Image](docs/images/Ranking.png)
 
 
 

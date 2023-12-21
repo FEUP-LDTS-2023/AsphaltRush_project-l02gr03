@@ -73,6 +73,14 @@ Have a more distinct array of power-ups, such as time freezing, jumping or minia
 ### In-Game Shop
 Introduce a in-game shop where players can utilize coins, collected during the game, to unlock new cars.
 
+### DESIGN
+
+
+#### KNOWN CODE SMELLS
+
+> This section should describe 3 to 5 different code smells that you have identified in your current implementation.
+
+
 ### TESTING
 
 - Screenshot of coverage report.
