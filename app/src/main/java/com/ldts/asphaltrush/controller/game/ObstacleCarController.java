@@ -34,7 +34,7 @@ public class ObstacleCarController extends GameController {
 
     private void addNewObstacleCars() {
         ObstacleCar obstacleCar = getModel().getCarBuilder().createObstacleCar(RNG.nextInt(1, ObstacleCarBuilder.TYPESNUMBER+1));
-        int r = RNG.nextInt(0, 4);
+        int r = RNG.nextInt(0, 5);
         int x = r-1+r* 28 + getModel().getLeftCurbWidth();
         int y = -50;
         obstacleCar.setPosition(new Position(x+((28-obstacleCar.getWidth())/2), y));
