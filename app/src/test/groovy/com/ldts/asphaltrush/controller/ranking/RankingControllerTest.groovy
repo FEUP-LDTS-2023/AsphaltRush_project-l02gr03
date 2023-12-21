@@ -40,6 +40,6 @@ class RankingControllerTest extends Specification {
         rankingController.step(game, GUI.ACTION.NONE, 0)
 
         then:
-        initialState == game.getGameState()
+        initialState == game.getGameState().getState()
     }
 }

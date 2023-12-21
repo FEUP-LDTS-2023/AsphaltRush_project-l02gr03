@@ -122,7 +122,7 @@ public class GameOver {
 
     private void writeRanking(TreeSet<Pair<String, Long>> rankingSet) throws IOException {
 
-        String path = "app/data/Rankings.txt";
+        String path = "data/Rankings.txt";
         BufferedWriter bw = new BufferedWriter(new FileWriter(path));
 
             for (int k = 1; k <= 5; k++) {
@@ -138,7 +138,7 @@ public class GameOver {
                 .reversed()
                 .thenComparing(Pair::getFirst));;
 
-        String path = "app/data/Rankings.txt";
+        String path = "data/Rankings.txt";
         BufferedReader br = new BufferedReader(new FileReader(path));
 
         String line;

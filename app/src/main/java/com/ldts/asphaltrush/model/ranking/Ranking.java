@@ -24,7 +24,7 @@ public class Ranking {
     }
     public ArrayList<String[]>  readRanking() throws IOException {
 
-        String path = "app/data/Rankings.txt";
+        String path = "data/Rankings.txt";
         BufferedReader br = new BufferedReader(new FileReader(path));
 
         ArrayList<String[]> ranking = new ArrayList<>();

@@ -11,7 +11,7 @@ class RankingTest extends Specification {
         def result = ranking.getRanking()
 
         then:
-        result.size() == 0
+        result.size() == 5
     }
 
     def "isSelectedBack should be true initially"() {

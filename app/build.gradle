@@ -27,6 +27,7 @@ dependencies {
     implementation 'net.bytebuddy:byte-buddy:1.14.10'
 
     // Lanterna
+    implementation 'com.google.guava:guava:33.0.0-jre'
     implementation group: 'com.googlecode.lanterna', name: 'lanterna', version: '3.1.1'
 }
 
