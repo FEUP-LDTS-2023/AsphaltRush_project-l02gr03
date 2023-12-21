@@ -22,13 +22,6 @@ public interface GUI {
     void drawText(String text, Position position, ImageFactory imageFactory, char type);
 
     enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
-    void drawPlayer(Position position);
-
-    void drawLine(Position position);
-
-    void drawObstacleCar(Position position);
-
-    void drawHole(Position position);
 
     void drawJump(Position position);
 
