@@ -23,8 +23,6 @@ public interface GUI {
 
     enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
 
-    void drawJump(Position position);
-
     void drawPointMultiplierPowerUp(Position position);
 
     void drawInvenciblePowerUp(Position position);
