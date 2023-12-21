@@ -1,7 +1,7 @@
-## LDTS_<02><03> - <AsphaltRush>
+# LDTS_T02_G03 - AsphaltRush
 
 
-The main objective of the game is to guide a car as far as possible, avoiding obstacles such as other cars, holes, and barriers while accumulating points to climb the rankings.
+The main objective of this game is to guide a car as far as possible, avoiding obstacles such as cars and holes, while accumulating points to climb the rankings.
 
 
 This project was developed by:
@@ -13,38 +13,65 @@ This project was developed by:
 
  for LDTS 23/24
 
-## UML
+## Game Demo
 
-<p align="center">
-    <img src="images/UML.png">
-</p>
+![GameDemo GIF](images/Demo.gif)
+
 
 ## IMPLEMENTED FEATURES
 
-- **None**
+### Car Selection in Garage
+Players can choose from a variety of cars available in the garage before starting the game.
+
+![Garage GIF](images/Garage.gif)
+
+### Scoring System
+The game features a scoring system that increases as the player covers greater distances, accumulating points.
+
+![Score GIF](images/Score.gif)
+
+### Ranking Display
+The best scores are showcased on a ranking screen, fostering healthy competition among players.
+
+![Ranking GIF](images/Ranking.gif)
+
+### Obstacle Variety
+Various obstacles, including moving cars and holes in the track that challenges the player during gameplay.
+
+![Obstacles GIF](images/Obstacles.gif)
+
+### Power ups
+Implemented two power ups:
+  - ***Score Multiplier Power Up*** - Temporarily boosts the points earned by multiplying them by a specific factor.
+
+    ![Multiplier GIF](images/Multiplier.gif)
+
+  - ***Invincibility Power up*** - Grants temporary invulnerability, allowing the player to pass through obstacles without losing.
+    
+    ![Invincibility GIF](images/Invincibility.gif)
+
+### Game Over Screen 
+After colliding with an obstacle and losing, the game over screen displays the score and lets the player input their name for the best player's ranking.
+
+![GameOver GIF](images/GameOver.gif)
+
 
 ## PLANNED FEATURES
 
-#### Car Selection in Garage
-Players can choose from a variety of cars available in the garage before starting the game.
-  
-#### Scoring System
-The game features a scoring system that increases as the player covers greater distances, accumulating points.
-  
-#### Ranking Display
-The best scores are showcased on a ranking screen, fostering healthy competition among players.
-  
-#### Obstacle Variety
-Various obstacles, including moving cars, holes in the track, jumps and barriers, that challenges the player during gameplay.
+### Diverse Game Zones
+Experience dynamic gameplay as the environment transforms, entering in different zones such as deserts or icy landscapes.
 
-#### Power ups
-Implemented two power ups:
-  - *Score Multiplier Power Up* - Temporarily boosts the points earned by multiplying them by a specific factor.
-  - *Invincibility Power up* - Grants temporary invulnerability, allowing the player to pass through obstacles without losing.
+### Expanded Car Selection
+More variety of cars in the garage.
 
-#### Game Over Screen 
-When a player collides with an obstacle and loses, a game over screen is displayed. It shows the obtained score, the player's ranking position, and provides options to restart the game or return to the main screen.
+### Obstacle Variety
+Encounter new obstacles, such as barriers and oil spills.
 
+### Diverse Power ups
+Have a more distinct array of power-ups, such as time freezing, jumping or miniaturization.
+
+### In-Game Shop
+Introduce a in-game shop where players can utilize coins, collected during the game, to unlock new cars.
 
 ## DESIGN
 
@@ -103,7 +130,7 @@ The use of the State Pattern in the current design allows the following benefits
 
 #### Problem in Context
 
-When considering the best way to store the image information of each element we encountered a problem. Having that information hard written inside each element object would be impractical, difficult to change. On the other hand, we could store the images as separate files that would be read once the objects were created, but this approach would also cause some unnecessary overhead since a lot of the elements have the same texture. 
+When considering the best way to store the image information of each element we encountered a problem. Having that information hard written inside each element object would be impractical, difficult to change. On the other hand, we could store the images as separate files that would be read once the objects were created, but this approach would also cause some unnecessary overhead since a lot of the elements have the same texture.
 
 
 #### The Pattern
@@ -121,6 +148,17 @@ The use of the Flyweight Pattern in the current design allows the following bene
 Memory Efficiency - By sharing common state, the Flyweight pattern reduces the memory footprint of an application, especially when dealing with a large number of instances.
 Performance Improvement - Sharing common state can lead to performance improvements, as the overhead associated with managing redundant data is minimized.
 
+
+
+### KNOWN CODE SMELLS
+
+> This section should describe 3 to 5 different code smells that you have identified in your current implementation.
+
+
+### TESTING
+
+- Screenshot of coverage report.
+- Link to mutation testing report.
 
 ### SELF-EVALUATION
 
