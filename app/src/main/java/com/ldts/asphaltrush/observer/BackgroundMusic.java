@@ -1,5 +1,6 @@
 package com.ldts.asphaltrush.observer;
 
+import com.googlecode.lanterna.terminal.swing.TerminalScrollController;
 import com.ldts.asphaltrush.Game;
 import com.ldts.asphaltrush.states.GameOverState;
 import com.ldts.asphaltrush.states.GameState;
@@ -41,24 +42,28 @@ public class BackgroundMusic implements GameStateObserver{
     }
 
     @Override
-    public void update() throws IOException, LineUnavailableException, UnsupportedAudioFileException {
-        if (!(this.gamestate.getState() instanceof GameOverState))  {
-            if(previousState == "gameover"){
-                currentBackgroundMusic.close();
-                currentBackgroundMusic = backgroundMusicMainMenu;
-                currentBackgroundMusic.setFramePosition(0);
-            }
-            currentBackgroundMusic = backgroundMusicMainMenu;
-            previousState = "notgameover";
-            currentBackgroundMusic.loop(Clip.LOOP_CONTINUOUSLY);
+    public void update(){
+        if (this.gamestate.getState() == null){
+            backgroundMusicGameOverMenu.close();
+            backgroundMusicMainMenu.close();
         } else {
-            this.previousState = "gameover";
-            currentBackgroundMusic.close();
-            currentBackgroundMusic = backgroundMusicGameOverMenu;
-            currentBackgroundMusic.setFramePosition(0);
-            currentBackgroundMusic.loop(Clip.LOOP_CONTINUOUSLY);
+            if (!(this.gamestate.getState() instanceof GameOverState))  {
+                if(previousState == "gameover"){
+                    currentBackgroundMusic.stop();
+                    currentBackgroundMusic = backgroundMusicMainMenu;
+                    currentBackgroundMusic.setFramePosition(0);
+                }
+                currentBackgroundMusic = backgroundMusicMainMenu;
+                previousState = "notgameover";
+                currentBackgroundMusic.loop(Clip.LOOP_CONTINUOUSLY);
+            } else {
+                this.previousState = "gameover";
+                currentBackgroundMusic.stop();
+                currentBackgroundMusic = backgroundMusicGameOverMenu;
+                currentBackgroundMusic.setFramePosition(0);
+                currentBackgroundMusic.loop(Clip.LOOP_CONTINUOUSLY);
+            }
         }
-
     }
 
 }
