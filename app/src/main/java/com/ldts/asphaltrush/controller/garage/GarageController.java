@@ -25,7 +25,10 @@ public class GarageController extends Controller<Garage> {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
+        // Consider all the possible inputs
+        // Playing a sound every time one gets processed
         switch (action) {
+            // Change the selected car
             case LEFT:
                 selectOptionSound.play();
                 getModel().moveLeft();
@@ -37,7 +40,9 @@ public class GarageController extends Controller<Garage> {
             case SELECT:
                 selectCarSound.play();
                 if (getModel().isSelectedConfirm()){
+                    // Change the car type to the one of the current selected
                     game.getGameState().setCarType(getModel().getCurrentCar());
+                    // Change the game state to Menu State
                     game.getGameState().setState(new MenuState(new Menu()));
                 }
         }
