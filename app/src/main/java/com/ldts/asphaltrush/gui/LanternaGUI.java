@@ -157,51 +157,6 @@ public class LanternaGUI implements GUI {
         tg.putString(position.getX(), position.getY(), text);
     }
 
-    private void drawCharacter(int x, int y, char c, String color) {
-        TextGraphics tg = screen.newTextGraphics();
-        tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(x, y + 1, "" + c);
-    }
-
-    @Override
-    public void drawBarrier(Position position) {
-        drawCharacter(position.getX(), position.getY(), '▓', "#FFFFFF");
-    }
-
-    @Override
-    public void drawPlayer(Position position) {
-        drawCharacter(position.getX(), position.getY(), '☗', "#FFFF00");
-    }
-
-    @Override
-    public void drawLine(Position position) {
-        drawCharacter(position.getX(), position.getY(), '|', "#FFFFFF");
-    }
-
-    @Override
-    public void drawObstacleCar(Position position) {
-        drawCharacter(position.getX(), position.getY(), '◙', "#FF0000");
-    }
-
-    @Override
-    public void drawHole(Position position) {
-        drawCharacter(position.getX(), position.getY(), '◉', "#967969");
-    }
-
-    @Override
-    public void drawJump(Position position) {
-        drawCharacter(position.getX(), position.getY(), '⍓', "#ADD8E6");
-    }
-
-    @Override
-    public void drawPointMultiplierPowerUp(Position position) {
-        drawCharacter(position.getX(), position.getY(), '◈', "#00BF00");
-    }
-
-    @Override
-    public void drawInvenciblePowerUp(Position position) {
-        drawCharacter(position.getX(), position.getY(), '★', "#BFF000");
-    }
 
     @Override
     public void drawRectangle(Position position, int width, int height, String color){

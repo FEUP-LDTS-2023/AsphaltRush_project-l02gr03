@@ -21,16 +21,6 @@ class StreetTest extends Specification {
         street.getPoints() != null
     }
 
-    def "Street should check if a position is empty"() {
-        given:
-        Street street = new Street()
-        street.setBarriers([new Barrier(10, 20)])
-
-        expect:
-        !street.isEmpty(new Position(10, 20))
-        street.isEmpty(new Position(30, 40))
-    }
-
     def "Street should detect obstacle cars"() {
         given:
         Street street = new Street()

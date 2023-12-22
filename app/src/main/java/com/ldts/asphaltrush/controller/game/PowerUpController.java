@@ -39,7 +39,7 @@ public class PowerUpController extends GameController {
     }
 
     private void movePowerUp(PowerUp powerUp, Position position) {
-        if (getModel().isEmpty(position)) powerUp.setPosition(new Position(position.getX(), position.getY() + (int) (POWER_UP_SPEED*getModel().getPlayer().getSpeed())));
+        powerUp.setPosition(new Position(position.getX(), position.getY() + (int) (POWER_UP_SPEED*getModel().getPlayer().getSpeed())));
     }
 
     private void checkAndRemovePowerUps() {

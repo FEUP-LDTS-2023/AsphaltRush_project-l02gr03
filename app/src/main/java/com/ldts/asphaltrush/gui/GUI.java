@@ -23,21 +23,5 @@ public interface GUI {
 
     enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
 
-    void drawBarrier(Position position);
-
-    void drawPlayer(Position position);
-
-    void drawLine(Position position);
-
-    void drawObstacleCar(Position position);
-
-    void drawHole(Position position);
-
-    void drawJump(Position position);
-
-    void drawPointMultiplierPowerUp(Position position);
-
-    void drawInvenciblePowerUp(Position position);
-
     void drawRectangle(Position position, int width, int height, String color);
 }
