@@ -53,7 +53,7 @@ public class GameOverViewer extends Viewer<GameOver> {
             // Align the letters and organize them into columns and rows
             int row = i/7;
             int col = i - i/7*7;
-            // Select image considering if the entry is selected or not
+            // Consider if the entry is selected or not
             String selected = getModel().isSelected(i+2) ? "selected/" : "";
             Image letter = imageFactory.getImage("/fonts/letters/" + selected + getModel().getEntry(i+2));
             gui.drawImage(new Position(90 + col*12 , 130 + row*12), letter);
