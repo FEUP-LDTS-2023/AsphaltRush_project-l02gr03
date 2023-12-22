@@ -2,14 +2,21 @@ package com.ldts.asphaltrush.states
 
 import com.ldts.asphaltrush.model.gameOver.GameOver
 import com.ldts.asphaltrush.model.menu.Menu
-import com.ldts.asphaltrush.observer.BackgroundMusicTest
 import com.ldts.asphaltrush.observer.GameStateObserver
-import spock.lang.Specification;
+import spock.lang.Specification
+import spock.lang.Subject;
 
 class GameStateTest extends Specification {
+
+    @Subject
+    GameState gameState
+
+    def setup() {
+        gameState = new GameState()
+    }
+
     def "GameState should transition to GameOverState with the correct model"() {
         given:
-        GameState gameState = new GameState()
         GameOver gameOverModel = new GameOver(100)
 
         when:
@@ -18,11 +25,14 @@ class GameStateTest extends Specification {
         then:
         gameState.getState() instanceof GameOverState
         gameState.getState().getModel() == gameOverModel
+
+        cleanup:
+        gameState.setState(null)
+        gameState = null
     }
 
     def "GameState should transition to MenuState with the correct model"() {
         given:
-        GameState gameState = new GameState()
         Menu menuModel = new Menu()
 
         when:
@@ -31,11 +41,14 @@ class GameStateTest extends Specification {
         then:
         gameState.getState() instanceof MenuState
         gameState.getState().getModel() == menuModel
+
+        cleanup:
+        gameState.setState(null)
+        gameState = null
     }
 
     def "GameState should notify observers when the state changes"() {
         given:
-        GameState gameState = new GameState()
         GameStateObserver observerMock = Mock()
 
         when:
@@ -43,16 +56,21 @@ class GameStateTest extends Specification {
 
         then:
         1 * observerMock.update()
+
+        cleanup:
+        gameState.setState(null)
+        gameState = null
     }
 
     def "GameState should set and get car type correctly"() {
-        given:
-        GameState gameState = new GameState()
-
         when:
         gameState.setCarType(1)
 
         then:
         gameState.getCarType() == 1
+
+        cleanup:
+        gameState.setState(null)
+        gameState = null
     }
 }

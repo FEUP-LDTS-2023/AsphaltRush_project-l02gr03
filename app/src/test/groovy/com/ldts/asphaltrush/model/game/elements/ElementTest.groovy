@@ -16,6 +16,9 @@ class ElementTest extends Specification {
         expect:
         // Verify that the Element initializes with the correct position
         element.getPosition() == new Position(1, 1)
+
+        cleanup:
+        element = null
     }
 
     def "setPosition should update the position"() {
@@ -25,5 +28,8 @@ class ElementTest extends Specification {
         then:
         // Verify that setPosition updates the position correctly
         element.getPosition() == new Position(2, 3)
+
+        cleanup:
+        element = null
     }
 }

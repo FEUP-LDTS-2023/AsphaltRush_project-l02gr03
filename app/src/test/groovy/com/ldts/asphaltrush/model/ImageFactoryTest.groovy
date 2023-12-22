@@ -1,16 +1,21 @@
 package com.ldts.asphaltrush.model
 
-import spock.lang.Specification;
+import spock.lang.Specification
+import spock.lang.Subject
 
 class ImageFactoryTest extends Specification {
+
+    ImageFactory imageFactory = new ImageFactory()
+
+    @Subject
+    Image image
+
+    def setup() {
+        image = imageFactory.getImage("cars/obstacle/car1")
+    }
+
     def "ImageFactory should load an image from file"() {
-        given:
-        ImageFactory imageFactory = new ImageFactory()
-
-        when:
-        Image image = imageFactory.getImage("cars/obstacle/car1")
-
-        then:
+        expect:
         image != null
         image.width == 16
         image.height == 39
@@ -18,14 +23,10 @@ class ImageFactoryTest extends Specification {
 
     def "ImageFactory should return the same instance for a previously loaded image"() {
         given:
-        def imageFactory = new ImageFactory()
+        Image image2 = imageFactory.getImage("cars/obstacle/car1")
 
-        when:
-        def image1 = imageFactory.getImage("cars/obstacle/car1")
-        def image2 = imageFactory.getImage("cars/obstacle/car1")
-
-        then:
-        image1 == image2
+        expect:
+        image == image2
     }
 
     /*

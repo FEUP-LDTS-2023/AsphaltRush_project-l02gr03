@@ -4,7 +4,6 @@ import com.ldts.asphaltrush.Game
 import com.ldts.asphaltrush.model.ImageFactory
 import com.ldts.asphaltrush.model.Position
 import com.ldts.asphaltrush.model.game.elements.powerup.InvenciblePowerUp
-import com.ldts.asphaltrush.model.game.elements.powerup.PointMultiplierPowerUp
 import com.ldts.asphaltrush.model.game.street.Street
 import com.ldts.asphaltrush.model.game.street.StreetBuilder
 import com.ldts.asphaltrush.gui.GUI
@@ -15,10 +14,12 @@ class PowerUpControllerTest extends Specification {
 
     @Subject
     PowerUpController powerUpController
+    StreetBuilder streetBuilder
+    Street street
 
     def setup() {
-        StreetBuilder streetBuilder = new StreetBuilder(1, new ImageFactory())
-        Street street = streetBuilder.createStreet()
+        streetBuilder = new StreetBuilder(1, new ImageFactory())
+        street = streetBuilder.createStreet()
         powerUpController = new PowerUpController(street)
     }
 
@@ -32,6 +33,11 @@ class PowerUpControllerTest extends Specification {
 
         then:
         !powerUpController.getModel().getPowerUps().contains(powerUpToRemove)
+
+        cleanup:
+        streetBuilder = null
+        street = null
+        powerUpController = null
     }
 
     def "PowerUpController should add new power-ups"() {
@@ -41,6 +47,11 @@ class PowerUpControllerTest extends Specification {
         then:
         if(powerUpController.getModel().getPowerUps() == null) powerUpController.getModel().getPowerUps().size() == 0
         else powerUpController.getModel().getPowerUps().size() > 0
+
+        cleanup:
+        streetBuilder = null
+        street = null
+        powerUpController = null
     }
 
     def "PowerUpController should move power-ups downward"() {
@@ -55,5 +66,10 @@ class PowerUpControllerTest extends Specification {
         powerUpController.getModel().getPowerUps() != null
         powerUpController.getModel().getPowerUps().get(0) == powerUp
         powerUpController.getModel().getPowerUps().get(0).getPosition() == new Position(1, 2)
+
+        cleanup:
+        streetBuilder = null
+        street = null
+        powerUpController = null
     }
 }

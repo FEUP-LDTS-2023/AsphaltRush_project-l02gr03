@@ -3,10 +3,6 @@ package com.ldts.asphaltrush.controller.game
 import com.ldts.asphaltrush.Game
 import com.ldts.asphaltrush.gui.GUI
 import com.ldts.asphaltrush.model.ImageFactory
-import com.ldts.asphaltrush.model.Position
-import com.ldts.asphaltrush.model.game.elements.Line
-import com.ldts.asphaltrush.model.game.elements.obstacleCar.ObstacleCar
-import com.ldts.asphaltrush.model.game.elements.obstacleCar.ObstacleCarBuilder
 import com.ldts.asphaltrush.model.game.street.Street
 import com.ldts.asphaltrush.model.game.street.StreetBuilder
 import spock.lang.Specification
@@ -15,12 +11,15 @@ import spock.lang.Subject
 class LineControllerTest extends Specification {
 
     @Subject
+    ImageFactory imageFactory
+    StreetBuilder streetBuilder
+    Street street
     LineController lineController
 
     def setup() {
-        ImageFactory imageFactory = new ImageFactory()
-        StreetBuilder streetBuilder = new StreetBuilder(1, imageFactory)
-        Street street = streetBuilder.createStreet()
+        imageFactory = new ImageFactory()
+        streetBuilder = new StreetBuilder(1, imageFactory)
+        street = streetBuilder.createStreet()
         lineController = new LineController(street)
     }
 
@@ -31,5 +30,11 @@ class LineControllerTest extends Specification {
         then:
         lineController.getModel().getLines().size() > 0
         lineController.getModel().getLines().size() == 8
+
+        cleanup:
+        imageFactory = null
+        streetBuilder = null
+        street = null
+        lineController = null
     }
 }

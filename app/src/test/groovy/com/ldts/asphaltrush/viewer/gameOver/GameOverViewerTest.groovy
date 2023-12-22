@@ -1,16 +1,22 @@
 package com.ldts.asphaltrush.viewer.gameOver
 
+import com.ldts.asphaltrush.gui.GUI
+import com.ldts.asphaltrush.model.ImageFactory
+import com.ldts.asphaltrush.model.gameOver.GameOver
 import spock.lang.Specification;
 
 class GameOverViewerTest extends Specification {
-    def "GameOverViewer Test 1"() {
-        setup:
-        def result;
+    def "GameOverViewer calls gui.drawImage for each element"() {
+        given:
+        GameOver gameOver = new GameOver(10);
+        GameOverViewer gameOverViewer = new GameOverViewer(gameOver)
+        GUI gui = Mock()
+        ImageFactory imageFactory = new ImageFactory()
 
         when:
-        result = 0;
+        gameOverViewer.draw(gui, imageFactory)
 
         then:
-        result != 0;
+        31 * gui.drawImage(_, _)
     }
 }

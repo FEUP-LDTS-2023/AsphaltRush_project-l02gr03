@@ -17,11 +17,13 @@ class ObstacleCarControllerTest extends Specification {
     ObstacleCarBuilder obstacleCarBuilder = new ObstacleCarBuilder(imageFactory)
 
     @Subject
+    StreetBuilder streetBuilder
+    Street street
     ObstacleCarController obstacleCarController
 
     def setup() {
-        StreetBuilder streetBuilder = new StreetBuilder(1, imageFactory)
-        Street street = streetBuilder.createStreet()
+        streetBuilder = new StreetBuilder(1, imageFactory)
+        street = streetBuilder.createStreet()
         obstacleCarController = new ObstacleCarController(street)
     }
 
@@ -36,6 +38,11 @@ class ObstacleCarControllerTest extends Specification {
 
         then:
         !obstacleCarController.getModel().getObstacleCars().contains(obstacleCarToRemove)
+
+        cleanup:
+        streetBuilder = null
+        street = null
+        obstacleCarController = null
     }
 
     def "ObstacleCarController should add new obstacle cars"() {
@@ -45,6 +52,11 @@ class ObstacleCarControllerTest extends Specification {
         then:
         if (obstacleCarController.getModel().getObstacleCars() == null) obstacleCarController.getModel().getObstacleCars().size() == 0
         else obstacleCarController.getModel().getObstacleCars().size() > 0
+
+        cleanup:
+        streetBuilder = null
+        street = null
+        obstacleCarController = null
     }
 
     def "ObstacleCarController should move obstacle cars downward"() {
@@ -61,5 +73,10 @@ class ObstacleCarControllerTest extends Specification {
         obstacleCarController.getModel().getObstacleCars().get(0) == obstacleCar
         obstacleCarController.getModel().getObstacleCars().get(0).getPosition().x == 1
         obstacleCarController.getModel().getObstacleCars().get(0).getPosition().y == 1 + obstacleCarController.OBSTACLE_CAR_SPEED*obstacleCarController.getModel().getPlayer().getSpeed()
+
+        cleanup:
+        streetBuilder = null
+        street = null
+        obstacleCarController = null
     }
 }

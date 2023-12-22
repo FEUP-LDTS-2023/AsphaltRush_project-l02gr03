@@ -1,16 +1,22 @@
 package com.ldts.asphaltrush.viewer.menu
 
+import com.ldts.asphaltrush.gui.GUI
+import com.ldts.asphaltrush.model.ImageFactory
+import com.ldts.asphaltrush.model.menu.Menu
 import spock.lang.Specification;
 
 class MenuViewerTest extends Specification {
-    def "MenuViewer Test 1"() {
-        setup:
-        def result;
+    def "MenuViewer calls gui.drawImage for each element"() {
+        given:
+        Menu menu = new Menu()
+        MenuViewer menuViewer = new MenuViewer(menu)
+        GUI gui = Mock()
+        ImageFactory imageFactory = new ImageFactory()
 
         when:
-        result = 0;
+        menuViewer.draw(gui, imageFactory)
 
         then:
-        result != 0;
+        2 * gui.drawImage(_, _)
     }
 }

@@ -1,16 +1,10 @@
-
 package com.ldts.asphaltrush.controller.menu
+
 import spock.lang.Specification
 import spock.lang.Subject
-import spock.lang.Specification
-import spock.lang.Subject
-import com.ldts.asphaltrush.controller.menu.MenuController
 import com.ldts.asphaltrush.gui.GUI
 import com.ldts.asphaltrush.Game
 import com.ldts.asphaltrush.model.menu.Menu
-import com.ldts.asphaltrush.states.GameState
-import com.ldts.asphaltrush.states.GarageState
-import com.ldts.asphaltrush.states.RankingState
 
 class MenuControllerTest extends Specification {
 
@@ -22,7 +16,6 @@ class MenuControllerTest extends Specification {
     }
 
     def "step should update the menu selection based on UP and DOWN actions"() {
-        System.gc()
         when:
         menuController.step(new Game(), GUI.ACTION.UP, 0)
 
@@ -30,13 +23,15 @@ class MenuControllerTest extends Specification {
         // Verify that UP action moves to the previous menu entry
         menuController.getModel().currentEntry == 4
 
-        System.gc()
         when:
         menuController.step(new Game(), GUI.ACTION.DOWN, 0)
 
         then:
         // Verify that DOWN action moves to the next menu entry
         menuController.getModel().currentEntry == 0
+
+        cleanup:
+        menuController = null;
     }
 
 }
