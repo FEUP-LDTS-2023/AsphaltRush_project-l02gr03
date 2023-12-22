@@ -16,14 +16,19 @@ public class InstructionsViewer extends Viewer<Instructions> {
 
     @Override
     protected void drawElements(GUI gui, ImageFactory imageFactory) throws IOException {
+
+        //Draw the background
         gui.drawImage(new Position(0,0), imageFactory.getImage("/background/instructions"));
 
+        // Draw the main Title
         gui.drawImage(new Position(130, 13), imageFactory.getImage("/title/instructions"), 'c', 't');
 
-        Image textImage = imageFactory.getImage("/text/instructions");
-        gui.drawImage(new Position(0,0), textImage);
+        // Draw all the instructions
+        gui.drawImage(new Position(0,0), imageFactory.getImage("/text/instructions"));
 
+        // Draw the different options
         String selected = getModel().isSelected(0) ? "selected/" : "";
+        // Consider if entry is selected or not
         Image entryImage = imageFactory.getImage("/text/" + selected + getModel().getEntry(0));
         gui.drawImage(new Position(130, 220), entryImage, 'c', 't');
     }

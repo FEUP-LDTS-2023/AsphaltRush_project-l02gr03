@@ -14,7 +14,7 @@ public class PowerUpViewer implements ElementViewer<PowerUp> {
 
     @Override
     public void draw(PowerUp element, GUI gui, ImageFactory imageFactory) {
-        Image image = imageFactory.getImage("/elements/"+element.getType());
-        gui.drawImage(element.getPosition(), image);
+        // Draw the PowerUps considering their type
+        gui.drawImage(element.getPosition(), imageFactory.getImage("/elements"+element.getType()));
     }
 }
