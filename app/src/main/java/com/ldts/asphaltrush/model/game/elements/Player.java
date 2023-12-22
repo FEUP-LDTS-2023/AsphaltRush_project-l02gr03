@@ -4,6 +4,7 @@ import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
 
 public class Player extends Element {
 
+    private final int PowerUpDuration = 5;
     private int type;
     private double speed = 1;
     private double minSpeed = 1;
@@ -15,6 +16,9 @@ public class Player extends Element {
 
     public int getType(){
         return type;
+    }
+    public int getPowerUpDuration(){
+        return PowerUpDuration;
     }
     public Player(int x, int y, int width, int height, int type) {
         super(x, y, width, height);
@@ -52,7 +56,7 @@ public class Player extends Element {
 
     public void addPowerUp(PowerUp powerUp) {
         this.powerUp = powerUp;
-        this.powerUpTime = 5;
+        this.powerUpTime = PowerUpDuration;
     }
 
     public void removePowerUp() {
