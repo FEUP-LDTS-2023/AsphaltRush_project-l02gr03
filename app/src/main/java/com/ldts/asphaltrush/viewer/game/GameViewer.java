@@ -48,7 +48,7 @@ public class GameViewer extends Viewer<Street> {
             // Draw the time bar
             int barSize = 45;
             // Calculate the size of the bar considering the time passed
-            int currentSize = (int)Math.round(barSize/5.0*Math.round(getModel().getPlayer().getPowerUpTime() * 10.0) / 10.0);
+            int currentSize = (int)Math.round((double)barSize/getModel().getPlayer().getPowerUpDuration()*Math.round(getModel().getPlayer().getPowerUpTime() * 10.0) / 10.0);
             // Draw the inside of the bar
             gui.drawRectangle(new Position(246, 170 + barSize-currentSize), 3, currentSize, "#FFFFFF");
             // Draw the outside of the bar
