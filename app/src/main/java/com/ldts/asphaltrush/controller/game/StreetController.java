@@ -25,7 +25,6 @@ public class StreetController extends GameController {
     private final LineController lineController;
     private final PowerUpController powerUpController;
     private final HoleController holeController;
-    private final JumpController jumpController;
     private final PointsController pointsController;
     private final SoundEffect crashSound;
     private final SoundEffect powerUpSound;
@@ -38,7 +37,6 @@ public class StreetController extends GameController {
         this.obstacleCarController = new ObstacleCarController(street);
         this.powerUpController = new PowerUpController(street);
         this.holeController = new HoleController(street);
-        this.jumpController = new JumpController(street);
         this.pointsController = new PointsController(street);
         this.crashSound = new CrashSound();
         this.powerUpSound = new PowerUpSound();
@@ -56,7 +54,6 @@ public class StreetController extends GameController {
             obstacleCarController.step(game, action, time);
             powerUpController.step(game, action, time);
             holeController.step(game, action, time);
-            jumpController.step(game, action, time);
             pointsController.step(game, action, time);
             checkCollisions();
         }
