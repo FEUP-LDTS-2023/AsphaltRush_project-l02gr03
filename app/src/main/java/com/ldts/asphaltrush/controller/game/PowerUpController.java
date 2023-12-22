@@ -55,7 +55,8 @@ public class PowerUpController extends GameController {
     }
 
     private void addNewPowerUps() {
-        int x = RNG.nextInt(1, 5) * 28 + getModel().getLeftCurbWidth() + 10;
+        int r = RNG.nextInt(0, 5);
+        int x = r-1+r * 28 + getModel().getLeftCurbWidth() + 14;
         int y = -50;
         PointMultiplierPowerUp pointMultiplierPowerUp = new PointMultiplierPowerUp(x,y);
         if(RNG.nextDouble(0,100) < 1 &&
@@ -63,8 +64,8 @@ public class PowerUpController extends GameController {
                 !getModel().isHole(new Position(x,y), pointMultiplierPowerUp.getWidth(), pointMultiplierPowerUp.getHeight()))
             getModel().getPowerUps().add(pointMultiplierPowerUp);
 
-        x = RNG.nextInt(1, 5) * 28 + getModel().getLeftCurbWidth() + 10;
-        y = -50;
+        r = RNG.nextInt(0, 5);
+        x = r-1+r * 28 + getModel().getLeftCurbWidth() + 14;
         InvenciblePowerUp invenciblePowerUp = new InvenciblePowerUp(x,y);
         if(RNG.nextDouble(0,100) < 1 &&
                 !getModel().isPowerUp(new Position(x, y), invenciblePowerUp.getWidth(), invenciblePowerUp.getHeight()) &&
