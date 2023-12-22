@@ -40,8 +40,6 @@ public class GameViewer extends Viewer<Street> {
 
         // Only draw active PowerUp if there is one active
         if(playerPowerUp != null) {
-            playerPowerUp.setPosition(new Position(14,-1));
-
             // Call the corresponding viewer
             drawElement(gui, playerPowerUp, new CurrentPowerUpViewer(), imageFactory);
 
