@@ -23,14 +23,17 @@ public class PointsController extends GameController {
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
 
         PowerUp playerPowerUp = getModel().getPlayer().getPowerUp();
+        // Get the multiplier considering the player speed
         double multiplier = getModel().getPlayer().getSpeed();
+        // If PowerUp is point multiplier, increase the multiplier
         if(playerPowerUp != null && playerPowerUp.getClass() == PointMultiplierPowerUp.class) multiplier*=10;
-
+        // Set the new multiplier
         getModel().getPoints().setMultiplier(multiplier);
 
         long currentTime = System.currentTimeMillis();
         long elapsedTime = currentTime - lastUpdate;
 
+        // Increase the total score every x amount of time
         if (elapsedTime >= POINTS_UPDATE_INTERVAL) {
             getModel().getPoints().increasePoints(1);
             lastUpdate = currentTime;
