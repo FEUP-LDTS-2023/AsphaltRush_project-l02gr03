@@ -1,23 +1,36 @@
 package com.ldts.asphaltrush.states
 
+import com.ldts.asphaltrush.controller.Controller
 import com.ldts.asphaltrush.controller.game.StreetController
 import com.ldts.asphaltrush.model.game.street.Street
+import com.ldts.asphaltrush.viewer.Viewer
 import com.ldts.asphaltrush.viewer.game.GameViewer
-import spock.lang.Specification;
+import spock.lang.Specification
+import spock.lang.Subject;
 
 class StreetStateTest extends Specification {
-    def "StreetState should create GameViewer and StreetController with the correct model"() {
-        given:
-        def streetModel = new Street()
-        def streetState = new StreetState(streetModel)
 
+    @Subject
+    Street streetModel
+    StreetState streetState
+
+    def setup() {
+        streetModel = new Street()
+        streetState = new StreetState(streetModel)
+    }
+
+    def "StreetState should create GameViewer and StreetController with the correct model"() {
         when:
-        def viewer = streetState.getViewer()
-        def controller = streetState.getController()
+        Viewer viewer = streetState.getViewer()
+        Controller controller = streetState.getController()
 
         then:
         viewer instanceof GameViewer
         controller instanceof StreetController
         controller.model == streetModel
+
+        cleanup:
+        streetModel = null
+        streetState = null
     }
 }

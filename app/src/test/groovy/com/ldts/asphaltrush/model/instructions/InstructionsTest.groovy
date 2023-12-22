@@ -3,10 +3,10 @@ package com.ldts.asphaltrush.model.instructions
 import spock.lang.Specification
 
 class InstructionsTest extends Specification {
-    def "isSelected should return true for the current entry"() {
-        given:
-        Instructions instructions = new Instructions()
 
+    Instructions instructions = new Instructions()
+
+    def "isSelected should return true for the current entry"() {
         expect:
         instructions.isSelected(0) == true
 
@@ -19,9 +19,6 @@ class InstructionsTest extends Specification {
     }
 
     def "isSelectedBack should return true only for the 'Back' entry"() {
-        given:
-        Instructions instructions = new Instructions()
-
         expect:
         instructions.isSelectedBack() == true
 
@@ -33,9 +30,6 @@ class InstructionsTest extends Specification {
     }
 
     def "isSelectedConfirm should be true initially"() {
-        given:
-        Instructions instructions = new Instructions()
-
         expect:
         instructions.isSelectedBack()
     }

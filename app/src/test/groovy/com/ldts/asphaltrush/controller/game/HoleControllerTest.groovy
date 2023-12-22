@@ -12,12 +12,15 @@ import spock.lang.Subject
 class HoleControllerTest extends Specification {
 
     @Subject
+    ImageFactory imageFactory
+    StreetBuilder streetBuilder
+    Street street
     HoleController holeController
 
     def setup() {
-        ImageFactory imageFactory = new ImageFactory()
-        StreetBuilder streetBuilder = new StreetBuilder(1, imageFactory)
-        Street street = streetBuilder.createStreet()
+        imageFactory = new ImageFactory()
+        streetBuilder = new StreetBuilder(1, imageFactory)
+        street = streetBuilder.createStreet()
         holeController = new HoleController(street)
     }
 
@@ -31,6 +34,12 @@ class HoleControllerTest extends Specification {
 
         then:
         !holeController.getModel().getHoles().contains(holeToRemove)
+
+        cleanup:
+        imageFactory = null
+        streetBuilder = null
+        street = null
+        holeController = null
     }
 
     def "HoleController should add new holes"() {
@@ -40,6 +49,12 @@ class HoleControllerTest extends Specification {
         then:
         if (holeController.getModel().getHoles() == null) holeController.getModel().getHoles().size() == 0
         else holeController.getModel().getHoles().size() > 0
+
+        cleanup:
+        imageFactory = null
+        streetBuilder = null
+        street = null
+        holeController = null
     }
 
     def "HoleController should move holes downward"() {
@@ -55,5 +70,11 @@ class HoleControllerTest extends Specification {
         holeController.getModel().getHoles().get(0) == hole
         holeController.getModel().getHoles().get(0).getPosition().x == 1
         holeController.getModel().getHoles().get(0).getPosition().y == 1 + (int) (holeController.HOLE_SPEED * holeController.getModel().getPlayer().getSpeed())
+
+        cleanup:
+        imageFactory = null
+        streetBuilder = null
+        street = null
+        holeController = null
     }
 }

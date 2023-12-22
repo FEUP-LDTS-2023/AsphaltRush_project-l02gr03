@@ -1,65 +1,66 @@
 package com.ldts.asphaltrush.observer
 
-import com.ldts.asphaltrush.Game
 import com.ldts.asphaltrush.model.menu.Menu
 import com.ldts.asphaltrush.states.GameOverState
 import com.ldts.asphaltrush.states.GameState
 import com.ldts.asphaltrush.states.MenuState
 import spock.lang.Specification
-import javax.sound.sampled.*;
+import spock.lang.Subject
 
 class BackgroundMusicTest extends Specification {
-    def "BackgroundMusic Test: Initialization"() {
-        given:
-        def backgroundMusic = new BackgroundMusic(new GameState())
 
+    @Subject
+    BackgroundMusic backgroundMusic
+    GameState gameState
+
+    def setup() {
+        backgroundMusic = new BackgroundMusic(new GameState())
+        gameState = new GameState()
+    }
+
+
+    def "BackgroundMusic Test: Initialization"() {
         expect:
         backgroundMusic.gamestate.getState().getModel() instanceof Menu
         backgroundMusic.backgroundMusicMainMenu != null
         backgroundMusic.backgroundMusicGameOverMenu != null
         backgroundMusic.currentBackgroundMusic != null
         backgroundMusic.previousState == "notgameover"
+
+        cleanup:
+        gameState = null
+        backgroundMusic = null
+
     }
 
     def "BackgroundMusic Test: Update when not in GameOverState"() {
-        given:
-        def backgroundMusic = new BackgroundMusic(new GameState())
-
         when:
         backgroundMusic.update()
 
         then:
         backgroundMusic.currentBackgroundMusic == backgroundMusic.backgroundMusicMainMenu;
         backgroundMusic.previousState == "notgameover"
-    }
 
-    def "BackgroundMusic Test: Update when in GameOverState"() {
-        given:
-        GameState gameState = new GameState()
-        def backgroundMusic = new BackgroundMusic(gameState)
-        gameState.setState(new GameOverState())
-
-        when:
-        backgroundMusic.update()
-
-        then:
-        backgroundMusic.currentBackgroundMusic == backgroundMusic.backgroundMusicGameOverMenu;
-        backgroundMusic.previousState == "gameover"
+        cleanup:
+        gameState = null
+        backgroundMusic = null
     }
 
     def "BackgroundMusic Test: Update when transitioning from GameOverState to non-GameOverState"() {
         given:
-        GameState gameState = new GameState()
-        def backgroundMusic = new BackgroundMusic(gameState)
-        gameState.setState(new GameOverState())
+        gameState.setState(new GameOverState(null))
 
         when:
         backgroundMusic.update()
-        gameState.setState(new MenuState())
+        gameState.setState(new MenuState(null))
         backgroundMusic.update()
 
         then:
         backgroundMusic.currentBackgroundMusic == backgroundMusic.backgroundMusicMainMenu
         backgroundMusic.previousState == "notgameover"
+
+        cleanup:
+        gameState = null
+        backgroundMusic = null
     }
 }

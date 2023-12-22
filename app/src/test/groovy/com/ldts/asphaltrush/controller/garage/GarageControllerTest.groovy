@@ -1,11 +1,8 @@
 package com.ldts.asphaltrush.controller.garage
 
 import com.ldts.asphaltrush.Game
-import com.ldts.asphaltrush.controller.gameOver.GameOverController
 import com.ldts.asphaltrush.gui.GUI
-import com.ldts.asphaltrush.model.gameOver.GameOver
 import com.ldts.asphaltrush.model.garage.Garage
-import com.ldts.asphaltrush.states.GarageState
 import spock.lang.Specification
 import spock.lang.Subject;
 
@@ -23,7 +20,6 @@ class GarageControllerTest extends Specification {
     }
 
     def "GarageController should respond correctly to user actions"() {
-        System.gc()
         when:
         garageController.step(game, GUI.ACTION.LEFT, System.currentTimeMillis())
         int movedLeftCar = garage.getCurrentCar()
@@ -35,5 +31,8 @@ class GarageControllerTest extends Specification {
         then:
         movedLeftCar == 5
         movedRightCar == 0
+
+        cleanup:
+        game.getGameState().setState(null)
     }
 }

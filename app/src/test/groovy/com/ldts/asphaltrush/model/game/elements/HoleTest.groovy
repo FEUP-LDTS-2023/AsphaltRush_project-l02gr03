@@ -6,12 +6,12 @@ class HoleTest extends Specification {
 
     def "Hole should be initialized with the correct position"() {
         given:
-        def x = 5
-        def y = 10
+        int x = 5
+        int y = 10
 
         when:
-        def hole = new Hole(x, y)
-        def position = hole.getPosition()
+        Hole hole = new Hole(x, y)
+        Position position = hole.getPosition()
 
         then:
         position.getX() == x
@@ -20,12 +20,12 @@ class HoleTest extends Specification {
 
     def "Hole should be able to set a new position"() {
         given:
-        def hole = new Hole(0, 0)
-        def newPosition = new Position(3, 5)
+        Hole hole = new Hole(0, 0)
+        Position newPosition = new Position(3, 5)
 
         when:
         hole.setPosition(newPosition)
-        def position = hole.getPosition()
+        Position position = hole.getPosition()
 
         then:
         position == newPosition

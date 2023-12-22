@@ -1,9 +1,7 @@
 package com.ldts.asphaltrush.model.menu
+
 import spock.lang.Specification
 import spock.lang.Subject
-import spock.lang.Specification
-import spock.lang.Subject
-import com.ldts.asphaltrush.model.menu.Menu
 
 class MenuTest extends Specification {
 
@@ -21,6 +19,9 @@ class MenuTest extends Specification {
         then:
         // Verify that currentEntry has incremented and is within the valid range
         menu.currentEntry == 1
+
+        cleanup:
+        menu = null
     }
 
     def "previousEntry should move to the previous menu entry in a circular manner"() {
@@ -30,6 +31,9 @@ class MenuTest extends Specification {
         then:
         // Verify that currentEntry has decremented and is within the valid range
         menu.currentEntry == 4
+
+        cleanup:
+        menu = null
     }
 
     def "isSelected should return true for the selected entry and false for others"() {
@@ -43,6 +47,9 @@ class MenuTest extends Specification {
         menu.isSelected(2) == false
         menu.isSelected(3) == false
         menu.isSelected(4) == false
+
+        cleanup:
+        menu = null
     }
 
     def "isSelectedStart, isSelectedGarage, isSelectedRanking, isSelectedExit should return true for the corresponding entries"() {
@@ -56,6 +63,9 @@ class MenuTest extends Specification {
         menu.isSelectedRanking() == false
         menu.isSelectedInstructions() == false
         menu.isSelectedExit() == false
+
+        cleanup:
+        menu = null
     }
 }
 

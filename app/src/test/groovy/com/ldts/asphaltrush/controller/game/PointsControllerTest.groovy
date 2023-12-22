@@ -13,9 +13,10 @@ class PointsControllerTest extends Specification {
 
     @Subject
     PointsController pointsController
+    Street street
 
     def setup() {
-        Street street = new StreetBuilder(1, new ImageFactory()).createStreet()
+        street = new StreetBuilder(1, new ImageFactory()).createStreet()
         pointsController = new PointsController(street)
     }
 
@@ -25,6 +26,10 @@ class PointsControllerTest extends Specification {
 
         then:
         pointsController.getModel().getPoints().getPoints() > 0
+
+        cleanup:
+        street = null
+        pointsController = null
     }
 
     def "PointsController should consider power-up multiplier in points calculation"() {

@@ -22,10 +22,12 @@ class StreetControllerTest extends Specification {
 
     @Subject
     StreetController streetController
+    StreetBuilder streetBuilder
+    Street street
 
     def setup() {
-        StreetBuilder streetBuilder = new StreetBuilder(1, imageFactory)
-        Street street = streetBuilder.createStreet()
+        streetBuilder = new StreetBuilder(1, imageFactory)
+        street = streetBuilder.createStreet()
         streetController = new StreetController(street)
     }
 
@@ -39,6 +41,11 @@ class StreetControllerTest extends Specification {
 
         then:
         game.getGameState().getState() instanceof GameOverState
+
+        cleanup:
+        streetBuilder = null
+        street = null
+        streetController = null
     }
 
     def "StreetController should check and handle collisions with obstacle cars"() {
@@ -52,6 +59,11 @@ class StreetControllerTest extends Specification {
 
         then:
         streetController.getModel().getPlayer().getCrashed()
+
+        cleanup:
+        streetBuilder = null
+        street = null
+        streetController = null
     }
 
     def "StreetController should check and handle collisions with power-ups"() {
@@ -67,6 +79,11 @@ class StreetControllerTest extends Specification {
         then:
         player.getPowerUp() == powerUp
         streetController.getModel().getPowerUps().isEmpty()
+
+        cleanup:
+        streetBuilder = null
+        street = null
+        streetController = null
     }
 
     def "StreetController should check and handle collisions with holes"() {
@@ -80,6 +97,11 @@ class StreetControllerTest extends Specification {
 
         then:
         player.getCrashed()
+
+        cleanup:
+        streetBuilder = null
+        street = null
+        streetController = null
     }
 
     def "StreetController should check and handle collisions with obstacle cars when player is invencible"() {
@@ -95,6 +117,11 @@ class StreetControllerTest extends Specification {
 
         then:
         !streetController.getModel().getPlayer().getCrashed()
+
+        cleanup:
+        streetBuilder = null
+        street = null
+        streetController = null
     }
 
     def "StreetController should check and handle collisions with holes when player is invencible"() {
@@ -109,6 +136,11 @@ class StreetControllerTest extends Specification {
 
         then:
         !player.getCrashed()
+
+        cleanup:
+        streetBuilder = null
+        street = null
+        streetController = null
     }
 
 }
