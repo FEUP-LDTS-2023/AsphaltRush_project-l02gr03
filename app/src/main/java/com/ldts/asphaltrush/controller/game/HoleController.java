@@ -27,7 +27,7 @@ public class HoleController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
-        // Move holes every x seconds
+        // Move holes every x amont of time
         if (time - lastMovement > 100) {
             // Try creating new holes
             addNewHoles();
