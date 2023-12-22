@@ -13,22 +13,28 @@ public class PlayerController extends GameController {
     }
 
     public void movePlayerLeft() {
+        // Move the player to the lane on its left
         movePlayer(new Position(getModel().getPlayer().getPosition().getX()-28, getModel().getPlayer().getPosition().getY()));
     }
 
     public void movePlayerRight() {
+        // Move the player to the lane on its right
         movePlayer(new Position(getModel().getPlayer().getPosition().getX()+28, getModel().getPlayer().getPosition().getY()));
     }
 
     public void increasePlayerSpeed() {
+        // Increase the speed of the player
         getModel().getPlayer().increaseSpeed();
     }
 
+
     public void decreasePlayerSpeed() {
+        // Decrease the speed of the player
         getModel().getPlayer().decreaseSpeed();
     }
 
     private void movePlayer(Position position) {
+        // Actually moves the player, checking if its possible to do so
         if(position.getX() > getModel().getLeftCurbWidth() &&
                 position.getX() < (getModel().getLeftCurbWidth() + getModel().getWidth()))
             getModel().getPlayer().setPosition(position);
@@ -36,14 +42,19 @@ public class PlayerController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
+        // Moves the player every x amount of time
         if (time - lastMovement > 100) {
+            // If player has PowerUp active, decrease the time remaining of the PowerUp
             if (getModel().getPlayer().getPowerUp() != null) {
                 getModel().getPlayer().decreasePowerUpTime();
+                // Check if the remaining PowerUp time reached zero, if so, remove it
                 if (getModel().getPlayer().getPowerUpTime() <= 0) getModel().getPlayer().removePowerUp();
             }
+            // Increase slightly the speed of the player
             getModel().getPlayer().increaseMinSpeed();
             lastMovement = time;
         }
+        // Consider the different inputs
         if (action == GUI.ACTION.UP) increasePlayerSpeed();
         if (action == GUI.ACTION.RIGHT) movePlayerRight();
         if (action == GUI.ACTION.DOWN) decreasePlayerSpeed();
