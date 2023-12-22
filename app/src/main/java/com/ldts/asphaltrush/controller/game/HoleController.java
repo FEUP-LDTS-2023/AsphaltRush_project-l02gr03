@@ -54,7 +54,7 @@ public class HoleController extends GameController {
     }
 
     private void addNewHoles() {
-        int r = RNG.nextInt(0, 4);
+        int r = RNG.nextInt(0, 5);
         int x = r-1+r* 28 + getModel().getLeftCurbWidth();
         int y = -50;
         Hole hole = new Hole(x,y);
