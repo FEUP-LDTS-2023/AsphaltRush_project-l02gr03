@@ -55,6 +55,8 @@ After colliding with an obstacle and losing, the game over screen displays the s
 
 ![GameOver GIF](images/GameOver.gif)
 
+### Game Sound
+This game offers a audio experience with a background song playing throughout most of the game. There's also a special tune when the player loses to add some drama. Plus, there are various sound effects that kick in during specific moments, making the gaming experience even more immersive.
 
 ## PLANNED FEATURES
 
@@ -152,7 +154,21 @@ Performance Improvement - Sharing common state can lead to performance improveme
 
 ### KNOWN CODE SMELLS
 
-> This section should describe 3 to 5 different code smells that you have identified in your current implementation.
+#### Lazy Class 
+
+The [CrashSound](../app/src/main/java/com/ldts/asphaltrush/model/soundEffects/CrashSound.java), [PowerUpSound](../app/src/main/java/com/ldts/asphaltrush/model/soundEffects/PowerUpSound.java), [SelectCarSound](../app/src/main/java/com/ldts/asphaltrush/model/soundEffects/SelectCarSound.java) and [SelectOptionSound](../app/src/main/java/com/ldts/asphaltrush/model/soundEffects/SelectOptionSound.java) classes can be considered lazy classes, because the only difference between them is the value passed in the constructor, not having significant methods. However, we created them considering the use of the template pattern, in order to, in the future, be able to change easily the sound effects volume with a specific method.
+
+#### Large Class
+
+The [LanternaGUI](../app/src/main/java/com/ldts/asphaltrush/gui/LanternaGUI.java) class has many methods, so it can be considered a large class. In our perspective, this methods dont make sense in other place, since that they are extremely correlated with the class.
+
+#### Duplicate Code
+
+The [Ranking](../app/src/main/java/com/ldts/asphaltrush/model/ranking/Ranking.java) and [GameOver](../app/src/main/java/com/ldts/asphaltrush/model/gameOver/GameOver.java) classes can be a code smell of duplicate code type, since that both have a method to read the [ranking](../app/data/Rankings.txt) file that is, in part, very similar. In order to solve that, we could create a new class responsible to do that, and this classes only instantiate the new one.
+
+#### Shotgun Surgery
+
+The addition of new power ups can lead to the shotgun surgery code smell, considering that when added a new power up, depending of what is his purpose, we should change some little things in various places. An example is the [PowerUpController](../app/src/main/java/com/ldts/asphaltrush/controller/game/PowerUpController.java) class, where we need to adapt the addNewPowerUps method or the [StreetController](../app/src/main/java/com/ldts/asphaltrush/controller/game/StreetController.java) class, where the checkCollisions method could be different depending on the objective of the power up.
 
 
 ### TESTING
@@ -163,8 +179,11 @@ Performance Improvement - Sharing common state can lead to performance improveme
 ### SELF-EVALUATION
 
 Bruno Ferreira: 25%
+
 Eduardo Portugal: 25%
+
 Ricardo Parreira: 25%
+
 Xavier Martins: 25%
 
 
