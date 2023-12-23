@@ -2,7 +2,6 @@ package com.ldts.asphaltrush.controller.game;
 
 import com.ldts.asphaltrush.Game;
 import com.ldts.asphaltrush.gui.GUI;
-import com.ldts.asphaltrush.model.game.elements.Hole;
 import com.ldts.asphaltrush.model.game.elements.powerup.InvenciblePowerUp;
 import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
 import com.ldts.asphaltrush.model.game.street.Street;

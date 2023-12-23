@@ -17,14 +17,6 @@ public class Position {
         return this.y;
     }
 
-    public Position getLeft() {
-        return new Position(x - 1, y);
-    }
-
-    public Position getRight() {
-        return new Position(x + 1, y);
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

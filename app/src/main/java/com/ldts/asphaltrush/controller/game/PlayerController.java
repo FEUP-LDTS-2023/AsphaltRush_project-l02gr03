@@ -34,7 +34,7 @@ public class PlayerController extends GameController {
     }
 
     private void movePlayer(Position position) {
-        // Actually moves the player, checking if its possible to do so
+        // Actually moves the player, checking if it's possible to do so
         if(position.getX() > getModel().getLeftCurbWidth() &&
                 position.getX() < (getModel().getLeftCurbWidth() + getModel().getWidth()))
             getModel().getPlayer().setPosition(position);

@@ -1,10 +1,7 @@
 package com.ldts.asphaltrush.model.gameOver;
 
-import com.ldts.asphaltrush.model.ImageFactory;
 import com.ldts.asphaltrush.model.ranking.Pair;
-
 import java.io.*;
-import java.net.URL;
 import java.util.*;
 
 public class GameOver {
@@ -136,7 +133,7 @@ public class GameOver {
         TreeSet<Pair<String, Long>>  rankingSet = new  TreeSet<>(Comparator
                 .<Pair<String, Long>>comparingLong(Pair::getSecond)
                 .reversed()
-                .thenComparing(Pair::getFirst));;
+                .thenComparing(Pair::getFirst));
 
         String path = "data/Rankings.txt";
         BufferedReader br = new BufferedReader(new FileReader(path));
@@ -144,7 +141,7 @@ public class GameOver {
         String line;
         while ((line = br.readLine()) != null) {
             String[] namePoints = line.split(":");
-            rankingSet.add(new Pair(namePoints[0], Long.parseLong(namePoints[1])));
+            rankingSet.add(new Pair<>(namePoints[0], Long.parseLong(namePoints[1])));
         }
 
         return rankingSet;

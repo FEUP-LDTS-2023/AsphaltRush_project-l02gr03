@@ -3,12 +3,7 @@ package com.ldts.asphaltrush.viewer.game;
 import com.ldts.asphaltrush.gui.GUI;
 import com.ldts.asphaltrush.model.ImageFactory;
 import com.ldts.asphaltrush.model.Position;
-import com.ldts.asphaltrush.model.game.elements.powerup.InvenciblePowerUp;
-import com.ldts.asphaltrush.model.game.elements.powerup.PointMultiplierPowerUp;
 import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class CurrentPowerUpViewer implements ElementViewer<PowerUp> {
 

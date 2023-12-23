@@ -7,7 +7,6 @@ import com.ldts.asphaltrush.model.Position;
 import com.ldts.asphaltrush.model.ranking.Ranking;
 import com.ldts.asphaltrush.viewer.Viewer;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class RankingViewer extends Viewer<Ranking> {
@@ -16,7 +15,7 @@ public class RankingViewer extends Viewer<Ranking> {
     }
 
     @Override
-    protected void drawElements(GUI gui, ImageFactory imageFactory) throws IOException {
+    protected void drawElements(GUI gui, ImageFactory imageFactory) {
 
         // Draw background
         gui.drawImage(new Position(0,0), imageFactory.getImage("/background/ranking"));

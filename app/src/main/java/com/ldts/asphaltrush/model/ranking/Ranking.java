@@ -1,8 +1,6 @@
 package com.ldts.asphaltrush.model.ranking;
 
 import java.io.*;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.*;
 
 public class Ranking {
@@ -48,10 +46,5 @@ public class Ranking {
     public boolean isSelectedBack() {
         return isSelected(0);
     }
-
-    public int getNumberEntries() {
-        return this.entries.size();
-    }
-
 
 }

@@ -4,13 +4,9 @@ import com.ldts.asphaltrush.model.Image;
 import com.ldts.asphaltrush.model.ImageFactory;
 import com.ldts.asphaltrush.model.game.elements.*;
 import com.ldts.asphaltrush.model.game.elements.obstacleCar.ObstacleCarBuilder;
-import com.ldts.asphaltrush.model.game.elements.powerup.InvenciblePowerUp;
-import com.ldts.asphaltrush.model.game.elements.powerup.PointMultiplierPowerUp;
-import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
+
 
 public class StreetBuilder {
 

@@ -2,11 +2,8 @@ package com.ldts.asphaltrush;
 
 import com.ldts.asphaltrush.gui.LanternaGUI;
 import com.ldts.asphaltrush.model.ImageFactory;
-import com.ldts.asphaltrush.model.menu.Menu;
 import com.ldts.asphaltrush.observer.BackgroundMusic;
 import com.ldts.asphaltrush.states.GameState;
-import com.ldts.asphaltrush.states.MenuState;
-import com.ldts.asphaltrush.states.State;
 
 
 import javax.sound.sampled.LineUnavailableException;
@@ -52,7 +49,7 @@ public class Game {
 
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = frameTime - elapsedTime;
-            
+
             try {
                 if (sleepTime > 0) Thread.sleep(sleepTime);
             } catch (InterruptedException e) {

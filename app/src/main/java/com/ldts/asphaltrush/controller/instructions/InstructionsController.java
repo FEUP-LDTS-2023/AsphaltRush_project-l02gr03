@@ -22,10 +22,10 @@ public class InstructionsController extends Controller<Instructions> {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
-        switch (action) {
-            case SELECT:
-                selectOptionSound.play();
-                if (getModel().isSelectedBack()) game.getGameState().setState(new MenuState(new Menu()));
+        if (action == GUI.ACTION.SELECT){
+            selectOptionSound.play();
+            if (getModel().isSelectedBack()) game.getGameState().setState(new MenuState(new Menu()));
         }
     }
+
 }

@@ -1,7 +1,6 @@
 package com.ldts.asphaltrush.viewer.game;
 
 import com.ldts.asphaltrush.gui.GUI;
-import com.ldts.asphaltrush.model.Image;
 import com.ldts.asphaltrush.model.ImageFactory;
 import com.ldts.asphaltrush.model.Position;
 import com.ldts.asphaltrush.model.game.elements.Element;

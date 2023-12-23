@@ -1,13 +1,8 @@
 package com.ldts.asphaltrush.observer;
 
-import com.googlecode.lanterna.terminal.swing.TerminalScrollController;
-import com.ldts.asphaltrush.Game;
 import com.ldts.asphaltrush.states.GameOverState;
 import com.ldts.asphaltrush.states.GameState;
-import com.ldts.asphaltrush.states.MenuState;
-
 import javax.sound.sampled.*;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 

@@ -30,11 +30,6 @@ public class Garage {
         return currentEntry == i;
     }
 
-    public int getNumberEntries() {
-        return this.entries.size();
-    }
-
-
     public void moveLeft() {
         currentCar = (currentCar-1+NUMBEROFCARS)%NUMBEROFCARS;
     }

@@ -17,8 +17,7 @@ public interface GUI {
 
     void drawImage(Position position, Image image);
     void drawImage(Position position, Image image, char htype, char vtype);
-    void drawText(Position position, String text, String color);
-    void drawText(String text, Position position, ImageFactory imageFactory, char type, boolean smalllNumber);
+    void drawText(String text, Position position, ImageFactory imageFactory, char type, boolean smallNumbers);
     void drawText(String text, Position position, ImageFactory imageFactory, char type);
 
     enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}

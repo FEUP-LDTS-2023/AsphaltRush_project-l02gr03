@@ -62,7 +62,7 @@ public class GameOverController extends Controller<GameOver> {
                     if (!currentName.isEmpty()) getModel().setName(currentName.substring(0, currentName.length() - 1));
                 }
                 // If one of the letters is selected check first if name is smaller than 5
-                // Add the selected character to the end of the name if thats the case
+                // Add the selected character to the end of the name if that's the case
                 else if (getModel().getName().length() < 5)getModel().setName(getModel().getName()+getModel().getCurrentEntry());
         }
     }

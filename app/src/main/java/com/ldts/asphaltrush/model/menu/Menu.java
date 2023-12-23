@@ -14,9 +14,6 @@ public class Menu {
         this.entries = Arrays.asList("Start", "Garage" , "Ranking" , "Instructions" , "Exit");
     }
 
-    public Menu(int currentCar){
-        this.entries = Arrays.asList("Start", "Garage" , "Ranking" , "Instructions" , "Exit");
-    }
     public int getNumberEntries() {
         return this.entries.size();
     }

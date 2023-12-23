@@ -4,12 +4,7 @@ import com.ldts.asphaltrush.Game;
 import com.ldts.asphaltrush.gui.GUI;
 import com.ldts.asphaltrush.model.Position;
 import com.ldts.asphaltrush.model.game.elements.Hole;
-import com.ldts.asphaltrush.model.game.elements.obstacleCar.ObstacleCar;
-import com.ldts.asphaltrush.model.game.elements.obstacleCar.ObstacleCarBuilder;
-import com.ldts.asphaltrush.model.game.elements.powerup.InvenciblePowerUp;
-import com.ldts.asphaltrush.model.game.elements.powerup.PointMultiplierPowerUp;
 import com.ldts.asphaltrush.model.game.street.Street;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -27,7 +22,7 @@ public class HoleController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
-        // Move holes every x amont of time
+        // Move holes every x amount of time
         if (time - lastMovement > 100) {
             // Try creating new holes
             addNewHoles();

@@ -5,10 +5,7 @@ import com.ldts.asphaltrush.gui.GUI;
 import com.ldts.asphaltrush.model.game.elements.powerup.PointMultiplierPowerUp;
 import com.ldts.asphaltrush.model.game.elements.powerup.PowerUp;
 import com.ldts.asphaltrush.model.game.street.Street;
-
-import java.awt.*;
 import java.io.IOException;
-import java.net.URISyntaxException;
 
 public class PointsController extends GameController {
     private long lastUpdate;

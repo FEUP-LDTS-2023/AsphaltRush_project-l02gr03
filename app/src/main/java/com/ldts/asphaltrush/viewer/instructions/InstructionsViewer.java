@@ -7,7 +7,6 @@ import com.ldts.asphaltrush.model.Position;
 import com.ldts.asphaltrush.model.instructions.Instructions;
 import com.ldts.asphaltrush.viewer.Viewer;
 
-import java.io.IOException;
 
 public class InstructionsViewer extends Viewer<Instructions> {
     public InstructionsViewer(Instructions model) {
@@ -15,7 +14,7 @@ public class InstructionsViewer extends Viewer<Instructions> {
     }
 
     @Override
-    protected void drawElements(GUI gui, ImageFactory imageFactory) throws IOException {
+    protected void drawElements(GUI gui, ImageFactory imageFactory) {
 
         //Draw the background
         gui.drawImage(new Position(0,0), imageFactory.getImage("/background/instructions"));

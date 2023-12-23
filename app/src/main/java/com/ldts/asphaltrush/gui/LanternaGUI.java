@@ -150,13 +150,6 @@ public class LanternaGUI implements GUI {
         }
     }
 
-    @Override
-    public void drawText(Position position, String text, String color) {
-        TextGraphics tg = screen.newTextGraphics();
-        tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(position.getX(), position.getY(), text);
-    }
-
 
     @Override
     public void drawRectangle(Position position, int width, int height, String color){
