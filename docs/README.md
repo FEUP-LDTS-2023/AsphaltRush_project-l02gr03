@@ -61,19 +61,30 @@ After colliding with an obstacle and losing, the game over screen displays the s
 ### Game Sound
 This game offers a audio experience with a background song playing throughout most of the game. There's also a special tune when the player loses to add some drama. Plus, there are various sound effects that kick in during specific moments, making the gaming experience even more immersive.
 
+
 ## PLANNED FEATURES
 
 ### Diverse Game Zones
 Experience dynamic gameplay as the environment transforms, entering in different zones such as deserts or icy landscapes.
 
+![Snow Area Image](images/)
+
 ### Expanded Car Selection
 More variety of cars in the garage.
+
+![New Cars Image](images/NewCars.png)
+
 
 ### Obstacle Variety
 Encounter new obstacles, such as barriers and oil spills.
 
+![New Obstacles Image](images/NewObstacles.png)
+
+
 ### Diverse Power ups
 Have a more distinct array of power-ups, such as time freezing, jumping or miniaturization.
+
+![New Power ups Image](images/NewPowerups.png)
 
 ### In-Game Shop
 Introduce a in-game shop where players can utilize coins, collected during the game, to unlock new cars.
