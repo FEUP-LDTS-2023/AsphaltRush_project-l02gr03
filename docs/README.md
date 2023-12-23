@@ -7,8 +7,11 @@ The main objective of this game is to guide a car as far as possible, avoiding o
 This project was developed by:
 
 *Bruno Ferreira* (up202207863@fe.up.pt)
+
 *Eduardo Ferreira* (up202206628@fe.up.pt)
+
 *Ricardo Parreira* (up202205091@fe.up.pt)
+
 *Xavier Martins* (up202206632@fe.up.pt)
 
  for LDTS 23/24
@@ -172,9 +175,17 @@ The addition of new power ups can lead to the shotgun surgery code smell, consid
 
 
 ### TESTING
+#### Coverage Report
 
-- Screenshot of coverage report.
-- Link to mutation testing report.
+![Coverage Report](images/Coverage.png)
+
+
+#### Mutation Testing Report 
+
+![Mutation Test](images/pitest.png)
+
+[Mutation Test](pitest/pitest.html)
+
 
 ### SELF-EVALUATION
 
