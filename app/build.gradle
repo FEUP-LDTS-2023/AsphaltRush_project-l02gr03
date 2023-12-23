@@ -11,6 +11,15 @@ plugins {
 
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+
+
+    id 'info.solidsoft.pitest' version '1.15.0'
+}
+
+group 'com.ldts.asphaltrush'
+
+pitest {
+    junit5PluginVersion = '1.2.1'
 }
 
 repositories {
@@ -41,14 +50,4 @@ java {
 application {
     // Define the main class for the application.
     mainClass = 'com.ldts.asphaltrush.Game'
-}
-
-tasks.named('test') {
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
-}
-
-test {
-    jvmArgs('-Xmx2048m')
-    maxParallelForks = 1
 }
