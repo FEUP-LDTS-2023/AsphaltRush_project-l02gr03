@@ -29,6 +29,9 @@ class GameOverControllerTest extends Specification {
 
         cleanup:
         gameOverController = null
+        game.backgroundMusic.backgroundMusicMainMenu.close()
+        game.backgroundMusic.backgroundMusicGameOverMenu.close()
+        game.backgroundMusic.currentBackgroundMusic.close()
         game.gui.close()
     }
 
@@ -45,6 +48,9 @@ class GameOverControllerTest extends Specification {
 
         cleanup:
         gameOverController = null
+        game.backgroundMusic.backgroundMusicMainMenu.close()
+        game.backgroundMusic.backgroundMusicGameOverMenu.close()
+        game.backgroundMusic.currentBackgroundMusic.close()
         game.gui.close()
     }
 

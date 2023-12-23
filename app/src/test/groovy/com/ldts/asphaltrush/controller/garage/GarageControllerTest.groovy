@@ -35,6 +35,9 @@ class GarageControllerTest extends Specification {
         movedRightCar == 0
 
         cleanup:
+        game.backgroundMusic.backgroundMusicMainMenu.close()
+        game.backgroundMusic.backgroundMusicGameOverMenu.close()
+        game.backgroundMusic.currentBackgroundMusic.close()
         game.gui.close()
     }
 }

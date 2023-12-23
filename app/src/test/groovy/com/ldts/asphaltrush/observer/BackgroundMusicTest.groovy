@@ -29,7 +29,9 @@ class BackgroundMusicTest extends Specification {
 
         cleanup:
         gameState = null
-        backgroundMusic = null
+        backgroundMusic.backgroundMusicMainMenu.close()
+        backgroundMusic.backgroundMusicGameOverMenu.close()
+        backgroundMusic.currentBackgroundMusic.close()
 
     }
 

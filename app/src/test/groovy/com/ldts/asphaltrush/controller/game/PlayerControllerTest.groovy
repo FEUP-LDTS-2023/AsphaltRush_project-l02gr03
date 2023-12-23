@@ -106,6 +106,9 @@ class PlayerControllerTest extends Specification {
         streetBuilder = null
         street = null
         playerController = null
+        game.backgroundMusic.backgroundMusicMainMenu.close()
+        game.backgroundMusic.backgroundMusicGameOverMenu.close()
+        game.backgroundMusic.currentBackgroundMusic.close()
         game.gui.close()
 
     }

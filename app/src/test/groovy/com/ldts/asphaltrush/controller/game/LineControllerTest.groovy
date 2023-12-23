@@ -38,6 +38,9 @@ class LineControllerTest extends Specification {
         streetBuilder = null
         street = null
         lineController = null
+        game.backgroundMusic.backgroundMusicMainMenu.close()
+        game.backgroundMusic.backgroundMusicGameOverMenu.close()
+        game.backgroundMusic.currentBackgroundMusic.close()
         game.gui.close()
     }
 }

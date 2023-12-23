@@ -49,6 +49,9 @@ class StreetControllerTest extends Specification {
         streetBuilder = null
         street = null
         streetController = null
+        game.backgroundMusic.backgroundMusicMainMenu.close()
+        game.backgroundMusic.backgroundMusicGameOverMenu.close()
+        game.backgroundMusic.currentBackgroundMusic.close()
         game.gui.close()
     }
 
