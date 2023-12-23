@@ -56,11 +56,13 @@ class PowerUpControllerTest extends Specification {
 
     def "PowerUpController should move power-ups downward"() {
         given:
-        InvenciblePowerUp powerUp = new InvenciblePowerUp(1,1);
-        powerUpController.getModel().getPowerUps().add(powerUp);
+        InvenciblePowerUp powerUp = new InvenciblePowerUp(1,1)
+        powerUpController.getModel().getPowerUps().add(powerUp)
+        Game game = new Game()
+        game.backgroundMusic.initializeSounds() >> {}
 
         when:
-        powerUpController.step(new Game(), GUI.ACTION.NONE, 150)
+        powerUpController.step(game, GUI.ACTION.NONE, 150)
 
         then:
         powerUpController.getModel().getPowerUps() != null
@@ -71,5 +73,6 @@ class PowerUpControllerTest extends Specification {
         streetBuilder = null
         street = null
         powerUpController = null
+        game.gui.close()
     }
 }

@@ -14,28 +14,32 @@ class MenuControllerTest extends Specification {
 
     def setup() {
         menuController = new MenuController(new Menu())
-        SelectOptionSound sound = Mock()
-        menuController.selectOptionSound = sound
+        menuController.selectOptionSound = Mock(SelectOptionSound)
+        menuController.selectOptionSound.play() >> {}
     }
 
     def "step should update the menu selection based on UP and DOWN actions"() {
+        given:
+        Game game = new Game()
+        game.backgroundMusic.initializeSounds() >> {}
+
         when:
-        menuController.selectOptionSound.play() >> {}
-        menuController.step(new Game(), GUI.ACTION.UP, 0)
+        menuController.step(game, GUI.ACTION.UP, 0)
 
         then:
         // Verify that UP action moves to the previous menu entry
         menuController.getModel().currentEntry == 4
 
         when:
-        menuController.step(new Game(), GUI.ACTION.DOWN, 0)
+        menuController.step(game, GUI.ACTION.DOWN, 0)
 
         then:
         // Verify that DOWN action moves to the next menu entry
         menuController.getModel().currentEntry == 0
 
         cleanup:
-        menuController = null;
+        menuController = null
+        game.gui.close()
     }
 
 }

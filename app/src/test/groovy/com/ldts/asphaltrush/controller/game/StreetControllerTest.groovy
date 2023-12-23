@@ -29,11 +29,14 @@ class StreetControllerTest extends Specification {
         streetBuilder = new StreetBuilder(1, imageFactory)
         street = streetBuilder.createStreet()
         streetController = new StreetController(street)
+        streetController.crashSound.initializeSounds() >> {}
+        streetController.powerUpSound.initializeSounds() >> {}
     }
 
     def "StreetController should transition to GameOverState when the player crashes"() {
         given:
         Game game = new Game()
+        game.backgroundMusic.initializeSounds() >> {}
         streetController.getModel().getPlayer().setCrashed()
 
         when:
@@ -46,6 +49,7 @@ class StreetControllerTest extends Specification {
         streetBuilder = null
         street = null
         streetController = null
+        game.gui.close()
     }
 
     def "StreetController should check and handle collisions with obstacle cars"() {
@@ -142,5 +146,4 @@ class StreetControllerTest extends Specification {
         street = null
         streetController = null
     }
-
 }

@@ -10,16 +10,18 @@ class GarageControllerTest extends Specification {
 
     @Subject
     GarageController garageController
-    Game game
     Garage garage
 
     def setup() {
         garage = new Garage(0)
         garageController = new GarageController(garage)
-        game = new Game()
     }
 
     def "GarageController should respond correctly to user actions"() {
+        given:
+        Game game = new Game()
+        game.backgroundMusic.initializeSounds() >> {}
+
         when:
         garageController.step(game, GUI.ACTION.LEFT, System.currentTimeMillis())
         int movedLeftCar = garage.getCurrentCar()
@@ -33,6 +35,6 @@ class GarageControllerTest extends Specification {
         movedRightCar == 0
 
         cleanup:
-        game.getGameState().setState(null)
+        game.gui.close()
     }
 }

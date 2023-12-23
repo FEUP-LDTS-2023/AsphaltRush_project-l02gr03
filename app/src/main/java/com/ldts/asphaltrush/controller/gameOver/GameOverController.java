@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class GameOverController extends Controller<GameOver> {
-    private final SoundEffect selectOptionSound;
+    private SoundEffect selectOptionSound;
     public GameOverController(GameOver model) {
         super(model);
         this.selectOptionSound = new SelectOptionSound();

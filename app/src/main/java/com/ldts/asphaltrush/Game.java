@@ -19,7 +19,7 @@ public class Game {
     private final LanternaGUI gui;
     private final GameState gameState;
     private final ImageFactory imageFactory;
-    private final BackgroundMusic backgroundMusic;
+    private BackgroundMusic backgroundMusic;
 
 
     public Game() throws FontFormatException, IOException, URISyntaxException, LineUnavailableException, UnsupportedAudioFileException {

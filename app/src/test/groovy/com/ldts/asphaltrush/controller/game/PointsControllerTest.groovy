@@ -21,8 +21,12 @@ class PointsControllerTest extends Specification {
     }
 
     def "PointsController should increase points with multiplier after a certain interval"() {
+        given:
+        Game game = new Game()
+        game.backgroundMusic.initializeSounds() >> {}
+
         when:
-        pointsController.step(new Game(), GUI.ACTION.NONE, 500)
+        pointsController.step(game, GUI.ACTION.NONE, 500)
 
         then:
         pointsController.getModel().getPoints().getPoints() > 0
@@ -30,18 +34,26 @@ class PointsControllerTest extends Specification {
         cleanup:
         street = null
         pointsController = null
+        game.gui.close()
     }
 
     def "PointsController should consider power-up multiplier in points calculation"() {
         given:
         PointMultiplierPowerUp pointMultiplierPowerUp = new PointMultiplierPowerUp(1, 1)
         pointsController.getModel().getPlayer().addPowerUp(pointMultiplierPowerUp)
+        Game game = new Game()
+        game.backgroundMusic.initializeSounds() >> {}
 
         when:
-        pointsController.step(new Game(), GUI.ACTION.NONE, 500)
+        pointsController.step(game, GUI.ACTION.NONE, 500)
 
         then:
         pointsController.getModel().getPoints().getPoints() > 0
         pointsController.getModel().getPoints().getMultiplier() > 1
+
+        cleanup:
+        street = null
+        pointsController = null
+        game.gui.close()
     }
 }

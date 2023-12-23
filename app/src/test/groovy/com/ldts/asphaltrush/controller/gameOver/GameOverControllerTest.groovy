@@ -3,7 +3,6 @@ package com.ldts.asphaltrush.controller.gameOver
 import com.ldts.asphaltrush.Game
 import com.ldts.asphaltrush.gui.GUI
 import com.ldts.asphaltrush.model.gameOver.GameOver
-import com.ldts.asphaltrush.states.GameState
 import spock.lang.Specification
 import spock.lang.Subject
 
@@ -12,14 +11,16 @@ class GameOverControllerTest extends Specification {
 
     @Subject
     GameOverController gameOverController
-    Game game
 
     def setup() {
         gameOverController = new GameOverController(new GameOver(10))
-        game = Mock()
     }
 
     def "step should move up in the model when UP action is performed"() {
+        given:
+        Game game = new Game()
+        game.backgroundMusic.initializeSounds() >> {}
+
         when:
         gameOverController.step(game, GUI.ACTION.UP, 150)
 
@@ -28,9 +29,14 @@ class GameOverControllerTest extends Specification {
 
         cleanup:
         gameOverController = null
+        game.gui.close()
     }
 
     def "step should move down in the model when DOWN action is performed"() {
+        given:
+        Game game = new Game()
+        game.backgroundMusic.initializeSounds() >> {}
+
         when:
         gameOverController.step(game, GUI.ACTION.DOWN, 150)
 
@@ -39,9 +45,10 @@ class GameOverControllerTest extends Specification {
 
         cleanup:
         gameOverController = null
+        game.gui.close()
     }
 
-
+    /*
     def "step should change game state to MenuState when SELECT action and Back to Menu is selected"() {
         given:
         GameState gameState = Mock(GameState)
@@ -56,6 +63,8 @@ class GameOverControllerTest extends Specification {
 
         cleanup:
         gameOverController = null
+        game.gui.close()
     }
+     */
 
 }

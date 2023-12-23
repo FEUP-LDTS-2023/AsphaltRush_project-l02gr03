@@ -61,9 +61,11 @@ class HoleControllerTest extends Specification {
         given:
         Hole hole = new Hole(1, 1)
         holeController.getModel().getHoles().add(hole)
+        Game game = new Game()
+        game.backgroundMusic.initializeSounds() >> {}
 
         when:
-        holeController.step(new Game(), GUI.ACTION.NONE, holeController.lastMovement + 150)
+        holeController.step(game, GUI.ACTION.NONE, holeController.lastMovement + 150)
 
         then:
         holeController.getModel().getHoles() != null
@@ -76,5 +78,6 @@ class HoleControllerTest extends Specification {
         streetBuilder = null
         street = null
         holeController = null
+        game.gui.close()
     }
 }
