@@ -39,6 +39,8 @@ public class GarageController extends Controller<Garage> {
                 break;
             case SELECT:
                 selectCarSound.play();
+                selectOptionSound.closeWhenSoundEnds();
+                selectCarSound.closeWhenSoundEnds();
                 if (getModel().isSelectedConfirm()){
                     // Change the car type to the one of the current selected
                     game.getGameState().setCarType(getModel().getCurrentCar());

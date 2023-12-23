@@ -39,6 +39,7 @@ public class MenuController extends Controller<Menu> {
                 break;
             case SELECT:
                 selectOptionSound.play();
+                selectOptionSound.closeWhenSoundEnds();
                 if (getModel().isSelectedStart()) game.getGameState().setState(new StreetState(new StreetBuilder(game.getGameState().getCarType(), game.getImageFactory()).createStreet()));
                 if (getModel().isSelectedGarage()) game.getGameState().setState(new GarageState(new Garage(game.getGameState().getCarType())));
                 if (getModel().isSelectedRanking()) game.getGameState().setState(new RankingState(new Ranking()));

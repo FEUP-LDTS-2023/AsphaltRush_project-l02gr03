@@ -44,13 +44,18 @@ public class GameOverController extends Controller<GameOver> {
             case SELECT:
                 selectOptionSound.play();
                 // If BackToMenu option is selected, change the game State to MenuState
-                if (getModel().isSelectedBackToMenu()) game.getGameState().setState(new MenuState(new Menu()));
+                if (getModel().isSelectedBackToMenu()){
+
+                    selectOptionSound.closeWhenSoundEnds();
+                    game.getGameState().setState(new MenuState(new Menu()));
+                }
                 else if (getModel().isSelectedConfirm()) {
                     // If Confirm option is selected check if name is not empty
                     if (!getModel().isNameEmpty()){
                         // Save the name and score into the ranking
                         getModel().saveRanking();
                         // Change the game state to MenuState
+                        selectOptionSound.closeWhenSoundEnds();
                         game.getGameState().setState(new MenuState(new Menu()));
                     }
 

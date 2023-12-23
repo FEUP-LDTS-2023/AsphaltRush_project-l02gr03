@@ -24,6 +24,7 @@ public class InstructionsController extends Controller<Instructions> {
     public void step(Game game, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
         if (action == GUI.ACTION.SELECT){
             selectOptionSound.play();
+            selectOptionSound.closeWhenSoundEnds();
             if (getModel().isSelectedBack()) game.getGameState().setState(new MenuState(new Menu()));
         }
     }

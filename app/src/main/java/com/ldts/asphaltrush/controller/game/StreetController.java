@@ -44,11 +44,17 @@ public class StreetController extends GameController {
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
         // Return to Menu if Quit action was pressed
-        if (action == GUI.ACTION.QUIT) game.getGameState().setState(new MenuState(new Menu()));
+        if (action == GUI.ACTION.QUIT) {
+            crashSound.closeWhenSoundEnds();
+            powerUpSound.closeWhenSoundEnds();
+            game.getGameState().setState(new MenuState(new Menu()));
+        }
         // Check if player crashed
         else if (getModel().getPlayer().getCrashed()) {
             // Play the crash sound
             crashSound.play();
+            crashSound.closeWhenSoundEnds();
+            powerUpSound.closeWhenSoundEnds();
             // Change to GameOverState
             game.getGameState().setState(new GameOverState(new GameOver(getModel().getPoints().getPoints())));
         } else {
