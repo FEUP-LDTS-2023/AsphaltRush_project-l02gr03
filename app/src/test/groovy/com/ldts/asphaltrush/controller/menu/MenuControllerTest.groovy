@@ -1,5 +1,6 @@
 package com.ldts.asphaltrush.controller.menu
 
+import com.ldts.asphaltrush.model.soundEffects.SelectOptionSound
 import spock.lang.Specification
 import spock.lang.Subject
 import com.ldts.asphaltrush.gui.GUI
@@ -13,10 +14,13 @@ class MenuControllerTest extends Specification {
 
     def setup() {
         menuController = new MenuController(new Menu())
+        SelectOptionSound sound = Mock()
+        menuController.selectOptionSound = sound
     }
 
     def "step should update the menu selection based on UP and DOWN actions"() {
         when:
+        menuController.selectOptionSound.play() >> {}
         menuController.step(new Game(), GUI.ACTION.UP, 0)
 
         then:
