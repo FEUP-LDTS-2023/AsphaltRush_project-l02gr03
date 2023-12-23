@@ -20,6 +20,6 @@ class CurrentPowerUpViewerTest extends Specification {
         currentPowerUpViewer.draw(powerUp, gui, imageFactory)
 
         then:
-        1 * gui.drawImage(_, _)
+        1 * gui.drawImage(_, _, _, _)
     }
 }
