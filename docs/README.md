@@ -59,7 +59,7 @@ After colliding with an obstacle and losing, the game over screen displays the s
 ![GameOver GIF](images/GameOver.gif)
 
 ### Game Sound
-This game offers a audio experience with a background song playing throughout most of the game. There's also a special tune when the player loses to add some drama. Plus, there are various sound effects that kick in during specific moments, making the gaming experience even more immersive.
+This game offers an audio experience with a background song playing throughout most of the game. There's also a special tune when the player loses to add some drama. Plus, there are various sound effects that kick in during specific moments, making the gaming experience even more immersive.
 
 
 ## PLANNED FEATURES
@@ -67,7 +67,7 @@ This game offers a audio experience with a background song playing throughout mo
 ### Diverse Game Zones
 Experience dynamic gameplay as the environment transforms, entering in different zones such as deserts or icy landscapes.
 
-![Snow Area Image](images/)
+![Snow Area Image](images/SnowArea.png)
 
 ### Expanded Car Selection
 More variety of cars in the garage.
@@ -87,7 +87,9 @@ Have a more distinct array of power-ups, such as time freezing, jumping or minia
 ![New Power ups Image](images/NewPowerups.png)
 
 ### In-Game Shop
-Introduce a in-game shop where players can utilize coins, collected during the game, to unlock new cars.
+Introduce an in-game shop where players can utilize coins, collected during the game, to unlock new cars.
+
+
 
 ## DESIGN
 
@@ -107,16 +109,17 @@ Controller: Responsible for handling user interactions and updating the Model an
 
 #### Implementation
 
-See the UML
+![MVC UML Image](images/MVC.png)
+
 
 #### Consequences
 
 The use of the MVC Pattern in the current design allows the following benefits:
 
-Modularity
-Reusability
-Testability
-Scability
+- Modularity
+- Reusability
+- Testability
+- Scalability
 
 
 ### Game mode
@@ -131,7 +134,7 @@ We have applied the **State** pattern. This pattern allows you to represent diff
 
 #### Implementation
 
-See the UML
+![State UML Image](images/State.png)
 
 
 #### Consequences
@@ -142,29 +145,76 @@ The use of the State Pattern in the current design allows the following benefits
 - We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polymorphism is used to activate the right behavior.
 - There are now more classes and instances to manage, but still in a reasonable number.
 
+
 ### Images
 
 #### Problem in Context
 
-When considering the best way to store the image information of each element we encountered a problem. Having that information hard written inside each element object would be impractical, difficult to change. On the other hand, we could store the images as separate files that would be read once the objects were created, but this approach would also cause some unnecessary overhead since a lot of the elements have the same texture.
-
+The game involves handling a large number of images, leading to potential memory constraints.
 
 #### The Pattern
 
-We have applied the **Flyweight** pattern. This pattern is used to minimize memory usage or computational expenses by sharing as much as possible with related objects. So, in a game like this one, where we have similar elements, it's a way of minimizing the memory usage. In this concrete case, different elements with the same texture would use the same Image Class, avoiding unnecessary loading of textures.
+To address the issue, we have applied the **Flyweight** design pattern. This pattern allows us to optimize memory usage by separating intrinsic and extrinsic states in objects. The intrinsic state, which is shared among multiple objects, is stored in a Flyweight, and the extrinsic state is passed to specific methods as needed.
 
 #### Implementation
 
-
+![Flyweight UML Image](images/Flyweight.png)
 
 #### Consequences
 
 The use of the Flyweight Pattern in the current design allows the following benefits:
 
-Memory Efficiency - By sharing common state, the Flyweight pattern reduces the memory footprint of an application, especially when dealing with a large number of instances.
-Performance Improvement - Sharing common state can lead to performance improvements, as the overhead associated with managing redundant data is minimized.
+- Saving Memory: By splitting each image into shared and unique parts, we use less memory since the shared parts (intrinsic state) are reused instead of copied for every image.
+- Fit More Images: The Flyweight trick helps us squeeze more images into our limited memory by cleverly handling the parts that are the same for many images.
+- Easy Changes: We can easily tweak individual images without affecting others. Shared stuff stays the same, and unique details can be adjusted as needed.
+- One-stop Shop: Our ImageFactory takes care of creating and organizing all our images in one place. It's like a handy store for managing all our image pieces efficiently.
+- No Repeat Info: We pass around only the unique details when needed, so each image doesn't carry around the same stuff. It's like telling the image what's special about it only when necessary.
 
 
+### Background Music
+
+#### Problem in Context:
+
+Managing background music in the game depending on the current state.
+
+#### The Pattern:
+
+We have implemented the Observer design pattern to handle background music. The **Observer** pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+
+#### Implementation:
+
+![Observer UML Image](images/Observer.png)
+
+#### Consequences:
+
+The use of the Observer Pattern in the current design allows the following benefits:
+- Decoupling: The background music functionality is decoupled from the game state. Adding or removing observers (e.g., different music tracks) can be done without modifying the game state.
+- Flexibility: It allows for easy extension if more observers are needed in the future (e.g., additional music).
+- Maintainability: Changes to the background music logic can be made in the BackgroundMusic class without affecting the rest of the code.
+
+
+### Sound Effects
+
+#### Problem in Context:
+
+The game involves various sound effects that need to be played based on different events, such as crashes, power-ups, selecting a car, or choosing an option. To manage these sound effects efficiently, the Template Method pattern is employed.
+
+#### The Pattern:
+
+The **Template** Method pattern is applied in this design to create a structured approach for managing sound effects. The pattern involves defining a template in a superclass (SoundEffect), which contains a series of steps forming an algorithm. Subclasses (CrashSound, PowerUpSound, SelectCarSound, SelectOptionSound) then override specific steps of the algorithm to provide custom behavior while keeping the overall structure intact.
+
+#### Implementation:
+
+![Template UML Image](images/Template.png)
+
+#### Consequences:
+
+Utilizing the Template Method pattern in this context offers several advantages:
+
+- Avoiding Code Duplication: The template method in the superclass prevents repeating code by defining the common structure of the sound effect algorithm. This ensures cleaner and more maintainable code.
+- Consistent Algorithm Structure: Despite differences in sound effects, the overall algorithm structure remains consistent. This consistency simplifies understanding and maintaining the code.
+- Easy Extensibility: Adding new sound effects is simple. You can create additional subclasses without changing the existing algorithm, making the system easily extensible.
+- Clear Separation of Concerns: Each subclass is responsible for its specific sound effect, promoting a clear separation of concerns. This modular approach enhances code organization and readability
 
 ### KNOWN CODE SMELLS
 
@@ -174,7 +224,7 @@ The [CrashSound](../app/src/main/java/com/ldts/asphaltrush/model/soundEffects/Cr
 
 #### Large Class
 
-The [LanternaGUI](../app/src/main/java/com/ldts/asphaltrush/gui/LanternaGUI.java) class has many methods, so it can be considered a large class. In our perspective, this methods dont make sense in other place, since that they are extremely correlated with the class.
+The [LanternaGUI](../app/src/main/java/com/ldts/asphaltrush/gui/LanternaGUI.java) class has many methods, so it can be considered a large class. In our perspective, these methods don't make sense in other place, since that they are extremely correlated with the class.
 
 #### Duplicate Code
 
@@ -182,7 +232,7 @@ The [Ranking](../app/src/main/java/com/ldts/asphaltrush/model/ranking/Ranking.ja
 
 #### Shotgun Surgery
 
-The addition of new power ups can lead to the shotgun surgery code smell, considering that when added a new power up, depending of what is his purpose, we should change some little things in various places. An example is the [PowerUpController](../app/src/main/java/com/ldts/asphaltrush/controller/game/PowerUpController.java) class, where we need to adapt the addNewPowerUps method or the [StreetController](../app/src/main/java/com/ldts/asphaltrush/controller/game/StreetController.java) class, where the checkCollisions method could be different depending on the objective of the power up.
+The addition of new power ups can lead to the shotgun surgery code smell, considering that when added a new power up, depending of what is his purpose, we have to change some little things in various places. An example is the [PowerUpController](../app/src/main/java/com/ldts/asphaltrush/controller/game/PowerUpController.java) class, where we need to adapt the addNewPowerUps method or the [StreetController](../app/src/main/java/com/ldts/asphaltrush/controller/game/StreetController.java) class, where the checkCollisions method could be different depending on the objective of the power up.
 
 
 ### TESTING
