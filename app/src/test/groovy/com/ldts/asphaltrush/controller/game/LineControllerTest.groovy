@@ -25,6 +25,8 @@ class LineControllerTest extends Specification {
 
     def "LineController should move lines downward and add new lines when the line reaches the end of the street"() {
         when:
+        Game game = new Game()
+        game.backgroundMusic.initializeSounds() >> {}
         lineController.step(new Game(), GUI.ACTION.NONE, 500)
 
         then:
@@ -36,5 +38,9 @@ class LineControllerTest extends Specification {
         streetBuilder = null
         street = null
         lineController = null
+        game.backgroundMusic.backgroundMusicMainMenu.close()
+        game.backgroundMusic.backgroundMusicGameOverMenu.close()
+        game.backgroundMusic.currentBackgroundMusic.close()
+        game.gui.close()
     }
 }

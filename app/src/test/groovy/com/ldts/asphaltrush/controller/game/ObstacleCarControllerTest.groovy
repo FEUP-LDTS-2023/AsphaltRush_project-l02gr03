@@ -64,9 +64,11 @@ class ObstacleCarControllerTest extends Specification {
         ObstacleCar obstacleCar = obstacleCarBuilder.createObstacleCar(1)
         obstacleCar.setPosition(new Position(1, 1))
         obstacleCarController.getModel().getObstacleCars().add(obstacleCar)
+        Game game = new Game()
+        game.backgroundMusic.initializeSounds() >> {}
 
         when:
-        obstacleCarController.step(new Game(), GUI.ACTION.NONE, 150)
+        obstacleCarController.step(game, GUI.ACTION.NONE, 150)
 
         then:
         obstacleCarController.getModel().getObstacleCars() != null
@@ -78,5 +80,9 @@ class ObstacleCarControllerTest extends Specification {
         streetBuilder = null
         street = null
         obstacleCarController = null
+        game.backgroundMusic.backgroundMusicMainMenu.close()
+        game.backgroundMusic.backgroundMusicGameOverMenu.close()
+        game.backgroundMusic.currentBackgroundMusic.close()
+        game.gui.close()
     }
 }

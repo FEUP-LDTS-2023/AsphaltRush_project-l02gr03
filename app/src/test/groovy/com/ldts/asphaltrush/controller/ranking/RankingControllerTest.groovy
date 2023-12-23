@@ -12,14 +12,16 @@ class RankingControllerTest extends Specification {
 
     @Subject
     RankingController rankingController
-    Game game
 
     def setup() {
         rankingController = new RankingController(new Ranking())
-        game = new Game()
     }
 
     def "step should change game state to MenuState when SELECT action is performed and Back is selected"() {
+        given:
+        Game game = new Game()
+        game.backgroundMusic.initializeSounds() >> {}
+
         when:
         rankingController.step(game, GUI.ACTION.SELECT, 150)
 
@@ -28,11 +30,16 @@ class RankingControllerTest extends Specification {
 
         cleanup:
         rankingController = null
-        game.getGameState().setState(null)
+        game.backgroundMusic.backgroundMusicMainMenu.close()
+        game.backgroundMusic.backgroundMusicGameOverMenu.close()
+        game.backgroundMusic.currentBackgroundMusic.close()
+        game.gui.close()
     }
 
     def "step should not change game state when SELECT action is not performed"() {
         given:
+        Game game = new Game()
+        game.backgroundMusic.initializeSounds() >> {}
         State initialState = game.getGameState().getState()
 
         when:
@@ -43,6 +50,9 @@ class RankingControllerTest extends Specification {
 
         cleanup:
         rankingController = null
-        game.getGameState().setState(null)
+        game.backgroundMusic.backgroundMusicMainMenu.close()
+        game.backgroundMusic.backgroundMusicGameOverMenu.close()
+        game.backgroundMusic.currentBackgroundMusic.close()
+        game.gui.close()
     }
 }

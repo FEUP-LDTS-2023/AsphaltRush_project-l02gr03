@@ -91,9 +91,11 @@ class PlayerControllerTest extends Specification {
         given:
         PowerUp powerUp = new InvenciblePowerUp(1,1)
         playerController.getModel().getPlayer().addPowerUp(powerUp)
+        Game game = new Game()
+        game.backgroundMusic.initializeSounds() >> {}
 
         when:
-        playerController.step(new Game(), GUI.ACTION.NONE, 150)
+        playerController.step(game, GUI.ACTION.NONE, 150)
 
         then:
         playerController.getModel().getPlayer().getPowerUp() == powerUp
@@ -104,6 +106,10 @@ class PlayerControllerTest extends Specification {
         streetBuilder = null
         street = null
         playerController = null
+        game.backgroundMusic.backgroundMusicMainMenu.close()
+        game.backgroundMusic.backgroundMusicGameOverMenu.close()
+        game.backgroundMusic.currentBackgroundMusic.close()
+        game.gui.close()
 
     }
 }

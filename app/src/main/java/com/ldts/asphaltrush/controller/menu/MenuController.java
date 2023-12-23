@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class MenuController extends Controller<Menu> {
-    private final SoundEffect selectOptionSound;
+    private SoundEffect selectOptionSound;
     public MenuController(Menu model) {
         super(model);
         this.selectOptionSound = new SelectOptionSound();
